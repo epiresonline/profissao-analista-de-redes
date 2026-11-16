@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Compilador Editorial de PDF - Profissão: Analista de Redes & Engenheiro de Infraestrutura N3
+Compilador Editorial de PDF com Renderizador Visual Nativo de Diagramas
 Autor: Eduardo Pires (Analista de Redes N3) & Antigravity (Pulse TI AI Ops)
 Data: 16/11/2026
 """
@@ -20,7 +20,6 @@ EDGE_PATH = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 if not os.path.exists(EDGE_PATH):
     EDGE_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
-# Estrutura e ordem oficial dos módulos e capítulos
 MODULES = [
     {
         "id": "MOD-01",
@@ -145,8 +144,185 @@ MODULES = [
     }
 ]
 
+def render_visual_diagram(mermaid_code):
+    """Converte o código textual do Mermaid em um diagrama visual editorial de alta definição"""
+    code = mermaid_code.strip()
+    
+    # 1. Diagrama da Regra 3-2-1-1-0 de Backup
+    if "Dados Originais de Produção" in code and "3 Cópias dos Dados" in code:
+        steps = [
+            ("💾", "ORIGEM", "Dados Originais de Produção", "Bancos de dados, ERPs hospitalares e arquivos corporativos em tempo real."),
+            ("📋", "REGRA 3", "3 Cópias dos Dados", "Ao menos três instâncias dos dados existentes simultaneamente."),
+            ("💿", "REGRA 2", "2 Mídias Físicas Distintas", "Separação física de armazenamento: NVMe local de produção + Storage NAS corporativo."),
+            ("☁️", "REGRA 1", "1 Cópia Offsite em Nuvem", "Salvaguarda remota externa automatizada via Rclone para Google Drive e AWS S3."),
+            ("🔒", "REGRA 1", "1 Cópia Imutável ou Offline", "Snapshots imutáveis WORM / Air-Gapped imunes a ataques de ransomware."),
+            ("✅", "REGRA 0", "0 Erros na Restauração", "Homologação periódica obrigatória em ambiente Sandbox para validação 100% íntegra.")
+        ]
+        html = '<div class="visual-diagram pipeline-diagram avoid-break">'
+        html += '<div class="diagram-title">🛡️ ARQUITETURA DA REGRA DE BACKUP 3-2-1-1-0</div>'
+        html += '<div class="pipeline-container">'
+        for i, (icon, badge, title, desc) in enumerate(steps):
+            html += f'''
+            <div class="pipeline-step">
+                <div class="step-card">
+                    <div class="step-badge">{badge}</div>
+                    <div class="step-header"><span class="step-icon">{icon}</span> {title}</div>
+                    <div class="step-desc">{desc}</div>
+                </div>
+            </div>
+            '''
+            if i < len(steps) - 1:
+                html += '<div class="step-arrow">⬇</div>'
+        html += '</div></div>'
+        return html
+
+    # 2. Diagrama de Segmentação de Redes e VLANs
+    if "VLAN 10: Gerenciamento" in code:
+        vlans = [
+            ("VLAN 10", "Gerenciamento", "Switches, APs Wi-Fi, PDUs e consoles IPMI/iLO", "#0284c7"),
+            ("VLAN 20", "Servidores & DMZ", "Servidores de banco, ERPs e aplicações de produção", "#6366f1"),
+            ("VLAN 30", "Estações Corporativas", "Desktops, notebooks e estações de trabalho de colaboradores", "#059669"),
+            ("VLAN 40", "Equipamentos Médicos", "Aparelhos de ultrassom, tomógrafos, ressonâncias e DICOM/PACS", "#8b5cf6"),
+            ("VLAN 50", "CFTV & Segurança", "Câmeras IP e servidores NVR com tráfego isolado da web", "#f59e0b"),
+            ("VLAN 90", "Visitantes (Guest)", "Rede de hóspedes/pacientes com saída exclusiva para internet", "#dc2626")
+        ]
+        html = '<div class="visual-diagram tree-diagram avoid-break">'
+        html += '<div class="diagram-title">🖧 TOPOLOGIA DE SEGMENTAÇÃO POR VLANS & FIREWALL</div>'
+        html += '''
+        <div class="tree-root">
+            <div class="root-badge">GATEWAY & BORDA</div>
+            <div class="root-title">🌐 MikroTik RouterOS (Firewall Stateful & Roteamento Inter-VLAN)</div>
+        </div>
+        <div class="tree-bus-arrow">⬇ DISTRIBUIÇÃO SEGMENTADA POR TRUNK 802.1Q ⬇</div>
+        <div class="tree-grid">
+        '''
+        for vid, vname, vdesc, color in vlans:
+            html += f'''
+            <div class="vlan-card" style="border-left-color: {color};">
+                <div class="vlan-tag" style="background-color: {color};">{vid}</div>
+                <div class="vlan-name">{vname}</div>
+                <div class="vlan-desc">{vdesc}</div>
+            </div>
+            '''
+        html += '</div></div>'
+        return html
+
+    # 3. Diagrama de VPNs e Interconexões
+    if "VPNs Pulse TI" in code:
+        vpns = [
+            ("NetBird Mesh", "WireGuard Overlay", "Conexão zero-touch mesh direta entre técnicos, servidores e nuvem sem portas abertas."),
+            ("WireGuard v7", "Site-to-Site RouterOS", "Túnel de altíssimo throughput e latência mínima entre Matriz e Filiais regionais."),
+            ("SSTP Seguro", "TCP 443 / SSL TLS", "Contingência robusta para ambientes com bloqueios restritivos em portas UDP."),
+            ("EoIP + IPsec", "Túnel Camada 2", "Interconexão transparente L2 para sistemas legados que exigem mesmo domínio de broadcast.")
+        ]
+        html = '<div class="visual-diagram tree-diagram avoid-break">'
+        html += '<div class="diagram-title">🔒 ARQUITETURA DE VPNS & INTERCONEXÕES HOMOLOGADAS</div>'
+        html += '''
+        <div class="tree-root">
+            <div class="root-badge">MATRIZ OPERACIONAL</div>
+            <div class="root-title">🛡️ Ecossistema de Conectividade Segura Pulse TI</div>
+        </div>
+        <div class="tree-bus-arrow">⬇ TÚNEIS CRIPTOGRAFADOS POR FINALIDADE ⬇</div>
+        <div class="tree-grid" style="grid-template-columns: repeat(2, 1fr);">
+        '''
+        for vname, vtech, vdesc in vpns:
+            html += f'''
+            <div class="vlan-card" style="border-left-color: #0284c7;">
+                <div class="vlan-tag" style="background-color: #0284c7;">{vtech}</div>
+                <div class="vlan-name">{vname}</div>
+                <div class="vlan-desc">{vdesc}</div>
+            </div>
+            '''
+        html += '</div></div>'
+        return html
+
+    # 4. Diagrama das 4 Frentes do Analista N3
+    if "Analista de Redes N3" in code and "Arquitetura & Engenharia" in code:
+        frentes = [
+            ("🏛️", "Arquitetura & Engenharia", "Desenho de topologias escaláveis, VPNs mesh, enlaces e políticas de firewall."),
+            ("🚨", "Resolução de Crises", "Troubleshooting profundo de camada 2 e 3, análise de pacotes e recuperação de desastres."),
+            ("⚙️", "Automação & Ferramental", "Desenvolvimento de scripts de salvaguarda, APIs REST e automação de rotinas."),
+            ("📚", "Mentoria & Governança", "Conversão de incidentes em POPs estruturados e capacitação contínua da equipe N1/N2.")
+        ]
+        html = '<div class="visual-diagram tree-diagram avoid-break">'
+        html += '<div class="diagram-title">🎯 AS QUATRO FRENTES DO ANALISTA DE REDES N3</div>'
+        html += '''
+        <div class="tree-root">
+            <div class="root-badge">LIDERANÇA TÉCNICA</div>
+            <div class="root-title">👨‍💻 Analista de Redes N3 / Engenheiro de Operações</div>
+        </div>
+        <div class="tree-bus-arrow">⬇ PILARES DE RESPONSABILIDADE OPERACIONAL ⬇</div>
+        <div class="tree-grid" style="grid-template-columns: repeat(2, 1fr);">
+        '''
+        for icon, title, desc in frentes:
+            html += f'''
+            <div class="vlan-card" style="border-left-color: #38bdf8;">
+                <div class="vlan-name">{icon} {title}</div>
+                <div class="vlan-desc">{desc}</div>
+            </div>
+            '''
+        html += '</div></div>'
+        return html
+
+    # 5. Diagrama das Skills de IA Ops
+    if "mikrotik-helper" in code and "beszel-manager" in code:
+        skills = [
+            ("mikrotik-helper", "Redes & RouterOS", "Geração e auditoria de configurações RouterOS v6/v7."),
+            ("beszel-manager", "Métricas & Hub", "Provisionamento e monitoramento ultraleve de servidores."),
+            ("hesk-ticket-logger", "Helpdesk ITIL", "Gestão de chamados, rastreamento e primeira resposta."),
+            ("daily-calendar-logger", "Google Calendar", "Registro de horas e classificação por cores na agenda."),
+            ("backup-inspector", "Auditoria de Dumps", "Varredura proativa de integridade de backups de banco."),
+            ("pulse-client-auditor", "Governança", "Validação de conformidade das 6 categorias estruturais.")
+        ]
+        html = '<div class="visual-diagram tree-diagram avoid-break">'
+        html += '<div class="diagram-title">🤖 ECOSSISTEMA DE SKILLS & AGENTES ESPECIALISTAS (AIOPS)</div>'
+        html += '''
+        <div class="tree-root">
+            <div class="root-badge">ORQUESTRADOR DE IA</div>
+            <div class="root-title">🧠 Antigravity Pulse TI AI Ops</div>
+        </div>
+        <div class="tree-bus-arrow">⬇ HABILIDADES TÉCNICAS ACOPLADAS AO WORKSPACE ⬇</div>
+        <div class="tree-grid">
+        '''
+        for sname, scateg, sdesc in skills:
+            html += f'''
+            <div class="vlan-card" style="border-left-color: #10b981;">
+                <div class="vlan-tag" style="background-color: #10b981;">{scateg}</div>
+                <div class="vlan-name"><code>{sname}</code></div>
+                <div class="vlan-desc">{sdesc}</div>
+            </div>
+            '''
+        html += '</div></div>'
+        return html
+
+    # 6. Diagrama dos 4 Pilares da Governança (index.md)
+    if "subgraph G" in code and "Pilar 1" in code:
+        pilares = [
+            ("PILAR 1", "Governança & Workspace", ["Código oficial de 3 dígitos", "Sigla oficial de 3 letras", "Estrutura estrita em 2 níveis"]),
+            ("PILAR 2", "Segurança Zero-Trust", ["Zero senhas em texto puro", "Cofre KeePass & Pulse Control", "Acessos decodificados NetBird & SSH"]),
+            ("PILAR 3", "Infraestrutura & Redes", ["MikroTik RouterOS homologado", "Virtualização Proxmox / VMware", "Bancos de missão crítica (TASY, Postgres)"]),
+            ("PILAR 4", "Operações & Automação", ["Chamados Hesk com 1ª resposta", "Google Calendar por cores técnicas", "Blocos redondos de 30 minutos", "IA Ops & Skills customizadas"])
+        ]
+        html = '<div class="visual-diagram tree-diagram avoid-break">'
+        html += '<div class="diagram-title">🏛️ OS QUATRO PILARES DA GOVERNANÇA PULSE TI</div>'
+        html += '<div class="tree-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 5mm;">'
+        for tag, title, items in pilares:
+            html += f'''
+            <div class="vlan-card" style="border-left-color: #6366f1;">
+                <div class="vlan-tag" style="background-color: #6366f1;">{tag}</div>
+                <div class="vlan-name">{title}</div>
+                <ul style="margin: 2mm 0 0 4mm; padding: 0; font-size: 8.5pt; color: #334155; line-height: 1.4;">
+            '''
+            for it in items:
+                html += f'<li>{it}</li>'
+            html += '</ul></div>'
+        html += '</div></div>'
+        return html
+
+    # Fallback genérico caso apareça outro diagrama:
+    return f'<div class="callout callout-note"><div class="callout-title">DIAGRAMA TÉCNICO</div><div class="callout-body"><pre><code>{mermaid_code}</code></pre></div></div>'
+
 def format_admonitions(md_text):
-    """Transforma blocos de alerta do GitHub em callouts HTML elegantes"""
     patterns = {
         r'> \[!NOTE\]\s*(.*?)(?=\n\n|\n[^\>]|$)' : ('callout-note', 'ℹ️ NOTA DO ANALISTA N3'),
         r'> \[!TIP\]\s*(.*?)(?=\n\n|\n[^\>]|$)'  : ('callout-tip', '💡 DICA DE OPERAÇÃO MSP'),
@@ -161,16 +337,15 @@ def format_admonitions(md_text):
         md_text = re.sub(pat, repl, md_text, flags=re.DOTALL)
     return md_text
 
-def clean_mermaid(md_text):
-    """Converte blocos mermaid para visualização limpa de diagrama textual"""
+def process_mermaid_blocks(md_text):
     def repl_mermaid(m):
         code = m.group(1).strip()
-        return f'<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">{code}</pre></div>'
+        return render_visual_diagram(code)
     return re.sub(r'```mermaid(.*?)```', repl_mermaid, md_text, flags=re.DOTALL)
 
 def md_to_html(md_text):
     md_text = format_admonitions(md_text)
-    md_text = clean_mermaid(md_text)
+    md_text = process_mermaid_blocks(md_text)
     md = markdown.Markdown(extensions=['tables', 'fenced_code', 'codehilite', 'attr_list'])
     return md.convert(md_text)
 
@@ -227,7 +402,6 @@ def build_editorial_html():
         padding: 0;
     }}
 
-    /* QUEBRAS DE PÁGINA */
     .page-break {{
         page-break-before: always;
         break-before: page;
@@ -238,7 +412,7 @@ def build_editorial_html():
         break-inside: avoid;
     }}
 
-    /* CAPA EDITORIAL DE ALTO IMPACTO */
+    /* CAPA EDITORIAL */
     .cover-page {{
         page-break-before: always;
         height: 100vh;
@@ -250,7 +424,6 @@ def build_editorial_html():
         flex-direction: column;
         justify-content: space-between;
         border: 2px solid #233554;
-        position: relative;
     }}
 
     .cover-badge {{
@@ -423,7 +596,7 @@ def build_editorial_html():
         color: #334155;
     }}
 
-    /* DIVISOR DE MÓDULOS (PART DIVIDER) */
+    /* DIVISOR DE MÓDULOS */
     .module-divider {{
         page-break-before: always;
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -461,7 +634,7 @@ def build_editorial_html():
         max-width: 85%;
     }}
 
-    /* TIPOGRAFIA DOS CAPÍTULOS */
+    /* TIPOGRAFIA */
     h1 {{
         font-family: 'Cinzel', serif;
         font-size: 17pt;
@@ -501,7 +674,7 @@ def build_editorial_html():
         color: #0f172a;
     }}
 
-    /* CAIXAS DE DESTAQUE (CALLOUTS EDITORIAIS) */
+    /* CALLOUTS */
     .callout {{
         margin: 5mm 0;
         padding: 4mm 5mm;
@@ -556,7 +729,7 @@ def build_editorial_html():
     }}
     .callout-caution .callout-title {{ color: #b91c1c; }}
 
-    /* TABELAS MODERNAS ZEBRADAS */
+    /* TABELAS */
     table {{
         width: 100%;
         border-collapse: collapse;
@@ -585,7 +758,7 @@ def build_editorial_html():
         background-color: #f8fafc;
     }}
 
-    /* BLOCOS DE CÓDIGO E SCRIPTS */
+    /* CÓDIGO E SCRIPTS */
     pre, code {{
         font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace;
     }}
@@ -620,34 +793,170 @@ def build_editorial_html():
         font-size: inherit;
     }}
 
-    /* DIAGRAMAS ESTILIZADOS */
-    .diagram-box {{
-        margin: 5mm 0;
-        background-color: #0f172a;
-        border-radius: 4px;
-        padding: 4mm;
-        border: 1px solid #334155;
+    /* ========================================================
+       DIAGRAMAS VISUAIS DE ALTO PADRÃO EDITORIAL
+       ======================================================== */
+    .visual-diagram {{
+        margin: 6mm 0;
+        padding: 6mm 7mm;
+        background: #f8fafc;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 6px;
         page-break-inside: avoid;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
     }}
 
-    .diagram-header {{
+    .diagram-title {{
         font-family: 'Inter', sans-serif;
-        font-size: 7.5pt;
+        font-size: 8.5pt;
         font-weight: 700;
-        color: #38bdf8;
-        letter-spacing: 0.1em;
-        margin-bottom: 2mm;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #1e3a8a;
+        text-align: center;
+        margin-bottom: 5mm;
+        border-bottom: 1.5px solid #e2e8f0;
+        padding-bottom: 2mm;
     }}
 
-    .diagram-code {{
-        font-family: 'Fira Code', monospace;
+    /* PIPELINE (FLUXO SEQUENCIAL 3-2-1-1-0) */
+    .pipeline-container {{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5mm;
+    }}
+
+    .pipeline-step {{
+        width: 95%;
+    }}
+
+    .step-card {{
+        background: #ffffff;
+        border: 1.5px solid #94a3b8;
+        border-left: 5px solid #0284c7;
+        border-radius: 4px;
+        padding: 3mm 4mm;
+        position: relative;
+    }}
+
+    .step-badge {{
+        position: absolute;
+        top: 2.5mm;
+        right: 3mm;
+        font-family: 'Inter', sans-serif;
+        font-size: 6.8pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        background: #0f172a;
+        color: #38bdf8;
+        padding: 0.8mm 2mm;
+        border-radius: 3px;
+    }}
+
+    .step-header {{
+        font-family: 'Inter', sans-serif;
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 1mm;
+    }}
+
+    .step-desc {{
+        font-family: 'Merriweather', serif;
+        font-size: 8pt;
+        color: #475569;
+        line-height: 1.4;
+    }}
+
+    .step-arrow {{
+        font-size: 11pt;
+        color: #0284c7;
+        font-weight: bold;
+        line-height: 1;
+    }}
+
+    /* TREE / GRID DIAGRAM (DISTRIBUIÇÃO POR MATRIZ / BUS) */
+    .tree-root {{
+        background: #0f172a;
+        color: #ffffff;
+        border-radius: 4px;
+        padding: 3.5mm 5mm;
+        text-align: center;
+        border: 1px solid #1e293b;
+        position: relative;
+        max-width: 80%;
+        margin: 0 auto;
+    }}
+
+    .root-badge {{
+        font-family: 'Inter', sans-serif;
+        font-size: 6.8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #38bdf8;
+        text-transform: uppercase;
+        margin-bottom: 1mm;
+    }}
+
+    .root-title {{
+        font-family: 'Inter', sans-serif;
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: #f8fafc;
+    }}
+
+    .tree-bus-arrow {{
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        font-size: 7.2pt;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #64748b;
+        margin: 2.5mm 0;
+    }}
+
+    .tree-grid {{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3mm;
+    }}
+
+    .vlan-card {{
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-left: 4.5px solid #0284c7;
+        border-radius: 4px;
+        padding: 3mm 3.5mm;
+        position: relative;
+    }}
+
+    .vlan-tag {{
+        display: inline-block;
+        font-family: 'Inter', sans-serif;
+        font-size: 6.5pt;
+        font-weight: 700;
+        color: #ffffff;
+        padding: 0.6mm 2mm;
+        border-radius: 3px;
+        text-transform: uppercase;
+        margin-bottom: 1.5mm;
+    }}
+
+    .vlan-name {{
+        font-family: 'Inter', sans-serif;
+        font-size: 8.8pt;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 1mm;
+    }}
+
+    .vlan-desc {{
+        font-family: 'Inter', sans-serif;
         font-size: 7.8pt;
-        color: #e2e8f0;
+        color: #64748b;
         line-height: 1.35;
-        margin: 0;
-        padding: 0;
-        background: transparent;
-        border: none;
     }}
 
     /* CONTRACAPA */
@@ -811,11 +1120,10 @@ def build_editorial_html():
                 """)
         html.append("</div>")
 
-    html.append("</div>") # Fim do Sumário
+    html.append("</div>")
 
     # 5. CORPO DOS MÓDULOS E CAPÍTULOS
     for mod in MODULES:
-        # PÁGINA DIVISORA DO MÓDULO
         html.append(f"""
         <div class="module-divider">
             <div class="mod-number">{mod['num']} • {mod['id']}</div>
@@ -824,7 +1132,6 @@ def build_editorial_html():
         </div>
         """)
 
-        # CAPÍTULOS DO MÓDULO
         for rel_file in mod['files']:
             full_path = os.path.join(DOCS_DIR, rel_file)
             if not os.path.exists(full_path):
@@ -892,7 +1199,7 @@ def build_editorial_html():
     with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
         f.write(full_html_content)
     
-    print(f"[OK] HTML Editorial completo gerado com sucesso: {OUTPUT_HTML}")
+    print(f"[OK] HTML Editorial com Diagramas Visuais gerado: {OUTPUT_HTML}")
     return OUTPUT_HTML
 
 def compile_pdf(html_path):
@@ -908,7 +1215,7 @@ def compile_pdf(html_path):
     res = subprocess.run(cmd, capture_output=True, text=True)
     if os.path.exists(OUTPUT_PDF) and os.path.getsize(OUTPUT_PDF) > 0:
         size_kb = os.path.getsize(OUTPUT_PDF) / 1024
-        print(f"[SUCESSO] Livro PDF compilado com sucesso!")
+        print(f"[SUCESSO] Livro PDF com Diagramas Visuais compilado com sucesso!")
         print(f"Caminho do PDF: {OUTPUT_PDF}")
         print(f"Tamanho do arquivo: {size_kb:.2f} KB")
         return True

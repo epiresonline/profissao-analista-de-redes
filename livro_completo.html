@@ -53,7 +53,6 @@
         padding: 0;
     }
 
-    /* QUEBRAS DE PÁGINA */
     .page-break {
         page-break-before: always;
         break-before: page;
@@ -64,7 +63,7 @@
         break-inside: avoid;
     }
 
-    /* CAPA EDITORIAL DE ALTO IMPACTO */
+    /* CAPA EDITORIAL */
     .cover-page {
         page-break-before: always;
         height: 100vh;
@@ -76,7 +75,6 @@
         flex-direction: column;
         justify-content: space-between;
         border: 2px solid #233554;
-        position: relative;
     }
 
     .cover-badge {
@@ -249,7 +247,7 @@
         color: #334155;
     }
 
-    /* DIVISOR DE MÓDULOS (PART DIVIDER) */
+    /* DIVISOR DE MÓDULOS */
     .module-divider {
         page-break-before: always;
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -287,7 +285,7 @@
         max-width: 85%;
     }
 
-    /* TIPOGRAFIA DOS CAPÍTULOS */
+    /* TIPOGRAFIA */
     h1 {
         font-family: 'Cinzel', serif;
         font-size: 17pt;
@@ -327,7 +325,7 @@
         color: #0f172a;
     }
 
-    /* CAIXAS DE DESTAQUE (CALLOUTS EDITORIAIS) */
+    /* CALLOUTS */
     .callout {
         margin: 5mm 0;
         padding: 4mm 5mm;
@@ -382,7 +380,7 @@
     }
     .callout-caution .callout-title { color: #b91c1c; }
 
-    /* TABELAS MODERNAS ZEBRADAS */
+    /* TABELAS */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -411,7 +409,7 @@
         background-color: #f8fafc;
     }
 
-    /* BLOCOS DE CÓDIGO E SCRIPTS */
+    /* CÓDIGO E SCRIPTS */
     pre, code {
         font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace;
     }
@@ -446,34 +444,170 @@
         font-size: inherit;
     }
 
-    /* DIAGRAMAS ESTILIZADOS */
-    .diagram-box {
-        margin: 5mm 0;
-        background-color: #0f172a;
-        border-radius: 4px;
-        padding: 4mm;
-        border: 1px solid #334155;
+    /* ========================================================
+       DIAGRAMAS VISUAIS DE ALTO PADRÃO EDITORIAL
+       ======================================================== */
+    .visual-diagram {
+        margin: 6mm 0;
+        padding: 6mm 7mm;
+        background: #f8fafc;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 6px;
         page-break-inside: avoid;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
     }
 
-    .diagram-header {
+    .diagram-title {
         font-family: 'Inter', sans-serif;
-        font-size: 7.5pt;
+        font-size: 8.5pt;
         font-weight: 700;
-        color: #38bdf8;
-        letter-spacing: 0.1em;
-        margin-bottom: 2mm;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #1e3a8a;
+        text-align: center;
+        margin-bottom: 5mm;
+        border-bottom: 1.5px solid #e2e8f0;
+        padding-bottom: 2mm;
     }
 
-    .diagram-code {
-        font-family: 'Fira Code', monospace;
+    /* PIPELINE (FLUXO SEQUENCIAL 3-2-1-1-0) */
+    .pipeline-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5mm;
+    }
+
+    .pipeline-step {
+        width: 95%;
+    }
+
+    .step-card {
+        background: #ffffff;
+        border: 1.5px solid #94a3b8;
+        border-left: 5px solid #0284c7;
+        border-radius: 4px;
+        padding: 3mm 4mm;
+        position: relative;
+    }
+
+    .step-badge {
+        position: absolute;
+        top: 2.5mm;
+        right: 3mm;
+        font-family: 'Inter', sans-serif;
+        font-size: 6.8pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        background: #0f172a;
+        color: #38bdf8;
+        padding: 0.8mm 2mm;
+        border-radius: 3px;
+    }
+
+    .step-header {
+        font-family: 'Inter', sans-serif;
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 1mm;
+    }
+
+    .step-desc {
+        font-family: 'Merriweather', serif;
+        font-size: 8pt;
+        color: #475569;
+        line-height: 1.4;
+    }
+
+    .step-arrow {
+        font-size: 11pt;
+        color: #0284c7;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    /* TREE / GRID DIAGRAM (DISTRIBUIÇÃO POR MATRIZ / BUS) */
+    .tree-root {
+        background: #0f172a;
+        color: #ffffff;
+        border-radius: 4px;
+        padding: 3.5mm 5mm;
+        text-align: center;
+        border: 1px solid #1e293b;
+        position: relative;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .root-badge {
+        font-family: 'Inter', sans-serif;
+        font-size: 6.8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #38bdf8;
+        text-transform: uppercase;
+        margin-bottom: 1mm;
+    }
+
+    .root-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: #f8fafc;
+    }
+
+    .tree-bus-arrow {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        font-size: 7.2pt;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #64748b;
+        margin: 2.5mm 0;
+    }
+
+    .tree-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3mm;
+    }
+
+    .vlan-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-left: 4.5px solid #0284c7;
+        border-radius: 4px;
+        padding: 3mm 3.5mm;
+        position: relative;
+    }
+
+    .vlan-tag {
+        display: inline-block;
+        font-family: 'Inter', sans-serif;
+        font-size: 6.5pt;
+        font-weight: 700;
+        color: #ffffff;
+        padding: 0.6mm 2mm;
+        border-radius: 3px;
+        text-transform: uppercase;
+        margin-bottom: 1.5mm;
+    }
+
+    .vlan-name {
+        font-family: 'Inter', sans-serif;
+        font-size: 8.8pt;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 1mm;
+    }
+
+    .vlan-desc {
+        font-family: 'Inter', sans-serif;
         font-size: 7.8pt;
-        color: #e2e8f0;
+        color: #64748b;
         line-height: 1.35;
-        margin: 0;
-        padding: 0;
-        background: transparent;
-        border: none;
     }
 
     /* CONTRACAPA */
@@ -1004,11 +1138,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <h2>01.2 O Papel do Analista de Redes N3</h2>
 <p>O <strong>Analista de Redes N3 (Nível 3)</strong> representa o topo da cadeia de resolução técnica da operação. Quando um problema chega ao N3, significa que todas as soluções superficiais e procedimentos padrão falharam ou que o desafio exige redesenho de arquitetura.</p>
 <h3>As Quatro Frentes de Atuação do N3</h3>
-<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph LR
-    A["Analista de Redes N3"] --> B["Arquitetura & Engenharia"]
-    A --> C["Resolução de Crises de Missão Crítica"]
-    A --> D["Automação & Ferramental Operacional"]
-    A --> E["Mentoria N1/N2 & Criação de POPs"]</pre></div>
+<div class="visual-diagram tree-diagram avoid-break"><div class="diagram-title">🎯 AS QUATRO FRENTES DO ANALISTA DE REDES N3</div>
+        <div class="tree-root">
+            <div class="root-badge">LIDERANÇA TÉCNICA</div>
+            <div class="root-title">👨‍💻 Analista de Redes N3 / Engenheiro de Operações</div>
+        </div>
+        <div class="tree-bus-arrow">⬇ PILARES DE RESPONSABILIDADE OPERACIONAL ⬇</div>
+        <div class="tree-grid" style="grid-template-columns: repeat(2, 1fr);">
+
+            <div class="vlan-card" style="border-left-color: #38bdf8;">
+                <div class="vlan-name">🏛️ Arquitetura & Engenharia</div>
+                <div class="vlan-desc">Desenho de topologias escaláveis, VPNs mesh, enlaces e políticas de firewall.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #38bdf8;">
+                <div class="vlan-name">🚨 Resolução de Crises</div>
+                <div class="vlan-desc">Troubleshooting profundo de camada 2 e 3, análise de pacotes e recuperação de desastres.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #38bdf8;">
+                <div class="vlan-name">⚙️ Automação & Ferramental</div>
+                <div class="vlan-desc">Desenvolvimento de scripts de salvaguarda, APIs REST e automação de rotinas.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #38bdf8;">
+                <div class="vlan-name">📚 Mentoria & Governança</div>
+                <div class="vlan-desc">Conversão de incidentes em POPs estruturados e capacitação contínua da equipe N1/N2.</div>
+            </div>
+            </div></div>
 
 <h3>1. Arquitetura &amp; Engenharia</h3>
 <ul>
@@ -1461,13 +1618,50 @@ Senha: SuperSenhaSecreta123!
 <p>O modelo tradicional de "rede plana" (onde computadores da recepção, servidores de banco de dados e câmeras IP compartilham a mesma subnet <code>/24</code>) é inaceitável em um ambiente profissional.</p>
 <h3>A Arquitetura de Segmentação por VLANs</h3>
 <p>Em todos os clientes com switches gerenciados e roteadores MikroTik, dividimos o tráfego nas seguintes VLANs padrão:</p>
-<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph TD
-    Router["MikroTik RouterOS (Gateway / Firewall)"] --> VLAN10["VLAN 10: Gerenciamento (Switches, APs, PDUs)"]
-    Router --> VLAN20["VLAN 20: Servidores & Bancos de Dados (DMZ Interna)"]
-    Router --> VLAN30["VLAN 30: Estações Corporativas (Funcionários)"]
-    Router --> VLAN40["VLAN 40: Equipamentos Médicos / PACS / IoT"]
-    Router --> VLAN50["VLAN 50: CFTV (Câmeras IP e NVRs)"]
-    Router --> VLAN90["VLAN 90: Visitantes / Guest (Apenas Saída Web)"]</pre></div>
+<div class="visual-diagram tree-diagram avoid-break"><div class="diagram-title">🖧 TOPOLOGIA DE SEGMENTAÇÃO POR VLANS & FIREWALL</div>
+        <div class="tree-root">
+            <div class="root-badge">GATEWAY & BORDA</div>
+            <div class="root-title">🌐 MikroTik RouterOS (Firewall Stateful & Roteamento Inter-VLAN)</div>
+        </div>
+        <div class="tree-bus-arrow">⬇ DISTRIBUIÇÃO SEGMENTADA POR TRUNK 802.1Q ⬇</div>
+        <div class="tree-grid">
+
+            <div class="vlan-card" style="border-left-color: #0284c7;">
+                <div class="vlan-tag" style="background-color: #0284c7;">VLAN 10</div>
+                <div class="vlan-name">Gerenciamento</div>
+                <div class="vlan-desc">Switches, APs Wi-Fi, PDUs e consoles IPMI/iLO</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #6366f1;">
+                <div class="vlan-tag" style="background-color: #6366f1;">VLAN 20</div>
+                <div class="vlan-name">Servidores & DMZ</div>
+                <div class="vlan-desc">Servidores de banco, ERPs e aplicações de produção</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #059669;">
+                <div class="vlan-tag" style="background-color: #059669;">VLAN 30</div>
+                <div class="vlan-name">Estações Corporativas</div>
+                <div class="vlan-desc">Desktops, notebooks e estações de trabalho de colaboradores</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #8b5cf6;">
+                <div class="vlan-tag" style="background-color: #8b5cf6;">VLAN 40</div>
+                <div class="vlan-name">Equipamentos Médicos</div>
+                <div class="vlan-desc">Aparelhos de ultrassom, tomógrafos, ressonâncias e DICOM/PACS</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #f59e0b;">
+                <div class="vlan-tag" style="background-color: #f59e0b;">VLAN 50</div>
+                <div class="vlan-name">CFTV & Segurança</div>
+                <div class="vlan-desc">Câmeras IP e servidores NVR com tráfego isolado da web</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #dc2626;">
+                <div class="vlan-tag" style="background-color: #dc2626;">VLAN 90</div>
+                <div class="vlan-name">Visitantes (Guest)</div>
+                <div class="vlan-desc">Rede de hóspedes/pacientes com saída exclusiva para internet</div>
+            </div>
+            </div></div>
 
 <h3>Regras de Ouro de Tráfego entre VLANs</h3>
 <ol>
@@ -1604,11 +1798,38 @@ set ddns-enabled=yes ddns-update-interval=1m update-time=yes
                 <h1>Módulo 04 — Engenharia Avançada MikroTik RouterOS</h1>
 <h2>04.4 VPNs Corporativas: NetBird Mesh, WireGuard v7, SSTP e EoIP</h2>
 <p>A interconexão segura entre filiais, datacenters e técnicos é uma das principais responsabilidades do Analista de Redes N3. A Pulse TI homologa quatro tecnologias principais, cada uma com seu objetivo claro:</p>
-<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph TD
-    A["VPNs Pulse TI"] --> B["NetBird Mesh (WireGuard)"]
-    A --> C["WireGuard Site-to-Site (RouterOS v7)"]
-    A --> D["SSTP Seguro (Porta 443 TCP)"]
-    A --> E["EoIP + IPsec (Camada 2 Transparente)"]</pre></div>
+<div class="visual-diagram tree-diagram avoid-break"><div class="diagram-title">🔒 ARQUITETURA DE VPNS & INTERCONEXÕES HOMOLOGADAS</div>
+        <div class="tree-root">
+            <div class="root-badge">MATRIZ OPERACIONAL</div>
+            <div class="root-title">🛡️ Ecossistema de Conectividade Segura Pulse TI</div>
+        </div>
+        <div class="tree-bus-arrow">⬇ TÚNEIS CRIPTOGRAFADOS POR FINALIDADE ⬇</div>
+        <div class="tree-grid" style="grid-template-columns: repeat(2, 1fr);">
+
+            <div class="vlan-card" style="border-left-color: #0284c7;">
+                <div class="vlan-tag" style="background-color: #0284c7;">WireGuard Overlay</div>
+                <div class="vlan-name">NetBird Mesh</div>
+                <div class="vlan-desc">Conexão zero-touch mesh direta entre técnicos, servidores e nuvem sem portas abertas.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #0284c7;">
+                <div class="vlan-tag" style="background-color: #0284c7;">Site-to-Site RouterOS</div>
+                <div class="vlan-name">WireGuard v7</div>
+                <div class="vlan-desc">Túnel de altíssimo throughput e latência mínima entre Matriz e Filiais regionais.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #0284c7;">
+                <div class="vlan-tag" style="background-color: #0284c7;">TCP 443 / SSL TLS</div>
+                <div class="vlan-name">SSTP Seguro</div>
+                <div class="vlan-desc">Contingência robusta para ambientes com bloqueios restritivos em portas UDP.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #0284c7;">
+                <div class="vlan-tag" style="background-color: #0284c7;">Túnel Camada 2</div>
+                <div class="vlan-name">EoIP + IPsec</div>
+                <div class="vlan-desc">Interconexão transparente L2 para sistemas legados que exigem mesmo domínio de broadcast.</div>
+            </div>
+            </div></div>
 
 <h3>1. NetBird Mesh VPN (Overlay WireGuard)</h3>
 <ul>
@@ -2005,12 +2226,55 @@ find<span class="w"> </span><span class="s2">"</span><span class="nv">$BACKUP_DI
 <h2>07.1 A Regra de Ouro 3-2-1-1-0 e Política de Rotação GFS</h2>
 <p>Na engenharia de infraestrutura da Pulse TI, "fazer backup" não é um script jogado em um pendrive. É uma política arquitetural estrita que segue a evolução máxima da consagrada regra 3-2-1.</p>
 <h3>A Regra 3-2-1-1-0</h3>
-<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph TD
-    A["Dados Originais de Produção"] --> B["3 Cópias dos Dados"]
-    B --> C["2 Mídias Físicas Distintas (Ex: NVMe Local + Storage NAS)"]
-    C --> D["1 Cópia Offsite em Nuvem (Google Drive / Wasabi / AWS S3)"]
-    D --> E["1 Cópia Imutável ou Offline (WORM / Air-Gapped / Snapshots)"]
-    E --> F["0 Erros após Teste Mandatório de Restauração"]</pre></div>
+<div class="visual-diagram pipeline-diagram avoid-break"><div class="diagram-title">🛡️ ARQUITETURA DA REGRA DE BACKUP 3-2-1-1-0</div><div class="pipeline-container">
+            <div class="pipeline-step">
+                <div class="step-card">
+                    <div class="step-badge">ORIGEM</div>
+                    <div class="step-header"><span class="step-icon">💾</span> Dados Originais de Produção</div>
+                    <div class="step-desc">Bancos de dados, ERPs hospitalares e arquivos corporativos em tempo real.</div>
+                </div>
+            </div>
+            <div class="step-arrow">⬇</div>
+            <div class="pipeline-step">
+                <div class="step-card">
+                    <div class="step-badge">REGRA 3</div>
+                    <div class="step-header"><span class="step-icon">📋</span> 3 Cópias dos Dados</div>
+                    <div class="step-desc">Ao menos três instâncias dos dados existentes simultaneamente.</div>
+                </div>
+            </div>
+            <div class="step-arrow">⬇</div>
+            <div class="pipeline-step">
+                <div class="step-card">
+                    <div class="step-badge">REGRA 2</div>
+                    <div class="step-header"><span class="step-icon">💿</span> 2 Mídias Físicas Distintas</div>
+                    <div class="step-desc">Separação física de armazenamento: NVMe local de produção + Storage NAS corporativo.</div>
+                </div>
+            </div>
+            <div class="step-arrow">⬇</div>
+            <div class="pipeline-step">
+                <div class="step-card">
+                    <div class="step-badge">REGRA 1</div>
+                    <div class="step-header"><span class="step-icon">☁️</span> 1 Cópia Offsite em Nuvem</div>
+                    <div class="step-desc">Salvaguarda remota externa automatizada via Rclone para Google Drive e AWS S3.</div>
+                </div>
+            </div>
+            <div class="step-arrow">⬇</div>
+            <div class="pipeline-step">
+                <div class="step-card">
+                    <div class="step-badge">REGRA 1</div>
+                    <div class="step-header"><span class="step-icon">🔒</span> 1 Cópia Imutável ou Offline</div>
+                    <div class="step-desc">Snapshots imutáveis WORM / Air-Gapped imunes a ataques de ransomware.</div>
+                </div>
+            </div>
+            <div class="step-arrow">⬇</div>
+            <div class="pipeline-step">
+                <div class="step-card">
+                    <div class="step-badge">REGRA 0</div>
+                    <div class="step-header"><span class="step-icon">✅</span> 0 Erros na Restauração</div>
+                    <div class="step-desc">Homologação periódica obrigatória em ambiente Sandbox para validação 100% íntegra.</div>
+                </div>
+            </div>
+            </div></div>
 
 <h3>Política de Rotação GFS (Grandfather-Father-Son)</h3>
 <p>Para evitar que o armazenamento em nuvem estoure e manter um histórico confiável de restauração, aplicamos o ciclo GFS:
@@ -2352,13 +2616,50 @@ Se algo der errado, como desfazer a alteração imediatamente.
                 <h1>Módulo 10 — Automação, IA Ops &amp; O Livro Autoatualizável</h1>
 <h2>10.2 Construção de Skills e Agentes Especialistas</h2>
 <p>No diretório <code>.agents/skills/</code>, mantemos um ecossistema de habilidades especializadas que expandem a inteligência artificial para interagir com o mundo físico da infraestrutura:</p>
-<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph TD
-    A["Agentes & Skills Pulse TI"] --> B["mikrotik-helper: Geração de scripts RouterOS v6/v7"]
-    A --> C["beszel-manager: Provisionamento e métricas de servidores"]
-    A --> D["hesk-ticket-logger: Gestão completa de chamados e API"]
-    A --> E["daily-calendar-logger: Registro e cores no Google Calendar"]
-    A --> F["backup-inspector: Auditoria de rotinas de dumps"]
-    A --> G["pulse-client-auditor: Validação das 6 categorias estruturais"]</pre></div>
+<div class="visual-diagram tree-diagram avoid-break"><div class="diagram-title">🤖 ECOSSISTEMA DE SKILLS & AGENTES ESPECIALISTAS (AIOPS)</div>
+        <div class="tree-root">
+            <div class="root-badge">ORQUESTRADOR DE IA</div>
+            <div class="root-title">🧠 Antigravity Pulse TI AI Ops</div>
+        </div>
+        <div class="tree-bus-arrow">⬇ HABILIDADES TÉCNICAS ACOPLADAS AO WORKSPACE ⬇</div>
+        <div class="tree-grid">
+
+            <div class="vlan-card" style="border-left-color: #10b981;">
+                <div class="vlan-tag" style="background-color: #10b981;">Redes & RouterOS</div>
+                <div class="vlan-name"><code>mikrotik-helper</code></div>
+                <div class="vlan-desc">Geração e auditoria de configurações RouterOS v6/v7.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #10b981;">
+                <div class="vlan-tag" style="background-color: #10b981;">Métricas & Hub</div>
+                <div class="vlan-name"><code>beszel-manager</code></div>
+                <div class="vlan-desc">Provisionamento e monitoramento ultraleve de servidores.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #10b981;">
+                <div class="vlan-tag" style="background-color: #10b981;">Helpdesk ITIL</div>
+                <div class="vlan-name"><code>hesk-ticket-logger</code></div>
+                <div class="vlan-desc">Gestão de chamados, rastreamento e primeira resposta.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #10b981;">
+                <div class="vlan-tag" style="background-color: #10b981;">Google Calendar</div>
+                <div class="vlan-name"><code>daily-calendar-logger</code></div>
+                <div class="vlan-desc">Registro de horas e classificação por cores na agenda.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #10b981;">
+                <div class="vlan-tag" style="background-color: #10b981;">Auditoria de Dumps</div>
+                <div class="vlan-name"><code>backup-inspector</code></div>
+                <div class="vlan-desc">Varredura proativa de integridade de backups de banco.</div>
+            </div>
+
+            <div class="vlan-card" style="border-left-color: #10b981;">
+                <div class="vlan-tag" style="background-color: #10b981;">Governança</div>
+                <div class="vlan-name"><code>pulse-client-auditor</code></div>
+                <div class="vlan-desc">Validação de conformidade das 6 categorias estruturais.</div>
+            </div>
+            </div></div>
 
 <p>Cada skill possui sua instrução YAML de frontmatter, scripts em Python ou PowerShell e testes automatizados.</p>
             </div>
