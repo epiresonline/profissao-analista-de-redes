@@ -1,0 +1,2453 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+<meta charset='UTF-8'>
+<title>Profissão: Analista de Redes & Engenheiro de Infraestrutura N3</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+
+    @page {
+        size: A4;
+        margin: 22mm 18mm 22mm 18mm;
+        @bottom-center {
+            content: counter(page);
+            font-family: 'Inter', sans-serif;
+            font-size: 8pt;
+            color: #718096;
+        }
+    }
+
+    @page :left {
+        @top-left {
+            content: "Profissão: Analista de Redes & Engenheiro de Infraestrutura N3";
+            font-family: 'Inter', sans-serif;
+            font-size: 7.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #a0aec0;
+        }
+    }
+
+    @page :right {
+        @top-right {
+            content: "Eduardo Pires — Pulse TI Operations";
+            font-family: 'Inter', sans-serif;
+            font-size: 7.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #a0aec0;
+        }
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Merriweather', Georgia, serif;
+        font-size: 9.8pt;
+        line-height: 1.68;
+        color: #2d3748;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* QUEBRAS DE PÁGINA */
+    .page-break {
+        page-break-before: always;
+        break-before: page;
+    }
+
+    .avoid-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* CAPA EDITORIAL DE ALTO IMPACTO */
+    .cover-page {
+        page-break-before: always;
+        height: 100vh;
+        min-height: 250mm;
+        background: radial-gradient(circle at top right, #1a2a44 0%, #0a1122 65%, #050811 100%);
+        color: #ffffff;
+        padding: 35mm 25mm 25mm 25mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 2px solid #233554;
+        position: relative;
+    }
+
+    .cover-badge {
+        font-family: 'Inter', sans-serif;
+        font-size: 9pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        color: #d4af37;
+        margin-bottom: 25mm;
+        border-bottom: 1.5px solid #d4af37;
+        padding-bottom: 4mm;
+        display: inline-block;
+    }
+
+    .cover-title {
+        font-family: 'Cinzel', serif;
+        font-size: 30pt;
+        font-weight: 900;
+        line-height: 1.18;
+        letter-spacing: 0.04em;
+        color: #ffffff;
+        margin-bottom: 8mm;
+        text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+
+    .cover-subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 13.5pt;
+        font-weight: 300;
+        line-height: 1.5;
+        color: #cbd5e1;
+        max-width: 90%;
+        margin-bottom: 30mm;
+    }
+
+    .cover-meta {
+        border-top: 1px solid rgba(255,255,255,0.15);
+        padding-top: 8mm;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .cover-author-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: #94a3b8;
+    }
+
+    .cover-author-name {
+        font-family: 'Cinzel', serif;
+        font-size: 17pt;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-top: 1mm;
+    }
+
+    .cover-author-role {
+        font-family: 'Inter', sans-serif;
+        font-size: 9.5pt;
+        font-weight: 500;
+        color: #38bdf8;
+    }
+
+    .cover-imprint {
+        font-family: 'Inter', sans-serif;
+        font-size: 8.5pt;
+        color: #94a3b8;
+        text-align: right;
+    }
+
+    /* FOLHA DE ROSTO E FICHA CATALOGRÁFICA */
+    .title-page {
+        padding: 30mm 15mm 20mm 15mm;
+        text-align: center;
+        page-break-before: always;
+    }
+
+    .cip-box {
+        margin-top: 40mm;
+        border: 1px solid #718096;
+        padding: 6mm 8mm;
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        line-height: 1.45;
+        text-align: left;
+        color: #2d3748;
+        max-width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cip-header {
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 3mm;
+        text-transform: uppercase;
+        font-size: 7.5pt;
+        letter-spacing: 0.05em;
+    }
+
+    /* DEDICATÓRIA */
+    .dedication-page {
+        page-break-before: always;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40mm 20mm;
+    }
+
+    .dedication-text {
+        font-family: 'Merriweather', serif;
+        font-style: italic;
+        font-size: 11pt;
+        line-height: 1.8;
+        color: #4a5568;
+        max-width: 75%;
+    }
+
+    .dedication-author {
+        margin-top: 8mm;
+        font-family: 'Inter', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        color: #1a202c;
+    }
+
+    /* SUMÁRIO EDITORIAL */
+    .toc-container {
+        page-break-before: always;
+        padding-top: 10mm;
+    }
+
+    .toc-title {
+        font-family: 'Cinzel', serif;
+        font-size: 20pt;
+        font-weight: 900;
+        color: #0f172a;
+        margin-bottom: 8mm;
+        border-bottom: 2px solid #0f172a;
+        padding-bottom: 3mm;
+    }
+
+    .toc-module {
+        margin-top: 5mm;
+        margin-bottom: 2mm;
+    }
+
+    .toc-mod-header {
+        font-family: 'Inter', sans-serif;
+        font-size: 10.5pt;
+        font-weight: 700;
+        color: #1e3a8a;
+        border-bottom: 1px dotted #cbd5e1;
+        padding-bottom: 1.5mm;
+    }
+
+    .toc-chapter-item {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Inter', sans-serif;
+        font-size: 9pt;
+        margin: 2mm 0 2mm 5mm;
+        color: #334155;
+    }
+
+    /* DIVISOR DE MÓDULOS (PART DIVIDER) */
+    .module-divider {
+        page-break-before: always;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: #ffffff;
+        padding: 45mm 20mm;
+        margin-bottom: 15mm;
+        border-left: 8px solid #38bdf8;
+    }
+
+    .mod-number {
+        font-family: 'Inter', sans-serif;
+        font-size: 13pt;
+        font-weight: 800;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #38bdf8;
+        margin-bottom: 4mm;
+    }
+
+    .mod-title {
+        font-family: 'Cinzel', serif;
+        font-size: 24pt;
+        font-weight: 900;
+        line-height: 1.25;
+        color: #f8fafc;
+        margin-bottom: 6mm;
+    }
+
+    .mod-desc {
+        font-family: 'Inter', sans-serif;
+        font-size: 10.5pt;
+        font-weight: 300;
+        line-height: 1.6;
+        color: #cbd5e1;
+        max-width: 85%;
+    }
+
+    /* TIPOGRAFIA DOS CAPÍTULOS */
+    h1 {
+        font-family: 'Cinzel', serif;
+        font-size: 17pt;
+        font-weight: 700;
+        color: #0f172a;
+        margin-top: 0;
+        margin-bottom: 2mm;
+        border-bottom: 1.5px solid #e2e8f0;
+        padding-bottom: 2mm;
+    }
+
+    h2 {
+        font-family: 'Inter', sans-serif;
+        font-size: 12.5pt;
+        font-weight: 700;
+        color: #1e3a8a;
+        margin-top: 6mm;
+        margin-bottom: 3mm;
+    }
+
+    h3 {
+        font-family: 'Inter', sans-serif;
+        font-size: 10.5pt;
+        font-weight: 600;
+        color: #334155;
+        margin-top: 5mm;
+        margin-bottom: 2mm;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 3.5mm;
+        text-align: justify;
+    }
+
+    strong {
+        color: #0f172a;
+    }
+
+    /* CAIXAS DE DESTAQUE (CALLOUTS EDITORIAIS) */
+    .callout {
+        margin: 5mm 0;
+        padding: 4mm 5mm;
+        border-left: 4.5px solid #0284c7;
+        background-color: #f8fafc;
+        border-radius: 0 4px 4px 0;
+        page-break-inside: avoid;
+    }
+
+    .callout-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 8.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 2mm;
+    }
+
+    .callout-body {
+        font-size: 9pt;
+        line-height: 1.5;
+        color: #334155;
+    }
+
+    .callout-note {
+        border-left-color: #0284c7;
+        background-color: #f0f9ff;
+    }
+    .callout-note .callout-title { color: #0369a1; }
+
+    .callout-tip {
+        border-left-color: #10b981;
+        background-color: #f0fdf4;
+    }
+    .callout-tip .callout-title { color: #047857; }
+
+    .callout-important {
+        border-left-color: #8b5cf6;
+        background-color: #f5f3ff;
+    }
+    .callout-important .callout-title { color: #6d28d9; }
+
+    .callout-warning {
+        border-left-color: #f59e0b;
+        background-color: #fffbeb;
+    }
+    .callout-warning .callout-title { color: #b45309; }
+
+    .callout-caution {
+        border-left-color: #ef4444;
+        background-color: #fef2f2;
+    }
+    .callout-caution .callout-title { color: #b91c1c; }
+
+    /* TABELAS MODERNAS ZEBRADAS */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 5mm 0;
+        font-family: 'Inter', sans-serif;
+        font-size: 8.5pt;
+        page-break-inside: avoid;
+    }
+
+    th {
+        background-color: #1e293b;
+        color: #ffffff;
+        font-weight: 600;
+        text-align: left;
+        padding: 3mm 4mm;
+        border: 1px solid #1e293b;
+    }
+
+    td {
+        padding: 2.8mm 4mm;
+        border: 1px solid #e2e8f0;
+        vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+        background-color: #f8fafc;
+    }
+
+    /* BLOCOS DE CÓDIGO E SCRIPTS */
+    pre, code {
+        font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace;
+    }
+
+    code {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        padding: 0.8mm 1.5mm;
+        border-radius: 3px;
+        font-size: 8.5pt;
+        border: 1px solid #e2e8f0;
+    }
+
+    pre {
+        background-color: #1e293b;
+        color: #f8fafc;
+        padding: 4mm 5mm;
+        border-radius: 4px;
+        overflow-x: auto;
+        font-size: 8pt;
+        line-height: 1.45;
+        margin: 4mm 0;
+        border-left: 3.5px solid #38bdf8;
+        page-break-inside: avoid;
+    }
+
+    pre code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
+        border: none;
+        font-size: inherit;
+    }
+
+    /* DIAGRAMAS ESTILIZADOS */
+    .diagram-box {
+        margin: 5mm 0;
+        background-color: #0f172a;
+        border-radius: 4px;
+        padding: 4mm;
+        border: 1px solid #334155;
+        page-break-inside: avoid;
+    }
+
+    .diagram-header {
+        font-family: 'Inter', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: #38bdf8;
+        letter-spacing: 0.1em;
+        margin-bottom: 2mm;
+    }
+
+    .diagram-code {
+        font-family: 'Fira Code', monospace;
+        font-size: 7.8pt;
+        color: #e2e8f0;
+        line-height: 1.35;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+
+    /* CONTRACAPA */
+    .back-cover {
+        page-break-before: always;
+        height: 100vh;
+        min-height: 250mm;
+        background: #0a1122;
+        color: #e2e8f0;
+        padding: 35mm 25mm 25mm 25mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .back-synopsis {
+        font-family: 'Merriweather', serif;
+        font-size: 10pt;
+        line-height: 1.7;
+        color: #cbd5e1;
+    }
+
+    .back-bio-box {
+        margin-top: 10mm;
+        border-left: 3px solid #d4af37;
+        padding-left: 5mm;
+    }
+
+    .back-bio-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 10pt;
+        font-weight: 700;
+        color: #d4af37;
+        margin-bottom: 2mm;
+    }
+
+    .back-bio-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 8.5pt;
+        line-height: 1.5;
+        color: #94a3b8;
+    }
+
+    .back-footer {
+        border-top: 1px solid rgba(255,255,255,0.15);
+        padding-top: 8mm;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+    }
+
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.codehilite .hll { background-color: #49483e }
+.codehilite { background: #272822; color: #F8F8F2 }
+.codehilite .c { color: #959077 } /* Comment */
+.codehilite .err { color: #ED007E; background-color: #1E0010 } /* Error */
+.codehilite .esc { color: #F8F8F2 } /* Escape */
+.codehilite .g { color: #F8F8F2 } /* Generic */
+.codehilite .k { color: #66D9EF } /* Keyword */
+.codehilite .l { color: #AE81FF } /* Literal */
+.codehilite .n { color: #F8F8F2 } /* Name */
+.codehilite .o { color: #FF4689 } /* Operator */
+.codehilite .x { color: #F8F8F2 } /* Other */
+.codehilite .p { color: #F8F8F2 } /* Punctuation */
+.codehilite .ch { color: #959077 } /* Comment.Hashbang */
+.codehilite .cm { color: #959077 } /* Comment.Multiline */
+.codehilite .cp { color: #959077 } /* Comment.Preproc */
+.codehilite .cpf { color: #959077 } /* Comment.PreprocFile */
+.codehilite .c1 { color: #959077 } /* Comment.Single */
+.codehilite .cs { color: #959077 } /* Comment.Special */
+.codehilite .gd { color: #FF4689 } /* Generic.Deleted */
+.codehilite .ge { color: #F8F8F2; font-style: italic } /* Generic.Emph */
+.codehilite .ges { color: #F8F8F2; font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.codehilite .gr { color: #FF4689 } /* Generic.Error */
+.codehilite .gh { color: #F8F8F2 } /* Generic.Heading */
+.codehilite .gi { color: #A6E22E } /* Generic.Inserted */
+.codehilite .go { color: #66D9EF } /* Generic.Output */
+.codehilite .gp { color: #FF4689; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { color: #F8F8F2; font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #959077 } /* Generic.Subheading */
+.codehilite .gt { color: #66D9EF } /* Generic.Traceback */
+.codehilite .kc { color: #66D9EF } /* Keyword.Constant */
+.codehilite .kd { color: #66D9EF } /* Keyword.Declaration */
+.codehilite .kn { color: #FF4689 } /* Keyword.Namespace */
+.codehilite .kp { color: #66D9EF } /* Keyword.Pseudo */
+.codehilite .kr { color: #66D9EF } /* Keyword.Reserved */
+.codehilite .kt { color: #66D9EF } /* Keyword.Type */
+.codehilite .ld { color: #E6DB74 } /* Literal.Date */
+.codehilite .m { color: #AE81FF } /* Literal.Number */
+.codehilite .s { color: #E6DB74 } /* Literal.String */
+.codehilite .na { color: #A6E22E } /* Name.Attribute */
+.codehilite .nb { color: #A6E22E } /* Name.Builtin */
+.codehilite .nc { color: #A6E22E } /* Name.Class */
+.codehilite .no { color: #66D9EF } /* Name.Constant */
+.codehilite .nd { color: #A6E22E } /* Name.Decorator */
+.codehilite .ni { color: #F8F8F2 } /* Name.Entity */
+.codehilite .ne { color: #A6E22E } /* Name.Exception */
+.codehilite .nf { color: #A6E22E } /* Name.Function */
+.codehilite .nl { color: #F8F8F2 } /* Name.Label */
+.codehilite .nn { color: #F8F8F2 } /* Name.Namespace */
+.codehilite .nx { color: #A6E22E } /* Name.Other */
+.codehilite .py { color: #F8F8F2 } /* Name.Property */
+.codehilite .nt { color: #FF4689 } /* Name.Tag */
+.codehilite .nv { color: #F8F8F2 } /* Name.Variable */
+.codehilite .ow { color: #FF4689 } /* Operator.Word */
+.codehilite .pm { color: #F8F8F2 } /* Punctuation.Marker */
+.codehilite .w { color: #F8F8F2 } /* Text.Whitespace */
+.codehilite .mb { color: #AE81FF } /* Literal.Number.Bin */
+.codehilite .mf { color: #AE81FF } /* Literal.Number.Float */
+.codehilite .mh { color: #AE81FF } /* Literal.Number.Hex */
+.codehilite .mi { color: #AE81FF } /* Literal.Number.Integer */
+.codehilite .mo { color: #AE81FF } /* Literal.Number.Oct */
+.codehilite .sa { color: #E6DB74 } /* Literal.String.Affix */
+.codehilite .sb { color: #E6DB74 } /* Literal.String.Backtick */
+.codehilite .sc { color: #E6DB74 } /* Literal.String.Char */
+.codehilite .dl { color: #E6DB74 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #E6DB74 } /* Literal.String.Doc */
+.codehilite .s2 { color: #E6DB74 } /* Literal.String.Double */
+.codehilite .se { color: #AE81FF } /* Literal.String.Escape */
+.codehilite .sh { color: #E6DB74 } /* Literal.String.Heredoc */
+.codehilite .si { color: #E6DB74 } /* Literal.String.Interpol */
+.codehilite .sx { color: #E6DB74 } /* Literal.String.Other */
+.codehilite .sr { color: #E6DB74 } /* Literal.String.Regex */
+.codehilite .s1 { color: #E6DB74 } /* Literal.String.Single */
+.codehilite .ss { color: #E6DB74 } /* Literal.String.Symbol */
+.codehilite .bp { color: #A6E22E } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #A6E22E } /* Name.Function.Magic */
+.codehilite .vc { color: #F8F8F2 } /* Name.Variable.Class */
+.codehilite .vg { color: #F8F8F2 } /* Name.Variable.Global */
+.codehilite .vi { color: #F8F8F2 } /* Name.Variable.Instance */
+.codehilite .vm { color: #F8F8F2 } /* Name.Variable.Magic */
+.codehilite .il { color: #AE81FF } /* Literal.Number.Integer.Long */
+    </style>
+</head>
+<body>
+
+    <div class="cover-page">
+        <div>
+            <div class="cover-badge">Manual de Engenharia de Operações MSP • Edição 2026</div>
+            <div class="cover-title">Profissão:<br>Analista de Redes</div>
+            <div class="cover-subtitle">Manual Definitivo de Operações MSP, Governança, MikroTik RouterOS, Segurança Zero-Trust e Automação de Missão Crítica.</div>
+        </div>
+        <div class="cover-meta">
+            <div>
+                <div class="cover-author-title">Autor & Engenheiro Responsável</div>
+                <div class="cover-author-name">Eduardo Pires</div>
+                <div class="cover-author-role">Analista de Redes N3 • Pulse TI</div>
+            </div>
+            <div class="cover-imprint">
+                <strong>Pulse TI Operations Press</strong><br>
+                Série Engenharia de Infraestrutura<br>
+                Porto Alegre — RS • Brasil
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="title-page">
+        <div style="font-family: 'Cinzel', serif; font-size: 15pt; color: #475569; letter-spacing: 0.15em; margin-bottom: 8mm;">EDUARDO PIRES</div>
+        <div style="font-family: 'Cinzel', serif; font-size: 24pt; font-weight: 900; color: #0f172a; margin-bottom: 4mm;">PROFISSÃO: ANALISTA DE REDES & ENGENHEIRO DE INFRAESTRUTURA N3</div>
+        <div style="font-family: 'Inter', sans-serif; font-size: 11pt; color: #64748b; max-width: 80%; margin: 0 auto 20mm auto;">O Guia Definitivo de Governança, MikroTik RouterOS, Segurança Zero-Trust, Bancos de Dados e Automação em Ambientes Multi-Tenant</div>
+        
+        <div style="font-family: 'Inter', sans-serif; font-size: 9.5pt; color: #334155; margin-bottom: 10mm;">
+            1ª Edição Oficial — Novembro de 2026<br>
+            Pulse TI Press — Porto Alegre / RS
+        </div>
+
+        <div class="cip-box">
+            <div class="cip-header">Dados Internacionais de Catalogação na Publicação (CIP)</div>
+            <p style="margin: 0; text-indent: 1.5em;">
+                <strong>Pires, Eduardo.</strong><br>
+                Profissão: Analista de Redes & Engenheiro de Infraestrutura N3 : manual definitivo de operações MSP, governança, MikroTik RouterOS, segurança zero-trust e automação / Eduardo Pires. — Porto Alegre : Pulse TI Press, 2026. — 1ª ed.<br><br>
+                1. Redes de Computadores. 2. MikroTik RouterOS. 3. Provedores de Serviços Gerenciados (MSP). 4. Segurança da Informação — Zero-Trust. 5. Banco de Dados — Alta Disponibilidade. 6. Automação de TI — IA Ops. I. Título.<br><br>
+                <strong>CDD: 004.65 • CDU: 004.7</strong>
+            </p>
+        </div>
+
+        <div style="margin-top: 15mm; font-family: 'Inter', sans-serif; font-size: 8pt; color: #64748b;">
+            Todos os direitos reservados ao autor. Nenhuma parte desta obra pode ser reproduzida sem prévia autorização.<br>
+            Contato Oficial: <code>redes@pulseti.com</code> • GitHub: <code>https://github.com/epiresonline</code>
+        </div>
+    </div>
+    
+
+    <div class="dedication-page">
+        <div class="dedication-text">
+            "Dedico esta obra a todos os engenheiros, analistas de redes e administradores de sistemas que sustentam silenciosamente o mundo digital em pleno funcionamento.<br><br>
+            Enquanto as cidades dormem, são suas rotas de firewall, seus pacotes prioritários, seus scripts de salvaguarda e sua vigília incansável que garantem que hospitais salvem vidas, que empresas operem e que os dados da sociedade permaneçam invioláveis e seguros."
+        </div>
+        <div class="dedication-author">
+            — Eduardo Pires<br>
+            <span style="font-size: 8pt; color: #64748b; font-weight: normal;">16/11/2026</span>
+        </div>
+    </div>
+    
+
+    <div class="toc-container">
+        <div class="toc-title">Sumário Geral da Obra</div>
+    
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo I: Fundamentos da Engenharia & Mentalidade MSP</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>01.1 Mentalidade MSP vs TI Tradicional</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>01.2 O Papel do Analista de Redes N3</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>01.3 Responsabilidade Técnica & Assinatura Mandatória</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo II: Governança & Arquitetura de Workspace Multi-Tenant</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>02.1 A Taxonomia Padrão Ouro dos Clientes</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>02.2 A Arquitetura Estrita em 2 Níveis (Zero Labirinto de Pastas)</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>02.3 Padrão Brasileiro de Datas e Metadados</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>02.4 Matriz Operacional Multi-Tenant (25 Clientes)</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo III: Segurança Zero-Trust & Gestão de Acessos</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>03.1 Política Estrita de Credenciais (Regra 11: Zero Senhas em Texto Puro)</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>03.2 Cofres de Acesso: KeePass Corporativo & Pulse Control Web</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>03.3 Convenções Decodificadas de Acesso: NetBird, PuTTY SSH e Winbox</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>03.4 Bastion Hosts & Segmentação de Rede</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo IV: Engenharia Avançada MikroTik RouterOS (v6 & v7)</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>04.1 Hardening Homologado MikroTik RouterOS (v6 & v7)</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>04.2 Firewall Filter, NAT e Proteções de Produção</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>04.3 Cloud DNS Dinâmico (`*.sn.mynetname.net`)</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>04.4 VPNs Corporativas: NetBird Mesh, WireGuard v7, SSTP e EoIP</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>04.5 QoS, Queues e Priorização de Tráfego de Produção</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>04.6 Rotinas de Backup Automatizado (.backup e .rsc)</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo V: Infraestrutura, Hipervisores & Sistemas Operacionais</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>05.1 Hipervisores Corporativos: Proxmox VE, VMware ESXi e KVM</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>05.2 Linux Server Hardening de Produção (Debian / Ubuntu / Rocky)</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>05.3 Storage Corporativo e NAS (Synology, TrueNAS, QNAP)</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>05.4 Docker & Docker-Compose em Produção</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo VI: Bancos de Dados Corporativos & Missão Crítica</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>06.1 PostgreSQL: Tuning, Manutenção & Backup `pg_dump`</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>06.2 Oracle Database 19c & Philips TASY Hospitalar</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>06.3 MySQL & MariaDB de Alta Confiabilidade</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>06.4 Ambientes Médicos, PACS Optix, Mobilemed e DICOM</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo VII: Backup Estratégico, Nuvem & Disaster Recovery (DRP)</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>07.1 A Regra de Ouro 3-2-1-1-0 e Política de Rotação GFS</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>07.2 Automação Multi-Nuvem com Rclone (Google Drive, AWS S3, Wasabi)</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>07.3 Políticas de Retenção & Auditoria Automatizada</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>07.4 O Teste Mandatório de Restauração & DRP (Disaster Recovery Plan)</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo VIII: Observabilidade, Monitoramento & Métricas Operacionais</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>08.1 Zabbix Enterprise: SNMP, Agentes & Triggers com Histerese</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>08.2 Beszel Hub: O Monitoramento Ultraleve para MSPs</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>08.3 Grafana: Dashboards & Métricas Operacionais</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>08.4 Matriz de Severidade & Prevenção de Fadiga de Alertas</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo IX: Gestão de Operações, Helpdesk & Tempo</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>09.1 Gestão de Chamados no Hesk Helpdesk e APIs de Automação</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>09.2 A Regra de Ouro dos Blocos Redondos de 30 Minutos</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>09.3 Classificação Visual por Cores no Google Calendar</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>09.4 Elaboração de POPs e Runbooks N1/N2 à Prova de Falhas</span>
+                </div>
+                
+</div>
+
+        <div class="toc-module avoid-break">
+            <div class="toc-mod-header">Módulo X: Automação, IA Ops & O Livro Autoatualizável</div>
+        
+
+                <div class="toc-chapter-item">
+                    <span>10.1 Engenharia de Prompts & IA Integrada à Operação (AIOps)</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>10.2 Construção de Skills e Agentes Especialistas</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>10.3 Sincronização Contínua: Workspace, Wiki.js & Git</span>
+                </div>
+                
+
+                <div class="toc-chapter-item">
+                    <span>10.4 A Engenharia por Trás Deste Livro Vivo</span>
+                </div>
+                
+</div>
+</div>
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo I • MOD-01</div>
+            <div class="mod-title">Fundamentos da Engenharia & Mentalidade MSP</div>
+            <div class="mod-desc">A transição de postura da TI tradicional para a gestão de serviços gerenciados, a responsabilidade do nível 3 e a assinatura técnica mandatória.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 01 — Fundamentos &amp; Mentalidade MSP</h1>
+<h2>01.1 Mentalidade MSP vs TI Tradicional</h2>
+<p>Trabalhar como <strong>Engenheiro de Redes e Infraestrutura em um MSP (Managed Service Provider / MSSP)</strong> é completamente diferente de atuar na TI interna de uma única empresa. </p>
+<h3>A Diferença Fundamental</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Característica</th>
+<th style="text-align: left;">TI Interna Tradicional</th>
+<th style="text-align: left;">Operação em MSP / MSSP (Pulse TI)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Escopo</strong></td>
+<td style="text-align: left;">1 empresa, 1 cultura, 1 conjunto de ferramentas.</td>
+<td style="text-align: left;">25+ empresas simultâneas, realidades distintas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Heterogeneidade</strong></td>
+<td style="text-align: left;">Padrão único de hardware e software.</td>
+<td style="text-align: left;">MikroTik, SonicWall, Proxmox, VMware, Oracle, Postgres, Windows Server, Linux.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Postura</strong></td>
+<td style="text-align: left;">Muitas vezes reativa (esperar o chamado abrir).</td>
+<td style="text-align: left;">Pró-ativa, orientada a observabilidade e auditoria constante.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Documentação</strong></td>
+<td style="text-align: left;">Frequentemente negligenciada ou informal.</td>
+<td style="text-align: left;">Vital: Se não está documentado no padrão, não existe.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Segurança</strong></td>
+<td style="text-align: left;">Foco perimetral interno.</td>
+<td style="text-align: left;">Zero-Trust estrito: isolamento total entre clientes.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Precificação e Tempo</strong></td>
+<td style="text-align: left;">Salário fixo sem apuração de rentabilidade de horas.</td>
+<td style="text-align: left;">Horas técnicas faturáveis e governança em blocos de 30 min.</td>
+</tr>
+</tbody>
+</table>
+<h3>Princípios do Engenheiro MSP de Alto Nível</h3>
+<ol>
+<li><strong>Multi-Tenancy Mental:</strong> Você deve ser capaz de mudar de contexto em segundos entre um hospital com Oracle TASY (<code>092 - HST</code> ou <code>124 - HSO</code>) e uma indústria com Protheus (<code>133 - DOQ</code>) sem misturar informações, senhas ou configurações.</li>
+<li><strong>Padronização como Escudo:</strong> Sem padrões rígidos de nomenclatura, pastas e procedimentos, gerenciar mais de 20 clientes torna-se caótico. O padrão não é burocracia: é a salvaguarda da sanidade técnica da equipe.</li>
+<li><strong>Automação Preventiva:</strong> Tarefas manuais repetidas mais de duas vezes devem ser automatizadas por scripts PowerShell, Bash, Python ou Skills de IA.</li>
+</ol>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 01 — Fundamentos &amp; Mentalidade MSP</h1>
+<h2>01.2 O Papel do Analista de Redes N3</h2>
+<p>O <strong>Analista de Redes N3 (Nível 3)</strong> representa o topo da cadeia de resolução técnica da operação. Quando um problema chega ao N3, significa que todas as soluções superficiais e procedimentos padrão falharam ou que o desafio exige redesenho de arquitetura.</p>
+<h3>As Quatro Frentes de Atuação do N3</h3>
+<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph LR
+    A["Analista de Redes N3"] --> B["Arquitetura & Engenharia"]
+    A --> C["Resolução de Crises de Missão Crítica"]
+    A --> D["Automação & Ferramental Operacional"]
+    A --> E["Mentoria N1/N2 & Criação de POPs"]</pre></div>
+
+<h3>1. Arquitetura &amp; Engenharia</h3>
+<ul>
+<li>Desenho de topologias de rede seguras e escaláveis.</li>
+<li>Planejamento de VPNs mesh, enlaces de rádio, rotas dinâmicas (BGP/OSPF) e políticas de firewall.</li>
+<li>Dimensionamento de hardware, storages e hipervisores para novos clientes ou expansões.</li>
+</ul>
+<h3>2. Resolução de Crises (Troubleshooting Avançado)</h3>
+<ul>
+<li>Análise de pacotes via <code>tcpdump</code> e Wireshark.</li>
+<li>Resolução de loops de camada 2 (STP/RSTP/MSTP) e tempestades de broadcast.</li>
+<li>Diagnóstico de latência, jitter, perda de pacotes e corrupção de tabelas de roteamento.</li>
+<li>Restauração de desastres em bancos de dados corrompidos ou storages degradados.</li>
+</ul>
+<h3>3. Automação &amp; Ferramental</h3>
+<ul>
+<li>Criação de scripts de backup automatizado e auditoria.</li>
+<li>Integração de sistemas via API REST (Zabbix, Beszel, Hesk, Google Calendar).</li>
+<li>Configuração de esteiras de sincronização e IA Ops.</li>
+</ul>
+<h3>4. Mentoria &amp; Governança N1/N2</h3>
+<ul>
+<li>O N3 <strong>não deve reter conhecimento</strong>. Todo incidente resolvido deve ser convertido em um Procedimento Operacional Padrão (<strong>POP</strong>) para que a equipe N1 e N2 seja capaz de resolver ocorrências semelhantes no futuro.</li>
+</ul>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 01 — Fundamentos &amp; Mentalidade MSP</h1>
+<h2>01.3 Responsabilidade Técnica &amp; Assinatura Mandatória</h2>
+<p>Na Pulse TI, governança não é opcional. Toda intervenção técnica, auditoria, criação de script ou alteração de arquitetura carrega a responsabilidade formal de seu autor.</p>
+<h3>A Diretriz de Autoria e Responsabilidade Técnica</h3>
+<ul>
+<li><strong>Engenheiro / Operador Responsável:</strong> <strong>Eduardo Pires</strong></li>
+<li><strong>Cargo e Titulação Oficial:</strong> <strong>Analista de Redes N3</strong></li>
+</ul>
+<h3>Cabeçalhos Padronizados em Documentações</h3>
+<p>Em todos os documentos markdown, POPs, relatórios e runbooks, os seguintes metadados são obrigatórios:</p>
+<div class="codehilite"><pre><span></span><code>| Atributo | Detalhe |
+| :--- | :--- |
+| <span class="gs">**Cliente / Projeto**</span> | <span class="sb">`[CODIGO] - [SIGLA] - [Nome do Cliente]`</span> |
+| <span class="gs">**Elaborado por**</span> | Eduardo Pires (Analista de Redes N3) |
+| <span class="gs">**Responsável Técnico**</span>| Eduardo Pires — Analista de Redes N3 |
+| <span class="gs">**Data de Elaboração**</span>| DD/MM/YYYY |
+| <span class="gs">**Última Revisão**</span> | DD/MM/YYYY |
+| <span class="gs">**Status do Documento**</span>| Homologado em Produção |
+</code></pre></div>
+
+<h3>O Valor da Assinatura</h3>
+<p>Assinar a documentação técnica garante:
+1. <strong>Rastreabilidade Histórica:</strong> Em caso de auditoria ou incidentes futuros, todos sabem exatamente quem projetou a solução e qual foi o racional técnico empregado.
+2. <strong>Propriedade e Orgulho Profissional:</strong> O engenheiro de redes N3 assume a propriedade de suas entregas, refletindo o rigor e a excelência aplicados.
+3. <strong>Clareza de Contato:</strong> Equipes de plantão e operadores N1 sabem a quem recorrer caso um parâmetro precise ser revisado.</p>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo II • MOD-02</div>
+            <div class="mod-title">Governança & Arquitetura de Workspace Multi-Tenant</div>
+            <div class="mod-desc">Taxonomia dos 25 clientes, estrutura estrita em 2 níveis sem labirintos de pastas, padrão de datas brasileiro e catálogo operacional.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 02 — Governança &amp; Arquitetura de Workspace</h1>
+<h2>02.1 A Taxonomia Padrão Ouro dos Clientes</h2>
+<p>Quando se administra um ambiente multi-tenant com dezenas de empresas, nomes vagos como "Cliente 1" ou "Empresa X" geram desastres operacionais. Na Pulse TI, implementamos a <strong>Taxonomia Padrão Ouro de Três Blocos</strong>:</p>
+<div class="codehilite"><pre><span></span><code>&lt;CODIGO&gt; - &lt;SIGLA&gt; - &lt;Nome Oficial da Empresa&gt;
+</code></pre></div>
+
+<h3>Anatomia do Padrão</h3>
+<ol>
+<li><strong><code>&lt;CODIGO&gt;</code> (3 dígitos numéricos):</strong> Identificador exclusivo atribuído na entrada do cliente. Permite ordenação alfanumérica consistente em sistemas de arquivos, bancos de dados e ferramentas de automação (ex.: <code>002</code>, <code>062</code>, <code>112</code>, <code>124</code>).</li>
+<li><strong><code>&lt;SIGLA&gt;</code> (3 letras maiúsculas):</strong> Mnemônico universal usado em prefixos de chamados, branches, tags de monitoramento, hostnames de ativos e eventos de agenda (ex.: <code>PTI</code>, <code>PRO</code>, <code>PRN</code>, <code>HSO</code>, <code>DOQ</code>).</li>
+<li><strong><code>&lt;Nome Oficial&gt;</code>:</strong> Razão social ou nome fantasia consolidado da organização.</li>
+</ol>
+<h3>Exemplos Reais Homologados</h3>
+<ul>
+<li><code>000 - EDU - Eduardo Pires</code> (Laboratório de testes e P&amp;D)</li>
+<li><code>002 - PTI - Pulse TI</code> (Matriz NOC Central Pulse TI)</li>
+<li><code>062 - PRO - Prodatus Informática</code></li>
+<li><code>092 - HST - Hospital Santa Teresinha</code></li>
+<li><code>112 - PRN - PRN Diagnósticos</code></li>
+<li><code>120 - URG - Urgetrauma Ortopedia e Traumatologia</code></li>
+<li><code>123 - PLS - PLS Tecnologia</code> (Datacenter Cloud e VPSs)</li>
+<li><code>124 - HSO - Fundação Hospital Santa Otilia</code></li>
+<li><code>133 - DOQ - Tortas Doquinha</code></li>
+</ul>
+<div class="callout callout-important"><div class="callout-title">⭐ DIRETRIZ MANDATÓRIA</div><div class="callout-body">> A sigla de 3 letras é sagrada. Ela é a "chave estrangeira" humana e computacional que conecta o chamado no Hesk (`[PRN] Falha no link`), o evento no Google Calendar (`[PRN] Manutenção em Switch`), o hostname do servidor (`pls-prn-srv-app01`) e a pasta do cliente no Google Drive.</div></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 02 — Governança &amp; Arquitetura de Workspace</h1>
+<h2>02.2 A Arquitetura Estrita em 2 Níveis (Zero Labirinto de Pastas)</h2>
+<p>Um dos erros mais comuns em operações de TI é a criação desordenada de sub-sub-subpastas (<code>Documentos/Antigos/Redes/2023/Testes/Novo/Nova Pasta (2)/config.txt</code>). Isso destrói a produtividade, quebra scripts de backup e cega agentes de inteligência artificial.</p>
+<h3>A Regra Estrita de 2 Níveis</h3>
+<p>Na Pulse TI, vigora a regra inegociável de <strong>estritamente 2 níveis</strong>:</p>
+<ul>
+<li><strong>Nível 1:</strong> A Pasta do Cliente (<code>&lt;CODIGO&gt; - &lt;SIGLA&gt; - &lt;Nome&gt;</code>)</li>
+<li><strong>Nível 2:</strong> As 6 Categorias Padronizadas com arquivos diretos (sem subpastas internas):</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>g:\\Meu Drive\\2K26\\Clientes-Pulse-TI\\
+└── 112 - PRN - PRN Diagnósticos/
+    ├── 01 - DOCUMENTACAO/
+    │   ├── 112 - PRN - DOCUMENTACAO_TECNICA.md
+    │   ├── 112 - PRN - Topologia_Rede.drawio
+    │   └── 112 - PRN - Inventario_Ativos.xlsx
+    ├── 02 - PROCEDIMENTOS/
+    │   ├── POP-PRN-001 — Reinicialização do Serviço PACS.md
+    │   └── POP-PRN-002 — Troca de Switch de Borda.md
+    ├── 03 - REDES E CONECTIVIDADE/
+    │   ├── PRN-ROUTER-BORDA-2026-11-16.rsc
+    │   ├── PRN-ROUTER-BORDA-2026-11-16.backup
+    │   └── vpn_matriz_prn.ovpn
+    ├── 04 - SISTEMAS E BANCOS/
+    │   ├── docker-compose-pacs.yml
+    │   └── backup_db_laudocontrol_schema.sql
+    ├── 05 - BACKUP E SEGURANCA/
+    │   ├── 112 - PRN - Politica de Backup e Seguranca.md
+    │   └── rotina_backup_rclone_s3.ps1
+    └── 06 - HISTORICO E RELATORIOS/
+        ├── 112 - PRN - Historico e Relatorios.md
+        └── Relatorio_Auditoria_Conformidade_2026.pdf
+</code></pre></div>
+
+<h3>Como Lidar com Arquivos Múltiplos ou Código-Fonte?</h3>
+<p>Se uma aplicação possuir centenas de arquivos (como um projeto Node.js, repositório de frontend ou biblioteca), <strong>é proibido descompactá-los criando um Nível 3</strong>. Eles devem ser armazenados compactados em arquivo <code>.zip</code> diretamente dentro da categoria correspondente (ex.: <code>04 - SISTEMAS E BANCOS/portal_laudos_v2.1.zip</code>).</p>
+<p>Dessa forma, a árvore permanece limpa, auditável em 1 segundo e compatível com ferramentas automatizadas.</p>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 02 — Governança &amp; Arquitetura de Workspace</h1>
+<h2>02.3 Padrão Brasileiro de Datas e Metadados</h2>
+<p>Para garantir conformidade legal, auditoria e clareza para equipes técnicas brasileiras e clientes atendidos, a Pulse TI adota uma política estrita sobre representação de datas.</p>
+<h3>A Diretriz Mandatória: <code>DD/MM/YYYY</code></h3>
+<p>Em todo o corpo de textos legíveis por humanos, tabelas de controle, Procedimentos Operacionais Padrão, chamados de helpdesk e reuniões, <strong>a data deve ser grafada compulsoriamente no formato brasileiro: <code>DD/MM/YYYY</code></strong> (ex.: <code>16/11/2026</code>).</p>
+<h3>A Única Exceção Técnica: Arquivos de Máquina</h3>
+<p>Apenas em nomes de arquivos gerados por scripts onde a ordenação cronológica alfanumérica é indispensável para rotação automática, utiliza-se a norma ISO (<code>YYYY-MM-DD</code> ou <code>YYYYMMDD</code>):</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Nome do arquivo de dump (para ordenação de backup):</span>
+db_backup_prodatus_2026-11-16.dump
+
+<span class="c1"># Metadado no corpo do relatório técnico:</span>
+<span class="c1"># "Backup executado com sucesso em 16/11/2026 às 03:00."</span>
+</code></pre></div>
+
+<h3>Tabela Padronizada de Metadados de Documentos</h3>
+<p>Todo documento de engenharia deve iniciar com a tabela canônica:</p>
+<div class="codehilite"><pre><span></span><code>---
+<span class="gh"># METADADOS DE ENGENHARIA</span>
+| Campo | Especificação |
+| :--- | :--- |
+| <span class="gs">**Cliente**</span> | 062 - PRO - Prodatus Informática |
+| <span class="gs">**Responsável Técnico**</span> | Eduardo Pires — Analista de Redes N3 |
+| <span class="gs">**Data de Homologação**</span> | 16/11/2026 |
+| <span class="gs">**Classificação**</span> | Confidencial / Uso Interno Pulse TI |
+<span class="gu">| **Versão** | 2.1 |</span>
+<span class="gu">---</span>
+</code></pre></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 02 — Governança &amp; Arquitetura de Workspace</h1>
+<h2>02.4 Matriz Operacional Multi-Tenant (25 Clientes)</h2>
+<p>Abaixo está catalogada a matriz de clientes sob a governança da Pulse TI, demonstrando a diversidade de tecnologias gerenciadas pelo Analista de Redes N3:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Código</th>
+<th style="text-align: center;">Sigla</th>
+<th style="text-align: left;">Nome do Cliente</th>
+<th style="text-align: left;">Principais Tecnologias Gerenciadas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>000</strong></td>
+<td style="text-align: center;"><strong>EDU</strong></td>
+<td style="text-align: left;">Eduardo Pires</td>
+<td style="text-align: left;">Laboratório de testes, Linux VirtualBox, P&amp;D</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>002</strong></td>
+<td style="text-align: center;"><strong>PTI</strong></td>
+<td style="text-align: left;">Pulse TI</td>
+<td style="text-align: left;">NOC Central, Zabbix Server, Beszel Hub, Hesk</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>052</strong></td>
+<td style="text-align: center;"><strong>ASA</strong></td>
+<td style="text-align: left;">Asa Sports Fardamentos</td>
+<td style="text-align: left;">Portais Corporativos Microsoft Cloud</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>053</strong></td>
+<td style="text-align: center;"><strong>WAG</strong></td>
+<td style="text-align: left;">Radioimagem Diagnósticos</td>
+<td style="text-align: left;">Medicina Diagnóstica, Dicom PACS, MikroTik</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>062</strong></td>
+<td style="text-align: center;"><strong>PRO</strong></td>
+<td style="text-align: left;">Prodatus Informática</td>
+<td style="text-align: left;">Docker, Tomcat, PostgreSQL, Rclone Google Drive</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>076</strong></td>
+<td style="text-align: center;"><strong>IOG</strong></td>
+<td style="text-align: left;">Inst. de Ortopedia Gravataí</td>
+<td style="text-align: left;">Ortopedia, Roteamento MikroTik, VPNs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>077</strong></td>
+<td style="text-align: center;"><strong>DAL</strong></td>
+<td style="text-align: left;">Maritânia Dallagnol</td>
+<td style="text-align: left;">Modems corporativos, MikroTik RB750</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>078</strong></td>
+<td style="text-align: center;"><strong>MLP</strong></td>
+<td style="text-align: left;">Colégio Miguel Lampert</td>
+<td style="text-align: left;">Rede Educacional, Switches Gerenciados, VLANs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>080</strong></td>
+<td style="text-align: center;"><strong>PCM</strong></td>
+<td style="text-align: left;">Prontocord Manaus</td>
+<td style="text-align: left;">Otimus ERP, KVM, Storage NAS-006</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>082</strong></td>
+<td style="text-align: center;"><strong>SIR</strong></td>
+<td style="text-align: left;">Serv. Integrado de Radiologia</td>
+<td style="text-align: left;">Múltiplos roteadores MikroTik, enlaces de imagem</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>085</strong></td>
+<td style="text-align: center;"><strong>SLA</strong></td>
+<td style="text-align: left;">Slater IT Solutions</td>
+<td style="text-align: left;">Terminal Service, servidores de aplicação APL04</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>092</strong></td>
+<td style="text-align: center;"><strong>HST</strong></td>
+<td style="text-align: left;">Hospital Santa Teresinha</td>
+<td style="text-align: left;">ERP Hospitalar TASY, Storage NAS, VMware ESXi</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>099</strong></td>
+<td style="text-align: center;"><strong>CIT</strong></td>
+<td style="text-align: left;">Citoson Diagnóstico por Imagem</td>
+<td style="text-align: left;">Optix PACS, Roteamento MikroTik</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>104</strong></td>
+<td style="text-align: center;"><strong>SCL</strong></td>
+<td style="text-align: left;">SC Locações</td>
+<td style="text-align: left;">Rede corporativa, MikroTik, VPN Matriz/Filiais</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>106</strong></td>
+<td style="text-align: center;"><strong>GSF</strong></td>
+<td style="text-align: left;">Grupo Studio</td>
+<td style="text-align: left;">3 Hipervisores, Active Directory, SonicWall TZ570</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>109</strong></td>
+<td style="text-align: center;"><strong>CIE</strong></td>
+<td style="text-align: left;">Centro Integrado de Espec. Médicas</td>
+<td style="text-align: left;">PostgreSQL, Roteadores MikroTik</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>112</strong></td>
+<td style="text-align: center;"><strong>PRN</strong></td>
+<td style="text-align: left;">PRN Diagnósticos</td>
+<td style="text-align: left;">16 unidades regionais, Mobilemed, AWS S3, VPN Mesh</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>120</strong></td>
+<td style="text-align: center;"><strong>URG</strong></td>
+<td style="text-align: left;">Urgetrauma Ortopedia</td>
+<td style="text-align: left;">Active Directory, MikroTik, Servidor URG-VIRT-001</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>121</strong></td>
+<td style="text-align: center;"><strong>MED</strong></td>
+<td style="text-align: left;">Medicina Diagnóstica</td>
+<td style="text-align: left;">Optix PACS, NetBird VPN, OpenVPN</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>123</strong></td>
+<td style="text-align: center;"><strong>PLS</strong></td>
+<td style="text-align: left;">PLS Tecnologia</td>
+<td style="text-align: left;">Datacenter Cloud, VPSs Linux, CHR MikroTik</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>124</strong></td>
+<td style="text-align: center;"><strong>HSO</strong></td>
+<td style="text-align: left;">Fund. Hospital Santa Otília</td>
+<td style="text-align: left;">Oracle Database 19c, Philips TASY, RMAN</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>127</strong></td>
+<td style="text-align: center;"><strong>AUD</strong></td>
+<td style="text-align: left;">Audit Tecnologia</td>
+<td style="text-align: left;">Servidores de API REST, Terminal Service</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>130</strong></td>
+<td style="text-align: center;"><strong>PET</strong></td>
+<td style="text-align: left;">Petinelli Green Building</td>
+<td style="text-align: left;">Servidores de aplicação PET-APP01 e terminais</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>133</strong></td>
+<td style="text-align: center;"><strong>DOQ</strong></td>
+<td style="text-align: left;">Tortas Doquinha</td>
+<td style="text-align: left;">TOTVS Protheus, OpenVPN filiais RS, PostgreSQL</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>142</strong></td>
+<td style="text-align: center;"><strong>NXS</strong></td>
+<td style="text-align: left;">Nexus Callcenter</td>
+<td style="text-align: left;">Telefonia IP, SIP Trunk, Gateway Aligera AG561</td>
+</tr>
+</tbody>
+</table>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo III • MOD-03</div>
+            <div class="mod-title">Segurança Zero-Trust & Gestão de Acessos</div>
+            <div class="mod-desc">A Regra 11 de zero senhas em texto puro, cofre KeePass, base estruturada do Pulse Control Web, convenções de acesso NetBird e segmentação de redes.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 03 — Segurança Zero-Trust &amp; Gestão de Acessos</h1>
+<h2>03.1 Política Estrita de Credenciais (Regra 11: Zero Senhas em Texto Puro)</h2>
+<p>A <strong>Regra 11</strong> da governança Pulse TI é a cláusula de proteção máxima do nosso ecossistema:</p>
+<blockquote>
+<p><strong>"É expressamente proibido registrar, exibir, versionar ou trafegar senhas, tokens de API, certificados privados ou chaves criptográficas em texto puro em qualquer documento markdown, script compartilhado, chamado ou chat."</strong></p>
+</blockquote>
+<h3>Por Que Essa Regra Existe?</h3>
+<p>Em ambientes MSP, a documentação é consultada por múltiplos colaboradores, sincronizada com sistemas de controle de versão (Git) e wikis internas. Se uma credencial for commitada em texto puro:
+1. O vazamento compromete permanentemente aquele cliente.
+2. O histórico do Git retém a credencial mesmo que você a delete em commits subsequentes.
+3. Viola-se a conformidade da LGPD (Lei Geral de Proteção de Dados) e normas ISO 27001.</p>
+<h3>O Padrão Correto de Documentação</h3>
+<p>Em vez de colocar a senha no documento, o Analista de Redes documenta os <strong>metadados de acesso</strong> e a referência exata para o cofre seguro:</p>
+<div class="codehilite"><pre><span></span><code>&lt;!-- FORMA INCORRETA (PROIBIDA) --&gt;
+Servidor: 192.168.1.100
+Usuario: admin
+Senha: SuperSenhaSecreta123!
+
+&lt;!-- FORMA CORRETA (HOMOLOGADA) --&gt;
+| Parâmetro | Detalhe da Conexão |
+| :--- | :--- |
+| <span class="gs">**Host / IP**</span> | <span class="sb">`192.168.1.100`</span> (ou DNS <span class="sb">`pls-app01.netbird.selfhosted`</span>) |
+| <span class="gs">**Protocolo / Porta**</span> | SSH (Porta 22) |
+| <span class="gs">**Usuário**</span> | <span class="sb">`admin_pulse`</span> |
+| <span class="gs">**Localização do Cofre**</span> | KeePass: <span class="sb">`Clientes/062 - PRO/Servidores/PRO-SRV-APP`</span> |
+| <span class="gs">**Cofre Pulse Control**</span> | Entry ID: <span class="sb">`#348`</span> |
+</code></pre></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 03 — Segurança Zero-Trust &amp; Gestão de Acessos</h1>
+<h2>03.2 Cofres de Acesso: KeePass Corporativo &amp; Pulse Control Web</h2>
+<p>A segurança das credenciais na Pulse TI baseia-se em duas ferramentas complementares:</p>
+<h3>1. O Cofre Oficial KeePass (<code>PASSWORD_DATABASE_PULSE.kdbx</code>)</h3>
+<ul>
+<li>Localização oficial:<br />
+<code>002 - PTI - Pulse TI/05 - BACKUP E SEGURANCA/Controle de Acesso/Keepass/</code></li>
+<li>Criptografia: AES-256 / ChaCha20 com chave mestre de alta entropia.</li>
+<li>Estrutura de grupos: Organizado rigorosamente segundo a taxonomia <code>&lt;CODIGO&gt; - &lt;SIGLA&gt; - &lt;Nome&gt;</code>.</li>
+<li>Campos customizados: Utiliza campos adicionais para registrar portas Winbox, URLs NetBird e IDs de ativos.</li>
+</ul>
+<h3>2. O Sistema Pulse Control Web (Inventário Ativo &amp; REST API)</h3>
+<p>O <strong>Pulse Control Web</strong> é um sistema desenvolvido sob medida para a operação da Pulse TI, fornecendo um banco de dados SQLite 3 estruturado de alta performance (<code>D:\\PulseControl\\pulse-control-web\\pulsecontrol.db</code>) com busca full-text (FTS) e interface web em <code>http://localhost:3005</code>.</p>
+<h4>Estrutura de Dados das Entradas do Cofre</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">client_code</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">      </span><span class="c1">-- Ex: '112'</span>
+<span class="w">    </span><span class="n">client_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">      </span><span class="c1">-- Ex: 'PRN Diagnosticos'</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">            </span><span class="c1">-- Ex: 'MikroTik Borda Matriz'</span>
+<span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- Ex: 'pulse_admin'</span>
+<span class="w">    </span><span class="n">ip_address</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                </span><span class="c1">-- Ex: '100.81.222.10'</span>
+<span class="w">    </span><span class="n">port</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span><span class="w">                   </span><span class="c1">-- Ex: 8291</span>
+<span class="w">    </span><span class="n">protocol</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                  </span><span class="c1">-- Ex: 'Winbox', 'SSH', 'RDP'</span>
+<span class="w">    </span><span class="n">notes</span><span class="w"> </span><span class="nb">TEXT</span><span class="w">                      </span><span class="c1">-- Metadados operacionais</span>
+<span class="p">);</span>
+</code></pre></div>
+
+<h4>Como Consultar Proativamente via Python</h4>
+<p>Quando um operador ou agente de IA precisa localizar um endereço IP ou porta de serviço de um cliente, ele consulta a base:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">buscar_ativo</span><span class="p">(</span><span class="n">codigo_cliente</span><span class="p">,</span> <span class="n">termo</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa">r</span><span class="s1">'D:\PulseControl\pulse-control-web\pulsecontrol.db'</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="s2">"SELECT title, username, ip_address, port, protocol FROM entries WHERE client_code = ? AND title LIKE ?"</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">codigo_cliente</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"%</span><span class="si">{</span><span class="n">termo</span><span class="si">}</span><span class="s2">%"</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</code></pre></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 03 — Segurança Zero-Trust &amp; Gestão de Acessos</h1>
+<h2>03.3 Convenções Decodificadas de Acesso: NetBird, PuTTY SSH e Winbox</h2>
+<p>Para simplificar a operação de suporte sem comprometer a segurança, homologamos convenções universais para os principais métodos de acesso remoto:</p>
+<h3>1. RDP por IP da Malha NetBird (<code>rdp://100.x.x.x</code>)</h3>
+<ul>
+<li><strong>Protocolo:</strong> Microsoft Remote Desktop Protocol (Porta 3389).</li>
+<li><strong>Camada de Transporte:</strong> Túnel encriptado WireGuard via malha NetBird.</li>
+<li><strong>Forma de Uso:</strong> Conexão direta utilizando o IP fixo virtual da interface NetBird (ex.: <code>mstsc /v:100.81.222.29</code>).</li>
+<li><strong>Vantagem:</strong> Não requer encaminhamento de portas (NAT/Port Forward) nos roteadores dos clientes e elimina a exposição de RDP na Internet pública.</li>
+</ul>
+<h3>2. RDP por Split-DNS NetBird (<code>rdp://*.netbird.selfhosted</code>)</h3>
+<ul>
+<li><strong>Resolução de Nomes:</strong> DNS corporativo interno mantido pelos servidores NetBird.</li>
+<li><strong>Forma de Uso:</strong> <code>mstsc /v:pls-doq-vm-app-protheus.netbird.selfhosted</code>.</li>
+<li><strong>Vantagem:</strong> Independência de endereçamento IP. Se o IP da VM mudar, a conexão persiste pelo FQDN.</li>
+</ul>
+<h3>3. SSH Overwrite com PuTTY (<code>usuario@host</code> + <code>putty:</code>)</h3>
+<ul>
+<li><strong>Padrão em Registros:</strong> Quando uma entrada contém <code>putty:</code>, significa que deve ser aberta no software PuTTY utilizando a chave privada salva ou encaminhada via Pageant.</li>
+<li><strong>Porta:</strong> 22 (ou porta customizada mapeada no inventário).</li>
+<li><strong>Exemplo de Execução:</strong> <code>putty.exe -ssh pls@pls-doq-vm-db-protheus.netbird.selfhosted -P 22</code>.</li>
+</ul>
+<h3>4. MikroTik RouterOS com Winbox e Cloud DNS</h3>
+<ul>
+<li><strong>Portas Homologadas:</strong> Portas customizadas como <code>8205</code>, <code>8207</code> ou a padrão protegida <code>8291</code>.</li>
+<li><strong>Resolução Dinâmica:</strong> Utilização do hostname MikroTik Cloud (<code>*.sn.mynetname.net</code>) em links que possuem IP público dinâmico.</li>
+<li><strong>Exemplo de Conexão no Winbox:</strong> <code>prn-matriz.sn.mynetname.net:8205</code>.</li>
+</ul>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 03 — Segurança Zero-Trust &amp; Gestão de Acessos</h1>
+<h2>03.4 Bastion Hosts &amp; Segmentação de Rede</h2>
+<p>O modelo tradicional de "rede plana" (onde computadores da recepção, servidores de banco de dados e câmeras IP compartilham a mesma subnet <code>/24</code>) é inaceitável em um ambiente profissional.</p>
+<h3>A Arquitetura de Segmentação por VLANs</h3>
+<p>Em todos os clientes com switches gerenciados e roteadores MikroTik, dividimos o tráfego nas seguintes VLANs padrão:</p>
+<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph TD
+    Router["MikroTik RouterOS (Gateway / Firewall)"] --> VLAN10["VLAN 10: Gerenciamento (Switches, APs, PDUs)"]
+    Router --> VLAN20["VLAN 20: Servidores & Bancos de Dados (DMZ Interna)"]
+    Router --> VLAN30["VLAN 30: Estações Corporativas (Funcionários)"]
+    Router --> VLAN40["VLAN 40: Equipamentos Médicos / PACS / IoT"]
+    Router --> VLAN50["VLAN 50: CFTV (Câmeras IP e NVRs)"]
+    Router --> VLAN90["VLAN 90: Visitantes / Guest (Apenas Saída Web)"]</pre></div>
+
+<h3>Regras de Ouro de Tráfego entre VLANs</h3>
+<ol>
+<li><strong>Isolamento de Visitantes (VLAN 90):</strong> Nunca pode enxergar nenhuma outra VLAN ou o IP de gerência do roteador.</li>
+<li><strong>CFTV (VLAN 50):</strong> Não tem acesso à Internet, exceto a porta de sincronização NTP e o streaming autorizado do NVR.</li>
+<li><strong>Servidores (VLAN 20):</strong> Apenas portas estritamente necessárias recebem tráfego da VLAN 30. Portas de banco de dados (5432, 1521, 3306) <strong>só recebem conexão das VMs de aplicação</strong>, nunca das estações dos usuários.</li>
+</ol>
+<h3>O Papel do Bastion Host (Servidor de Salto)</h3>
+<p>Para administração externa segura:
+- O acesso administrativo não vai diretamente para as VMs de banco.
+- O engenheiro conecta primeiro via VPN NetBird ou SSH com autenticação de dois fatores (2FA) em um <strong>Bastion Host Linux</strong> dedicado.
+- A partir do Bastion, o acesso aos bancos e hipervisores é liberado pela tabela de firewall do Proxmox ou iptables.</p>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo IV • MOD-04</div>
+            <div class="mod-title">Engenharia Avançada MikroTik RouterOS (v6 & v7)</div>
+            <div class="mod-desc">Hardening homologado, firewall de produção, FastTrack bypass, Cloud DNS, túneis VPN (NetBird, WireGuard, SSTP, EoIP), QoS e backups duplos.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 04 — Engenharia Avançada MikroTik RouterOS</h1>
+<h2>04.1 Hardening Homologado MikroTik RouterOS (v6 &amp; v7)</h2>
+<p>O MikroTik RouterOS é a espinha dorsal de conectividade dos clientes da Pulse TI. No entanto, sua configuração padrão de fábrica expõe serviços vulneráveis que devem ser imediatamente desativados em produção.</p>
+<h3>Script de Hardening Homologado Pulse TI</h3>
+<p>Ao provisionar qualquer roteador RouterOS, o Analista N3 executa o seguinte script:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># ========================================================</span>
+<span class="c1"># PULSE TI - HARDENING HOMOLOGADO DE ROUTEROS (v6 / v7)</span>
+<span class="c1"># Autor: Eduardo Pires (Analista de Redes N3)</span>
+<span class="c1"># ========================================================</span>
+
+<span class="o">/</span><span class="n">ip</span><span class="w"> </span><span class="n">service</span>
+<span class="n">set</span><span class="w"> </span><span class="n">telnet</span><span class="w"> </span><span class="n">disabled</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">set</span><span class="w"> </span><span class="n">ftp</span><span class="w"> </span><span class="n">disabled</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">set</span><span class="w"> </span><span class="n">www</span><span class="w"> </span><span class="n">disabled</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">set</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="n">disabled</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">set</span><span class="w"> </span><span class="n">api</span><span class="o">-</span><span class="n">ssl</span><span class="w"> </span><span class="n">disabled</span><span class="o">=</span><span class="n">yes</span>
+
+<span class="c1"># Alterar porta e restringir SSH</span>
+<span class="n">set</span><span class="w"> </span><span class="n">ssh</span><span class="w"> </span><span class="n">port</span><span class="o">=</span><span class="mi">22022</span><span class="w"> </span><span class="n">disabled</span><span class="o">=</span><span class="n">no</span>
+
+<span class="c1"># Proteger Winbox com porta customizada e address-list</span>
+<span class="n">set</span><span class="w"> </span><span class="n">winbox</span><span class="w"> </span><span class="n">port</span><span class="o">=</span><span class="mi">8205</span><span class="w"> </span><span class="n">address</span><span class="o">=</span><span class="mf">100.64</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span><span class="w"> </span><span class="n">disabled</span><span class="o">=</span><span class="n">no</span>
+
+<span class="c1"># Desativar descoberta de vizinhança na interface WAN</span>
+<span class="o">/</span><span class="n">ip</span><span class="w"> </span><span class="n">neighbor</span><span class="w"> </span><span class="n">discovery</span><span class="o">-</span><span class="n">settings</span>
+<span class="n">set</span><span class="w"> </span><span class="n">discover</span><span class="o">-</span><span class="n">interface</span><span class="o">-</span><span class="n">list</span><span class="o">=</span><span class="n">LAN</span>
+
+<span class="c1"># Desativar serviços de largura de banda e teste públicos</span>
+<span class="o">/</span><span class="k">tool</span><span class="w"> </span><span class="n">bandwidth</span><span class="o">-</span><span class="n">server</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">enabled</span><span class="o">=</span><span class="n">no</span>
+
+<span class="c1"># Desativar proxy e socks</span>
+<span class="o">/</span><span class="n">ip</span><span class="w"> </span><span class="n">proxy</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">enabled</span><span class="o">=</span><span class="n">no</span>
+<span class="o">/</span><span class="n">ip</span><span class="w"> </span><span class="n">socks</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">enabled</span><span class="o">=</span><span class="n">no</span>
+
+<span class="c1"># Desativar UPnP</span>
+<span class="o">/</span><span class="n">ip</span><span class="w"> </span><span class="n">upnp</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">enabled</span><span class="o">=</span><span class="n">no</span>
+</code></pre></div>
+
+<div class="callout callout-caution"><div class="callout-title">🛑 ALERTA CRÍTICO DE RISCO</div><div class="callout-body">> Nunca deixe a porta padrão `8291` do Winbox aberta para o mundo (`0.0.0.0/0`). Ela é alvo de ataques de força bruta automatizados 24 horas por dia.</div></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 04 — Engenharia Avançada MikroTik RouterOS</h1>
+<h2>04.2 Firewall Filter, NAT e Proteções de Produção</h2>
+<p>Um firewall de borda profissional deve aplicar filtragem em estado de conexão (<strong>stateful inspection</strong>), proteção contra scanners e prevenção de ataques DoS/Brute Force.</p>
+<h3>Estrutura do Firewall Filter</h3>
+<div class="codehilite"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="o">========================================================</span>
+<span class="err">#</span><span class="w"> </span><span class="nx">TABELA</span><span class="w"> </span><span class="nx">DE</span><span class="w"> </span><span class="nx">FILTER</span><span class="w"> </span><span class="nx">RULES</span><span class="w"> </span><span class="p">(</span><span class="nx">ORDEM</span><span class="w"> </span><span class="nx">DE</span><span class="w"> </span><span class="nx">PROCESSAMENTO</span><span class="w"> </span><span class="nx">CRÍTICA</span><span class="p">)</span>
+<span class="err">#</span><span class="w"> </span><span class="o">========================================================</span>
+
+<span class="o">/</span><span class="nx">ip</span><span class="w"> </span><span class="nx">firewall</span><span class="w"> </span><span class="nx">filter</span>
+
+<span class="err">#</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="nx">Aceitar</span><span class="w"> </span><span class="nx">conexões</span><span class="w"> </span><span class="nx">já</span><span class="w"> </span><span class="nx">estabelecidas</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">relacionadas</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="p">,</span><span class="nx">untracked</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar Estabelecidas/Relacionadas"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="p">,</span><span class="nx">untracked</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar Estabelecidas/Relacionadas"</span>
+
+<span class="err">#</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="nx">Descartar</span><span class="w"> </span><span class="nx">pacotes</span><span class="w"> </span><span class="nx">inválidos</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">invalid</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Dropar Invalidos"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">invalid</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Dropar Invalidos"</span>
+
+<span class="err">#</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="nx">Proteção</span><span class="w"> </span><span class="nx">contra</span><span class="w"> </span><span class="nx">Port</span><span class="w"> </span><span class="nx">Scan</span><span class="w"> </span><span class="p">(</span><span class="nx">adiciona</span><span class="w"> </span><span class="nx">IP</span><span class="w"> </span><span class="nx">atacante</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">blacklist</span><span class="w"> </span><span class="nx">temporária</span><span class="p">)</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">add</span><span class="o">-</span><span class="nx">src</span><span class="o">-</span><span class="nx">to</span><span class="o">-</span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="w"> </span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="s">"PORT-SCAN-BLOCK"</span><span class="w"> </span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="o">-</span><span class="nx">timeout</span><span class="p">=</span><span class="mi">1</span><span class="nx">d</span><span class="w"> </span><span class="err">\</span>\
+<span class="w">    </span><span class="nx">protocol</span><span class="p">=</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">psd</span><span class="p">=</span><span class="mi">21</span><span class="p">,</span><span class="mi">3</span><span class="nx">s</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Detectar Port Scanner"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">src</span><span class="o">-</span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="s">"PORT-SCAN-BLOCK"</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Bloquear Port Scanners"</span>
+
+<span class="err">#</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="nx">Permitir</span><span class="w"> </span><span class="nx">ICMP</span><span class="w"> </span><span class="p">(</span><span class="nx">Ping</span><span class="p">)</span><span class="w"> </span><span class="nx">controlado</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">LAN</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">VPNs</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">protocol</span><span class="p">=</span><span class="nx">icmp</span><span class="w"> </span><span class="k">in</span><span class="o">-</span><span class="kd">interface</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="nx">LAN</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar ICMP da LAN"</span>
+
+<span class="err">#</span><span class="w"> </span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="nx">Dropar</span><span class="w"> </span><span class="nx">todo</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">restante</span><span class="w"> </span><span class="nx">direcionado</span><span class="w"> </span><span class="nx">ao</span><span class="w"> </span><span class="nx">próprio</span><span class="w"> </span><span class="nx">roteador</span><span class="w"> </span><span class="nx">vindo</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">WAN</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="k">in</span><span class="o">-</span><span class="kd">interface</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="nx">WAN</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"DROP Input WAN Restante"</span>
+
+<span class="err">#</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="w"> </span><span class="nx">Regra</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">FastTrack</span><span class="w"> </span><span class="nx">consciente</span><span class="w"> </span><span class="p">(</span><span class="nx">Forward</span><span class="p">)</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">fasttrack</span><span class="o">-</span><span class="nx">connection</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"FastTrack Estabelecidas"</span>
+</code></pre></div>
+
+<div class="callout callout-warning"><div class="callout-title">⚠️ ATENÇÃO OPERACIONAL</div><div class="callout-body">> **Atenção ao FastTrack com Queues/IPsec:** Se você utiliza Queue Trees complexas ou túneis IPsec pesados, o FastTrack pode ignorar o processamento das filas de QoS. Nesses casos específicos, o Analista N3 deve desativar o FastTrack para garantir priorização absoluta de pacotes.</div></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 04 — Engenharia Avançada MikroTik RouterOS</h1>
+<h2>04.3 Cloud DNS Dinâmico (<code>*.sn.mynetname.net</code>)</h2>
+<p>Muitas filiais e clínicas médicas não possuem planos de Internet com IP público estático. A contratação de IP fixo frequentemente encarece a mensalidade do cliente sem necessidade real, desde que a engenharia de redes utilize recursos inteligentes de DDNS.</p>
+<h3>O Serviço MikroTik Cloud DNS</h3>
+<p>A MikroTik fornece gratuitamente o serviço <strong>IP Cloud</strong>, que gera um nome DNS permanente atrelado ao número de série exclusivo da RouterBOARD:</p>
+<div class="codehilite"><pre><span></span><code># Habilitar DDNS e sincronização de horário
+/ip cloud
+set ddns-enabled=yes ddns-update-interval=1m update-time=yes
+</code></pre></div>
+
+<h3>Obtendo o Endereço Gerado</h3>
+<p>Ao executar o comando:</p>
+<div class="codehilite"><pre><span></span><code>/ip cloud print
+</code></pre></div>
+
+<p>O RouterOS retornará o FQDN oficial do dispositivo, no padrão:</p>
+<div class="codehilite"><pre><span></span><code>dns-name: 48920a1b2c3d.sn.mynetname.net
+</code></pre></div>
+
+<h3>Aplicação Prática na Operação Pulse TI</h3>
+<ol>
+<li><strong>Configuração de Túneis VPN:</strong> Em vez de apontar uma filial para um endereço IP volátil (<code>200.x.x.x</code>), o túnel WireGuard ou SSTP aponta para o endereço <code>sn.mynetname.net</code>.</li>
+<li><strong>Acesso Administrativo via Winbox:</strong> O Analista N3 acessa o roteador remotamente através de <code>48920a1b2c3d.sn.mynetname.net:8205</code>.</li>
+<li><strong>Catálogo no Pulse Control Web:</strong> O nome DNS é registrado no inventário do cliente, garantindo conexão contínua mesmo após reinicializações do modem da operadora.</li>
+</ol>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 04 — Engenharia Avançada MikroTik RouterOS</h1>
+<h2>04.4 VPNs Corporativas: NetBird Mesh, WireGuard v7, SSTP e EoIP</h2>
+<p>A interconexão segura entre filiais, datacenters e técnicos é uma das principais responsabilidades do Analista de Redes N3. A Pulse TI homologa quatro tecnologias principais, cada uma com seu objetivo claro:</p>
+<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph TD
+    A["VPNs Pulse TI"] --> B["NetBird Mesh (WireGuard)"]
+    A --> C["WireGuard Site-to-Site (RouterOS v7)"]
+    A --> D["SSTP Seguro (Porta 443 TCP)"]
+    A --> E["EoIP + IPsec (Camada 2 Transparente)"]</pre></div>
+
+<h3>1. NetBird Mesh VPN (Overlay WireGuard)</h3>
+<ul>
+<li><strong>Caso de Uso:</strong> Conexão zero-touch de estações de técnicos, servidores e VMs em qualquer provedor de nuvem.</li>
+<li><strong>Topologia:</strong> Mesh ponto a ponto direto através de orquestrador central com autenticação corporativa.</li>
+<li><strong>Vantagem:</strong> Atravessa CGNAT de operadoras de celular e fibra sem necessidade de portas abertas.</li>
+</ul>
+<h3>2. WireGuard Site-to-Site no RouterOS v7</h3>
+<ul>
+<li><strong>Caso de Uso:</strong> Enlace de alto desempenho e baixíssima latência entre a Matriz e Unidades Regionais (ex.: <code>112 - PRN Diagnósticos</code>).</li>
+<li><strong>Configuração no RouterOS v7:</strong></li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="p">#</span><span class="w"> </span><span class="n">Criar</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">WireGuard</span>
+<span class="o">/</span><span class="n">interface</span><span class="w"> </span><span class="n">wireguard</span>
+<span class="n">add</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="n">wg</span><span class="o">-</span><span class="n">matriz</span><span class="w"> </span><span class="n">listen</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mh">13231</span><span class="w"> </span><span class="n">private</span><span class="o">-</span><span class="n">key</span><span class="o">=</span><span class="s">"CHAVE_PRIVADA_GERADA"</span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Definir</span><span class="w"> </span><span class="n">IP</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">interface</span>
+<span class="o">/</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span>
+<span class="n">add</span><span class="w"> </span><span class="n">address</span><span class="o">=</span><span class="mf">10.250.0.1</span><span class="o">/</span><span class="mh">30</span><span class="w"> </span><span class="n">interface</span><span class="o">=</span><span class="n">wg</span><span class="o">-</span><span class="n">matriz</span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Adicionar</span><span class="w"> </span><span class="n">Peer</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">Filial</span>
+<span class="o">/</span><span class="n">interface</span><span class="w"> </span><span class="n">wireguard</span><span class="w"> </span><span class="n">peers</span>
+<span class="n">add</span><span class="w"> </span><span class="n">interface</span><span class="o">=</span><span class="n">wg</span><span class="o">-</span><span class="n">matriz</span><span class="w"> </span><span class="n">public</span><span class="o">-</span><span class="n">key</span><span class="o">=</span><span class="s">"CHAVE_PUBLICA_FILIAL"</span><span class="w"> </span><span class="n">\\</span>
+<span class="w">    </span><span class="n">allowed</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">10.250.0.2</span><span class="o">/</span><span class="mh">32</span><span class="p">,</span><span class="mf">192.168.10.0</span><span class="o">/</span><span class="mh">24</span><span class="w"> </span><span class="n">\\</span>
+<span class="w">    </span><span class="n">endpoint</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="s">"filial.sn.mynetname.net"</span><span class="w"> </span><span class="n">endpoint</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mh">13231</span><span class="w"> </span><span class="n">persistent</span><span class="o">-</span><span class="n">keepalive</span><span class="o">=</span><span class="mh">25</span><span class="n">s</span>
+</code></pre></div>
+
+<h3>3. SSTP (Secure Socket Tunneling Protocol)</h3>
+<ul>
+<li><strong>Caso de Uso:</strong> Contingência para ambientes extremamente restritivos onde portas UDP (WireGuard) ou IPsec são bloqueadas por firewalls de terceiros.</li>
+<li><strong>Vantagem:</strong> Trafega encapsulado em SSL/TLS padrão na porta TCP 443, passando por qualquer proxy web.</li>
+</ul>
+<h3>4. EoIP com IPsec (Ethernet over IP)</h3>
+<ul>
+<li><strong>Caso de Uso:</strong> Casos especiais onde matriz e filial precisam compartilhar a <strong>mesma rede de camada 2 (mesmo domínio de broadcast)</strong>, permitindo comunicação de softwares legados que não aceitam roteamento de pacotes.</li>
+</ul>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 04 — Engenharia Avançada MikroTik RouterOS</h1>
+<h2>04.5 QoS, Queues e Priorização de Tráfego de Produção</h2>
+<p>Em empresas médicas, callcenters (<code>142 - NXS</code>) ou indústrias, links de Internet podem sofrer saturação repentina por downloads, backups em nuvem ou vídeos em alta definição. Sem uma engenharia de Qualidade de Serviço (<strong>QoS</strong>), o tráfego crítico sofre atrasos inaceitáveis.</p>
+<h3>A Hierarquia de Prioridades Pulse TI</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: left;">Tipo de Tráfego</th>
+<th style="text-align: left;">Protocolos / Aplicações</th>
+<th style="text-align: left;">Tratamento no RouterOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>P1 (Crítica)</strong></td>
+<td style="text-align: left;">Telefonia IP &amp; VoIP</td>
+<td style="text-align: left;">SIP (5060 UDP), RTP (10000-20000 UDP)</td>
+<td style="text-align: left;">Banda reservada, sem buffering</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>P2 (Alta)</strong></td>
+<td style="text-align: left;">Sistemas de Gestão &amp; DNS</td>
+<td style="text-align: left;">TASY, Protheus, Optix PACS, DNS (53)</td>
+<td style="text-align: left;">Prioridade de fila 1, DSCP EF</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>P3 (Média)</strong></td>
+<td style="text-align: left;">Conexões Administrativas</td>
+<td style="text-align: left;">SSH, Winbox, RDP, NetBird VPN</td>
+<td style="text-align: left;">Prioridade de fila 3</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>P4 (Padrão)</strong></td>
+<td style="text-align: left;">Navegação Web &amp; E-mail</td>
+<td style="text-align: left;">HTTP (80), HTTPS (443)</td>
+<td style="text-align: left;">Prioridade de fila 6</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>P5 (Baixa)</strong></td>
+<td style="text-align: left;">Backups Cloud &amp; Downloads</td>
+<td style="text-align: left;">Rclone, Google Drive, Torrents</td>
+<td style="text-align: left;">Limitado em caso de contenção</td>
+</tr>
+</tbody>
+</table>
+<h3>Marcação de Pacotes no Mangle</h3>
+<div class="codehilite"><pre><span></span><code>/ip firewall mangle
+# Marcar conexões VoIP (SIP/RTP)
+add chain=prerouting action=mark-connection new-connection-mark=VOIP-CONN passthrough=yes protocol=udp port=5060,10000-20000 comment="Conn VoIP"
+add chain=prerouting action=mark-packet new-packet-mark=VOIP-PKT passthrough=no connection-mark=VOIP-CONN comment="Pkt VoIP"
+
+# Marcar conexões administrativas Winbox/SSH
+add chain=prerouting action=mark-connection new-connection-mark=ADMIN-CONN passthrough=yes protocol=tcp port=22022,8205 comment="Conn Admin"
+add chain=prerouting action=mark-packet new-packet-mark=ADMIN-PKT passthrough=no connection-mark=ADMIN-CONN comment="Pkt Admin"
+</code></pre></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 04 — Engenharia Avançada MikroTik RouterOS</h1>
+<h2>04.6 Rotinas de Backup Automatizado (.backup e .rsc)</h2>
+<p>Um dos erros mais graves de um administrador de redes júnior é salvar apenas o arquivo <code>.backup</code> binário da MikroTik. O <code>.backup</code> só pode ser restaurado no mesmo modelo de hardware com a mesma versão de firmware. Se a RouterBOARD queimar e precisar ser substituída por outro modelo, o arquivo <code>.backup</code> torna-se inútil.</p>
+<h3>A Regra Dupla de Backup MikroTik Pulse TI</h3>
+<p>Todo backup de MikroTik deve obrigatoriamente gerar dois arquivos:
+1. <strong>O binário <code>.backup</code>:</strong> Restauração rápida 1:1 no mesmo equipamento (preserva senhas criptografadas e certificados).
+2. <strong>O script legível <code>.rsc</code> (<code>export compact</code>):</strong> Export textual em texto limpo de todos os comandos de configuração. Permite importar as configurações em qualquer equipamento substituto, mesmo de modelo ou arquitetura diferente.</p>
+<h3>Script de Backup Agendado no RouterOS</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># ========================================================</span>
+<span class="c1"># SCRIPT DE EXPORT E BACKUP DIÁRIO PULSE TI</span>
+<span class="c1"># ========================================================</span>
+<span class="p">:</span><span class="n">local</span><span class="w"> </span><span class="n">devicename</span><span class="w"> </span><span class="p">[</span><span class="o">/</span><span class="n">system</span><span class="w"> </span><span class="n">identity</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">name</span><span class="p">]</span>
+<span class="p">:</span><span class="n">local</span><span class="w"> </span><span class="n">sysdate</span><span class="w"> </span><span class="p">[</span><span class="o">/</span><span class="n">system</span><span class="w"> </span><span class="n">clock</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">date</span><span class="p">]</span>
+<span class="p">:</span><span class="n">local</span><span class="w"> </span><span class="n">datestring</span><span class="w"> </span><span class="p">([:</span><span class="n">pick</span><span class="w"> </span><span class="o">$</span><span class="n">sysdate</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">11</span><span class="p">]</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s2">"-"</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="p">[:</span><span class="n">pick</span><span class="w"> </span><span class="o">$</span><span class="n">sysdate</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s2">"-"</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="p">[:</span><span class="n">pick</span><span class="w"> </span><span class="o">$</span><span class="n">sysdate</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="p">])</span>
+<span class="p">:</span><span class="n">local</span><span class="w"> </span><span class="n">backupfile</span><span class="w"> </span><span class="p">(</span><span class="o">$</span><span class="n">devicename</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s2">"-"</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="o">$</span><span class="n">datestring</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s2">".backup"</span><span class="p">)</span>
+<span class="p">:</span><span class="n">local</span><span class="w"> </span><span class="n">scriptfile</span><span class="w"> </span><span class="p">(</span><span class="o">$</span><span class="n">devicename</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s2">"-"</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="o">$</span><span class="n">datestring</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s2">".rsc"</span><span class="p">)</span>
+
+<span class="c1"># Gerar arquivo binário</span>
+<span class="o">/</span><span class="n">system</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="n">name</span><span class="o">=$</span><span class="n">backupfile</span>
+
+<span class="c1"># Gerar arquivo de script legível</span>
+<span class="o">/</span><span class="k">export</span><span class="w"> </span><span class="n">compact</span><span class="w"> </span><span class="n">file</span><span class="o">=$</span><span class="n">scriptfile</span>
+
+<span class="p">:</span><span class="nb">log</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="p">(</span><span class="s2">"Backup e Export gerados com sucesso: "</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="o">$</span><span class="n">backupfile</span><span class="p">)</span>
+</code></pre></div>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo V • MOD-05</div>
+            <div class="mod-title">Infraestrutura, Hipervisores & Sistemas Operacionais</div>
+            <div class="mod-desc">Proxmox VE em clusters ZFS, VMware ESXi hospitalar, Linux Server Hardening de produção, storages corporativos NAS e containers Docker.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 05 — Infraestrutura, Hipervisores &amp; Sistemas</h1>
+<h2>05.1 Hipervisores Corporativos: Proxmox VE, VMware ESXi e KVM</h2>
+<p>A virtualização moderna é a base dos servidores da Pulse TI. A migração de ambientes bare-metal para hipervisores do tipo bare-metal (Type 1) garante alta disponibilidade e agilidade em desastres.</p>
+<h3>Comparativo Homologado na Pulse TI</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Hipervisor</th>
+<th style="text-align: left;">Onde é Aplicado</th>
+<th style="text-align: left;">Vantagens Homologadas</th>
+<th style="text-align: left;">Ferramenta de Backup Nativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Proxmox VE (KVM/LXC)</strong></td>
+<td style="text-align: left;">Datacenter Cloud Pulse (<code>123 - PLS</code>) e Clientes On-Premise</td>
+<td style="text-align: left;">Código aberto, sem travas de licença, suporte a ZFS nativo, API REST.</td>
+<td style="text-align: left;">Proxmox Backup Server (PBS) com deduplicação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VMware ESXi</strong></td>
+<td style="text-align: left;">Ambientes Hospitalares (<code>092 - HST</code>) e Legados de Grande Porte</td>
+<td style="text-align: left;">Robustez corporativa, compatibilidade com appliances proprietários.</td>
+<td style="text-align: left;">Veeam Backup &amp; Replication ou scripts vzdump.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KVM Nativo Linux</strong></td>
+<td style="text-align: left;">Servidores dedicados leves (<code>080 - PCM</code>)</td>
+<td style="text-align: left;">Performance máxima bare-metal com overhead de CPU próximo a zero.</td>
+<td style="text-align: left;">Snapshots LVM e <code>qemu-img</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3>Boas Práticas de Configuração no Proxmox VE</h3>
+<ol>
+<li><strong>ZFS com Mirror / RAIDZ:</strong> Sempre utilizar ZFS com discos SSD corporativos (SAS ou NVMe), ativando compressão <code>lz4</code> nativa.</li>
+<li><strong>Separação de Rede (Bridges):</strong> Uma bridge (<code>vmbr0</code>) para a interface WAN pública e bridges dedicadas para VLANs internas de produção (<code>vmbr1.10</code>, <code>vmbr1.20</code>).</li>
+<li><strong>VirtIO como Padrão de Disco e Rede:</strong> Nunca usar emulação IDE ou E1000. VirtIO SCSI com <code>Discard=on</code> (TRIM) e VirtIO Net fornecem throughput até 3x superior.</li>
+</ol>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 05 — Infraestrutura, Hipervisores &amp; Sistemas</h1>
+<h2>05.2 Linux Server Hardening de Produção (Debian / Ubuntu / Rocky)</h2>
+<p>Servidores Linux expostos em nuvem ou em DMZs internas devem operar sob rigoroso processo de endurecimento (<strong>hardening</strong>).</p>
+<h3>Checklist de Hardening Obrigatório</h3>
+<ol>
+<li><strong>Desativação de Login Root por Senha:</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Em /etc/ssh/sshd_config:</span>
+PermitRootLogin<span class="w"> </span>prohibit-password
+PasswordAuthentication<span class="w"> </span>no
+PubkeyAuthentication<span class="w"> </span>yes
+</code></pre></div>
+
+<ol>
+<li><strong>Alteração da Porta SSH Padrão:</strong>
+Utilizar portas altas (ex.: <code>22022</code>) para eliminar 99% do ruído de bots de varredura.</li>
+<li><strong>Instalação e Ajuste do Fail2ban:</strong>
+Protege contra ataques de força bruta no SSH e serviços web:</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="c1"># /etc/fail2ban/jail.local</span>
+<span class="k">[sshd]</span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">22022</span>
+<span class="na">maxretry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">3</span>
+<span class="na">bantime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">86400</span>
+<span class="na">findtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">600</span>
+</code></pre></div>
+
+<ol>
+<li><strong>Firewall UFW ou Iptables Restritivo:</strong>
+Bloquear tudo por padrão e liberar apenas as portas necessárias:</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>ufw<span class="w"> </span>default<span class="w"> </span>deny<span class="w"> </span>incoming
+ufw<span class="w"> </span>default<span class="w"> </span>allow<span class="w"> </span>outgoing
+ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">22022</span>/tcp<span class="w"> </span>comment<span class="w"> </span><span class="s1">'SSH Administrativo'</span>
+ufw<span class="w"> </span><span class="nb">enable</span>
+</code></pre></div>
+
+<ol>
+<li><strong>Configuração de NTP e Fuso Horário:</strong>
+Garantir sincronismo absoluto com <code>pool.ntp.br</code> e timezone <code>America/Sao_Paulo</code>.</li>
+</ol>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 05 — Infraestrutura, Hipervisores &amp; Sistemas</h1>
+<h2>05.3 Storage Corporativo e NAS (Synology, TrueNAS, QNAP)</h2>
+<p>Em nossos clientes de diagnóstico médico e hospitais (<code>092 - HST</code>, <code>080 - PCM</code>, <code>112 - PRN</code>), o volume de arquivos de exames (raio-X, tomografia, ressonância em formato DICOM) atinge terabytes de informação sensível.</p>
+<h3>Arquitetura de Armazenamento NAS</h3>
+<ul>
+<li><strong>Protocolos Homologados:</strong></li>
+<li><strong>SMB 3.1.1 com Criptografia:</strong> Utilizado para compartilhamentos de estações Windows de radiologistas e recepção.</li>
+<li><strong>NFS v4:</strong> Utilizado para montagens de alta velocidade em servidores de aplicação Linux e clusters Docker.</li>
+<li><strong>iSCSI:</strong> Utilizado para fornecer LUNs diretas para hipervisores Proxmox ou VMware.</li>
+</ul>
+<h3>Diretrizes de Segurança em Compartilhamentos NAS</h3>
+<ol>
+<li><strong>Desativação Completa do Protocolo SMBv1:</strong> O SMBv1 possui vulnerabilidades críticas graves (como o EternalBlue / WannaCry). Homologamos estritamente SMBv2 e SMBv3.</li>
+<li><strong>Isolamento de Contas Administrativas:</strong> A conta <code>admin</code> padrão do storage deve ser desativada. O gerenciamento é feito por usuário nominal no cofre KeePass.</li>
+<li><strong>Snapshots Locais Imutáveis:</strong> Configuração de snapshots Btrfs ou ZFS no storage com retenção imutável de 14 dias (proteção contra ataques de Ransomware).</li>
+</ol>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 05 — Infraestrutura, Hipervisores &amp; Sistemas</h1>
+<h2>05.4 Docker &amp; Docker-Compose em Produção</h2>
+<p>O uso de contêineres Docker é padrão em nossas operações para hospedar serviços como Beszel Hub, Wiki.js, portais de laudos, pgAdmin e servidores web.</p>
+<h3>Padrão Homologado de <code>docker-compose.yml</code></h3>
+<p>Um arquivo <code>docker-compose.yml</code> de produção da Pulse TI deve seguir os seguintes critérios:
+- Definição explícita de política de reinício (<code>restart: unless-stopped</code>).
+- Mapeamento explícito de volumes persistentes (nunca deixar dados em camada efêmera).
+- Associação a redes dedicadas (<code>networks:</code> bridge isoladas).
+- Não expor portas de banco de dados diretamente no host quando o banco for consumido apenas por outro container da mesma stack.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.8'</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">app-web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:alpine</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pls-web-portal</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8080:80"</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./html:/usr/share/nginx/html:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./nginx.conf:/etc/nginx/nginx.conf:ro</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pulse-net</span>
+
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pulse-net</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+</code></pre></div>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo VI • MOD-06</div>
+            <div class="mod-title">Bancos de Dados Corporativos & Missão Crítica</div>
+            <div class="mod-desc">Tuning e rotinas customizadas de PostgreSQL, banco Oracle Database 19c com Philips TASY hospitalar, consistência MySQL InnoDB e sistemas médicos DICOM/PACS.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 06 — Bancos de Dados Corporativos &amp; Missão Crítica</h1>
+<h2>06.1 PostgreSQL: Tuning, Manutenção &amp; Backup <code>pg_dump</code></h2>
+<p>O PostgreSQL é o motor de dados de clientes chave da Pulse TI, como a Prodatus Informática (<code>062 - PRO</code>), CIEM (<code>109 - CIE</code>) e Tortas Doquinha (<code>133 - DOQ</code>).</p>
+<h3>Parâmetros Críticos de Tuning (<code>postgresql.conf</code>)</h3>
+<p>Para servidores com 16 GB de RAM dedicados a banco:
+- <code>shared_buffers = 4GB</code> (25% da memória física disponível).
+- <code>effective_cache_size = 12GB</code> (75% da memória física disponível).
+- <code>maintenance_work_mem = 1GB</code> (Acelera reindexação e rotinas de vacuum).
+- <code>work_mem = 32MB</code> (Memória por operação de ordenação/sort).
+- <code>checkpoint_completion_target = 0.9</code> (Suaviza I/O de escrita em disco).
+- <code>wal_buffers = 16MB</code>.</p>
+<h3>Rotina de Backup Homologada com <code>pg_dump</code> Custom Format (<code>-Fc</code>)</h3>
+<p>Nunca utilize dump em texto puro (<code>.sql</code>) para bancos em produção. O formato customizado (<code>-Fc</code> / Custom) é comprimido por padrão, permite restauração paralela multi-thread com <code>pg_restore -j 4</code> e possibilita selecionar tabelas isoladas na recuperação:</p>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># Script de Backup Oficial PostgreSQL Pulse TI</span>
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">"%Y-%m-%d_%H-%M-%S"</span><span class="k">)</span>
+<span class="nv">DB_NAME</span><span class="o">=</span><span class="s2">"setrauma"</span>
+<span class="nv">BACKUP_DIR</span><span class="o">=</span><span class="s2">"/var/backups/postgres"</span>
+<span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">BACKUP_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">DB_NAME</span><span class="si">}</span><span class="s2">_</span><span class="si">${</span><span class="nv">TIMESTAMP</span><span class="si">}</span><span class="s2">.dump"</span>
+
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$BACKUP_DIR</span><span class="s2">"</span>
+
+<span class="c1"># Executar pg_dump com formato customizado comprimido</span>
+pg_dump<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span><span class="w"> </span>-Fc<span class="w"> </span>-b<span class="w"> </span>-v<span class="w"> </span><span class="s2">"</span><span class="nv">$DB_NAME</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$FILE_NAME</span><span class="s2">"</span>
+
+<span class="c1"># Reter apenas os últimos 7 dias localmente</span>
+find<span class="w"> </span><span class="s2">"</span><span class="nv">$BACKUP_DIR</span><span class="s2">"</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*.dump"</span><span class="w"> </span>-mtime<span class="w"> </span>+7<span class="w"> </span>-delete
+</code></pre></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 06 — Bancos de Dados Corporativos &amp; Missão Crítica</h1>
+<h2>06.2 Oracle Database 19c &amp; Philips TASY Hospitalar</h2>
+<p>Nos hospitais atendidos pela Pulse TI (como a Fundação Hospital Santa Otília <code>124 - HSO</code> e Hospital Santa Teresinha <code>092 - HST</code>), o ERP de gestão hospitalar é o <strong>Philips TASY</strong>, rodando sobre banco de dados <strong>Oracle 19c Enterprise/Standard</strong>.</p>
+<h3>Particularidades Críticas do Oracle TASY</h3>
+<ol>
+<li><strong>Ambiente 24x7 Ininterrupto:</strong> Um hospital não para. Não existe "janela de manutenção" de 4 horas durante o dia. Qualquer intervenção no banco deve ser previamente alinhada com o NOC e executada em horários de menor afluência.</li>
+<li><strong>Modo ARCHIVELOG Obrigatório:</strong> O banco de dados Oracle deve operar permanentemente em modo <code>ARCHIVELOG</code>. Isso permite a recuperação pontual no tempo (<strong>Point-in-Time Recovery - PITR</strong>) até o minuto anterior a qualquer falha.</li>
+<li><strong>Backup via Oracle RMAN (Recovery Manager):</strong><br />
+   Os backups de bancos de dados Oracle não utilizam ferramentas convencionais de arquivo, mas sim o <strong>RMAN</strong>, integrado aos Archive Logs diários.</li>
+</ol>
+<h3>Estrutura Típica de Script RMAN</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">RUN</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">ALLOCATE</span><span class="w"> </span><span class="n">CHANNEL</span><span class="w"> </span><span class="n">ch1</span><span class="w"> </span><span class="n">DEVICE</span><span class="w"> </span><span class="k">TYPE</span><span class="w"> </span><span class="n">DISK</span><span class="p">;</span>
+<span class="w">    </span><span class="k">ALLOCATE</span><span class="w"> </span><span class="n">CHANNEL</span><span class="w"> </span><span class="n">ch2</span><span class="w"> </span><span class="n">DEVICE</span><span class="w"> </span><span class="k">TYPE</span><span class="w"> </span><span class="n">DISK</span><span class="p">;</span>
+<span class="w">    </span><span class="n">BACKUP</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">COMPRESSED</span><span class="w"> </span><span class="n">BACKUPSET</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span>
+<span class="w">        </span><span class="n">FORMAT</span><span class="w"> </span><span class="s1">'/backup/oracle/tasy_%d_%T_%s_%p.bkp'</span>
+<span class="w">        </span><span class="n">PLUS</span><span class="w"> </span><span class="n">ARCHIVELOG</span><span class="w"> </span>
+<span class="w">        </span><span class="n">FORMAT</span><span class="w"> </span><span class="s1">'/backup/oracle/arch_%d_%T_%s_%p.bkp'</span>
+<span class="w">        </span><span class="k">DELETE</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">INPUT</span><span class="p">;</span>
+<span class="w">    </span><span class="n">RELEASE</span><span class="w"> </span><span class="n">CHANNEL</span><span class="w"> </span><span class="n">ch1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">RELEASE</span><span class="w"> </span><span class="n">CHANNEL</span><span class="w"> </span><span class="n">ch2</span><span class="p">;</span>
+<span class="err">}</span>
+</code></pre></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 06 — Bancos de Dados Corporativos &amp; Missão Crítica</h1>
+<h2>06.3 MySQL &amp; MariaDB de Alta Confiabilidade</h2>
+<p>Em portais web, servidores corporativos e no próprio webserver legado da Pulse TI (<code>123 - PLS</code>), bases MySQL e MariaDB exigem parâmetros adequados para evitar travamentos de tabelas (<strong>table locks</strong>) durante backups.</p>
+<h3>A Flag Mandatória: <code>--single-transaction</code></h3>
+<p>Ao executar <code>mysqldump</code> em tabelas do motor <strong>InnoDB</strong>, a flag <code>--single-transaction</code> é indispensável:</p>
+<div class="codehilite"><pre><span></span><code>mysqldump<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--single-transaction<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--quick<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--routines<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--triggers<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--events<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--databases<span class="w"> </span>bz_db<span class="w"> </span>hesk_db<span class="w"> </span>&gt;<span class="w"> </span>/backup/mysql/pulse_dbs_<span class="k">$(</span>date<span class="w"> </span>+%F<span class="k">)</span>.sql
+</code></pre></div>
+
+<h3>Por Que Usar Essas Flags?</h3>
+<ul>
+<li><code>--single-transaction</code>: Cria um snapshot consistente em nível de transação sem travar as tabelas para leitura ou escrita. O usuário final continua utilizando o sistema sem notar lentidão.</li>
+<li><code>--quick</code>: Força o dump a ler linha por linha do servidor, evitando descarregar tabelas gigantescas na memória RAM antes de escrever no disco.</li>
+<li><code>--routines --triggers --events</code>: Garante que stored procedures, triggers e agendamentos internos do MySQL sejam salvaguardados.</li>
+</ul>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 06 — Bancos de Dados Corporativos &amp; Missão Crítica</h1>
+<h2>06.4 Ambientes Médicos, PACS Optix, Mobilemed e DICOM</h2>
+<p>A Pulse TI possui vasta especialização na gestão de clínicas de radiologia e medicina diagnóstica (<code>053 - WAG</code>, <code>099 - CIT</code>, <code>112 - PRN</code>, <code>121 - MED</code>).</p>
+<h3>O Ecossistema de Diagnóstico por Imagem</h3>
+<ul>
+<li><strong>PACS (Picture Archiving and Communication System):</strong> Servidores responsáveis pelo armazenamento, transmissão e exibição de exames médicos (ex.: Optix PACS, Mobilemed).</li>
+<li><strong>Protocolo DICOM (Digital Imaging and Communications in Medicine):</strong> Protocolo de rede que comunica tomógrafos, aparelhos de ultrassom e ressonâncias magnéticas com o servidor PACS.</li>
+</ul>
+<h3>Desafios de Engenharia em Redes DICOM</h3>
+<ol>
+<li><strong>Latência e Throughput:</strong> Um exame de tomografia computadorizada moderno pode conter mais de 2.000 fatias de imagem de alta resolução em um único estudo (pesando centenas de megabytes). A rede local das estações de laudo deve operar em Gigabit Ethernet puro ou 10 GbE.</li>
+<li><strong>Conformidade Legal de Guarda:</strong> No Brasil, a legislação do CFM e ANVISA exige a guarda segura de exames e laudos médicos por <strong>no mínimo 20 anos</strong>. Portanto, a estratégia de armazenamento exige replicação multi-nuvem imutável (AWS S3 Glacier ou Wasabi Cloud).</li>
+</ol>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo VII • MOD-07</div>
+            <div class="mod-title">Backup Estratégico, Nuvem & Disaster Recovery (DRP)</div>
+            <div class="mod-desc">A regra de ouro 3-2-1-1-0, ciclo de retenção GFS, automação multi-nuvem com Rclone, auditoria contínua de integridade e homologação de plano de desastre.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 07 — Backup Estratégico, Nuvem &amp; DRP</h1>
+<h2>07.1 A Regra de Ouro 3-2-1-1-0 e Política de Rotação GFS</h2>
+<p>Na engenharia de infraestrutura da Pulse TI, "fazer backup" não é um script jogado em um pendrive. É uma política arquitetural estrita que segue a evolução máxima da consagrada regra 3-2-1.</p>
+<h3>A Regra 3-2-1-1-0</h3>
+<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph TD
+    A["Dados Originais de Produção"] --> B["3 Cópias dos Dados"]
+    B --> C["2 Mídias Físicas Distintas (Ex: NVMe Local + Storage NAS)"]
+    C --> D["1 Cópia Offsite em Nuvem (Google Drive / Wasabi / AWS S3)"]
+    D --> E["1 Cópia Imutável ou Offline (WORM / Air-Gapped / Snapshots)"]
+    E --> F["0 Erros após Teste Mandatório de Restauração"]</pre></div>
+
+<h3>Política de Rotação GFS (Grandfather-Father-Son)</h3>
+<p>Para evitar que o armazenamento em nuvem estoure e manter um histórico confiável de restauração, aplicamos o ciclo GFS:
+- <strong>Son (Filho - Diário):</strong> Backups incrementais ou diários com retenção de <strong>7 a 14 dias</strong>.
+- <strong>Father (Pai - Semanal):</strong> Backups consolidados de final de semana com retenção de <strong>4 a 5 semanas</strong>.
+- <strong>Grandfather (Avô - Mensal):</strong> Backups de fechamento de mês com retenção de <strong>12 meses</strong>.
+- <strong>Anual:</strong> Backups históricos salvos permanentemente em armazenamento frio (Cold Storage).</p>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 07 — Backup Estratégico, Nuvem &amp; DRP</h1>
+<h2>07.2 Automação Multi-Nuvem com Rclone (Google Drive, AWS S3, Wasabi)</h2>
+<p>O <strong>Rclone</strong> é a ferramenta oficial homologada pela Pulse TI para sincronização, espelhamento e expurgo de arquivos de backup entre servidores locais e provedores de nuvem.</p>
+<h3>Comando Homologado de Sincronização Segura</h3>
+<div class="codehilite"><pre><span></span><code>rclone<span class="w"> </span>sync<span class="w"> </span>/var/backups/postgres<span class="w"> </span>gdrive-pulse:Clientes/062-PRO/Backups<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--log-file<span class="o">=</span>/var/log/rclone_backup.log<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--log-level<span class="o">=</span>INFO<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--transfers<span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--checkers<span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--contimeout<span class="o">=</span>60s<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--timeout<span class="o">=</span>300s<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--retries<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--stats<span class="o">=</span>1m
+</code></pre></div>
+
+<h3>Regras Críticas no Uso do Rclone</h3>
+<ol>
+<li><strong>Diferença entre <code>copy</code> e <code>sync</code>:</strong></li>
+<li><code>rclone copy</code>: Apenas copia novos arquivos e atualizações. Nunca deleta nada no destino.</li>
+<li><code>rclone sync</code>: Torna o destino <strong>idêntico</strong> à origem. Se um arquivo for deletado localmente, ele será apagado na nuvem. <strong>Use <code>sync</code> apenas em pastas de rotação diária que já possuem expurgo local configurado.</strong></li>
+<li><strong>Criptografia Rclone (Crypt Remote):</strong> Para clientes de medicina diagnóstica ou dados bancários, utiliza-se a camada <code>rclone crypt</code> para criptografar os dados em trânsito e em repouso na nuvem com chaves mantidas exclusivamente no cofre KeePass da Pulse TI.</li>
+</ol>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 07 — Backup Estratégico, Nuvem &amp; DRP</h1>
+<h2>07.3 Políticas de Retenção &amp; Auditoria Automatizada</h2>
+<p>De nada adianta ter scripts de backup configurados se ninguém verifica se eles estão realmente rodando. O "backup invisível" que falha silenciosamente durante semanas é o pesadelo de qualquer operação de TI.</p>
+<h3>A Skill <code>backup-inspector</code></h3>
+<p>Para garantir a integridade de todos os 25 clientes, a Pulse TI utiliza a skill e script automatizado <code>backup-inspector</code>:
+- <strong>Varredura Contínua:</strong> Analisa diariamente a pasta <code>05 - BACKUP E SEGURANCA</code> de cada cliente no workspace.
+- <strong>Detecção de Defasagem:</strong> Alerta se o dump mais recente tiver data anterior a 24 horas em bancos de missão crítica.
+- <strong>Verificação de Tamanho Mínimo:</strong> Alerta se um arquivo de backup tiver tamanho suspeito (ex.: um banco de dados que sempre gera arquivos de 5 GB subitamente gera um arquivo de 10 KB devido a um erro de autenticação).</p>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 07 — Backup Estratégico, Nuvem &amp; DRP</h1>
+<h2>07.4 O Teste Mandatório de Restauração &amp; DRP (Disaster Recovery Plan)</h2>
+<blockquote>
+<p><strong>"A única certeza de que você possui um backup é o teste bem-sucedido de restauração."</strong></p>
+</blockquote>
+<h3>O Plano de Recuperação de Desastres (DRP)</h3>
+<p>O DRP define o passo a passo exato a ser executado quando um servidor queima, um storage é corrompido ou uma unidade sofre um ataque cibernético.</p>
+<h3>Indicadores Obrigatórios de DRP</h3>
+<ul>
+<li><strong>RPO (Recovery Point Objective):</strong> Quanto tempo de perda de dados a empresa tolera. Na Pulse TI, o RPO padrão para bancos hospitalares e ERPs é de no máximo <strong>1 hora</strong> (via archive logs) e para sistemas administrativos de <strong>24 horas</strong>.</li>
+<li><strong>RTO (Recovery Time Objective):</strong> Quanto tempo o time de engenharia leva para colocar o ambiente em operação novamente após o desastre. Nosso RTO alvo para serviços críticos é de <strong>2 a 4 horas</strong>.</li>
+</ul>
+<h3>Homologação Periódica de Restauração</h3>
+<p>A cada trimestre, o Analista de Redes N3 realiza a restauração do dump de um cliente em um ambiente de testes isolado (Sandbox no Proxmox ou VirtualBox em <code>000 - EDU</code>), validando:
+1. Se o banco sobe sem erros de integridade relacional.
+2. Se a aplicação consegue autenticar e ler os últimos registros cadastrados.
+3. Se os índices e triggers estão íntegros.</p>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo VIII • MOD-08</div>
+            <div class="mod-title">Observabilidade, Monitoramento & Métricas Operacionais</div>
+            <div class="mod-desc">Zabbix Enterprise com SNMP e histerese, Beszel Hub moderno para servidores Linux e containers Docker, Grafana e prevenção de fadiga de alertas.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 08 — Observabilidade &amp; Monitoramento</h1>
+<h2>08.1 Zabbix Enterprise: SNMP, Agentes &amp; Triggers com Histerese</h2>
+<p>O <strong>Zabbix Server</strong> (<code>123 - PLS</code>) é a plataforma de monitoramento corporativo tradicional da Pulse TI, responsável por coletar dados de switches, roteadores MikroTik, interfaces WAN e servidores.</p>
+<h3>Boas Práticas Homologadas em Zabbix</h3>
+<ol>
+<li><strong>SNMP v2c e v3 com Community Não-Padrão:</strong> Nunca utilizar a community <code>public</code>. Em todos os equipamentos dos clientes, a community é alterada para um padrão alfanumérico seguro configurado exclusivamente no Zabbix Server.</li>
+<li><strong>Uso de Zabbix Agent 2:</strong> Nos servidores Linux e Windows, adotamos preferencialmente o <strong>Zabbix Agent 2</strong>, desenvolvido em Go, com suporte a plugins nativos e menor consumo de recursos.</li>
+<li><strong>Triggers Inteligentes com Histerese:</strong> Evitar triggers que disparam e resolvem a cada segundo gerando rajadas de notificações. Utilizar funções de média e histerese:</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Disparar alarme quando o uso de CPU ultrapassar 90% na média dos últimos 5 minutos:</span>
+<span class="na">min(/HOST-LINUX/system.cpu.util,5m) &gt; 90</span>
+
+<span class="c1"># Resolver o alarme apenas quando a CPU cair abaixo de 75%:</span>
+<span class="na">max(/HOST-LINUX/system.cpu.util,5m) &lt; 75</span>
+</code></pre></div>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 08 — Observabilidade &amp; Monitoramento</h1>
+<h2>08.2 Beszel Hub: O Monitoramento Ultraleve para MSPs</h2>
+<p>Enquanto o Zabbix é robusto e complexo, o <strong>Beszel Hub</strong> (<code>https://bz.pulseti.cloud-ip.cc</code>) é a solução moderna, ágil e ultraleve adotada pela Pulse TI para monitorar servidores, VMs e containers Docker em tempo real.</p>
+<h3>Por Que Adotamos o Beszel?</h3>
+<ul>
+<li><strong>Agente Binário Mínimo:</strong> Consumo de CPU inferior a 0.5% e menos de 20 MB de RAM.</li>
+<li><strong>Docker First:</strong> Detecta automaticamente todos os contêineres Docker em execução na máquina, monitorando consumo de CPU e memória individual sem qualquer configuração manual.</li>
+<li><strong>Métricas Essenciais Instantâneas:</strong> CPU, RAM, uso de discos, I/O de armazenamento, largura de banda de rede e temperatura.</li>
+<li><strong>API REST Integrada:</strong> Permite o provisionamento e cadastro automatizado de novos servidores através de scripts e skills (<code>beszel-manager</code>).</li>
+</ul>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 08 — Observabilidade &amp; Monitoramento</h1>
+<h2>08.3 Grafana: Dashboards &amp; Métricas Operacionais</h2>
+<p>O <strong>Grafana</strong> atua como a interface visual e analítica da nossa infraestrutura, consolidando métricas provenientes do Zabbix, bancos de dados e fontes de séries temporais.</p>
+<h3>Tipos de Dashboards Utilizados</h3>
+<ol>
+<li><strong>NOC Central Pulse TI (Visão Global):</strong> Telão de monitoramento que exibe em tempo real o status dos 25 clientes, indicando perdas de conectividade, links caídos e latência de rotas principais.</li>
+<li><strong>Dashboard de Capacidade (Capacity Planning):</strong> Indicadores de tendência de crescimento de disco e consumo de RAM, permitindo alertar o cliente com antecedência antes que o storage fique sem espaço.</li>
+<li><strong>Dashboard Executivo para Clientes:</strong> Relatórios visuais limpos apresentados em reuniões de prestação de contas, demonstrando a estabilidade da infraestrutura e cumprimento de SLAs.</li>
+</ol>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 08 — Observabilidade &amp; Monitoramento</h1>
+<h2>08.4 Matriz de Severidade &amp; Prevenção de Fadiga de Alertas</h2>
+<p>A "fadiga de alertas" (<strong>Alert Fatigue</strong>) é uma das doenças operacionais mais perigosas da TI. Se os técnicos recebem 500 mensagens de alerta por dia no WhatsApp ou Telegram, eles passam a ignorar todas as notificações. Quando um servidor de missão crítica realmente cai, ninguém reage.</p>
+<h3>A Matriz de Severidade Pulse TI</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nível de Severidade</th>
+<th style="text-align: left;">Impacto Técnico</th>
+<th style="text-align: left;">Canal de Notificação</th>
+<th style="text-align: left;">Ação Requerida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Info / Aviso</strong></td>
+<td style="text-align: left;">Evento sem impacto operacional imediato (ex.: novo usuário logado).</td>
+<td style="text-align: left;">Apenas log e dashboard.</td>
+<td style="text-align: left;">Nenhuma ação imediata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Média</strong></td>
+<td style="text-align: left;">Degradação não-crítica (ex.: uso de disco em 80%, link secundário caiu).</td>
+<td style="text-align: left;">Canal de monitoramento silencioso.</td>
+<td style="text-align: left;">Tratamento em horário comercial.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alta</strong></td>
+<td style="text-align: left;">Risco iminente de parada (ex.: CPU em 95% há 30 min, banco com conexões esgotando).</td>
+<td style="text-align: left;">Alerta no grupo de engenharia.</td>
+<td style="text-align: left;">Resolução prioritária pelo N2/N3.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Desastre / Crítica</strong></td>
+<td style="text-align: left;">Queda total de serviço essencial (ex.: hospital sem sistema TASY, roteador de borda inalcançável).</td>
+<td style="text-align: left;">Notificação push sonora + acionamento do plantão N3.</td>
+<td style="text-align: left;">Ação imediata em regime de emergência.</td>
+</tr>
+</tbody>
+</table>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo IX • MOD-09</div>
+            <div class="mod-title">Gestão de Operações, Helpdesk & Tempo</div>
+            <div class="mod-desc">Central Hesk com primeira resposta mandatória, regra de ouro dos blocos redondos de 30 minutos, código visual de cores no Google Calendar e criação de POPs N1/N2.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 09 — Gestão de Operações, Helpdesk &amp; Tempo</h1>
+<h2>09.1 Gestão de Chamados no Hesk Helpdesk e APIs de Automação</h2>
+<p>A central oficial de chamados e suporte da Pulse TI opera no <strong>Hesk Helpdesk</strong> (<code>https://help.pulseti.com</code>), sob governança da Matriz Pulse TI (<code>002 - PTI - Pulse TI</code>).</p>
+<h3>A Diretriz da Primeira Resposta Técnica Imediata</h3>
+<p>Devido à integração de qualidade e SLAs contratados com nossos clientes:</p>
+<blockquote>
+<p><strong>Todo chamado aberto no Hesk DEVE conter obrigatoriamente uma primeira resposta técnica imediata informando o escopo inicial da intervenção.</strong></p>
+</blockquote>
+<h3>Automação via Skill <code>hesk-ticket-logger</code></h3>
+<p>Sempre que o engenheiro inicia uma intervenção técnica relatada no chat ou console, o assistente executa o script oficial:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="s2">".agents/skills/hesk-ticket-logger/scripts/create_ticket.py"</span> <span class="p">`</span>
+    <span class="p">-</span><span class="n">-client</span> <span class="s2">"PRN"</span> <span class="p">`</span>
+    <span class="p">-</span><span class="n">-title</span> <span class="s2">"Manutenção Preventiva em Switch de Borda"</span> <span class="p">`</span>
+    <span class="p">-</span><span class="n">-body</span> <span class="s2">"Iniciando verificação de firmware e redundância de portas."</span> <span class="p">`</span>
+    <span class="p">-</span><span class="n">-calendar</span>
+</code></pre></div>
+
+<p>O script:
+1. Registra o chamado via API REST no Hesk.
+2. Adiciona automaticamente a primeira nota técnica de acolhimento.
+3. Gera o evento correspondente na agenda do Google Calendar vinculado ao link público de rastreio (<code>https://help.pulseti.com/ticket.php?track={TRACKID}</code>).</p>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 09 — Gestão de Operações, Helpdesk &amp; Tempo</h1>
+<h2>09.2 A Regra de Ouro dos Blocos Redondos de 30 Minutos</h2>
+<p>A apuração de horas em uma operação MSP de alta performance deve ser transparente, previsível e justa para o cliente e para a empresa prestadora.</p>
+<h3>As Diretrizes da Regra de 30 Minutos</h3>
+<ol>
+<li><strong>Alinhamento Estrito em Meia Hora:</strong> Todo registro de tempo na agenda ou chamado deve iniciar e terminar em horários redondos: <code>:00</code> ou <code>:30</code> (ex.: <code>08:00</code>, <code>08:30</code>, <code>09:00</code>, <code>09:30</code>, <code>10:00</code>, <code>10:30</code>, <code>11:00</code>...).</li>
+<li><strong>Duração Mínima:</strong> A duração mínima de faturamento ou registro de qualquer chamado, auditoria ou intervenção é de <strong>30 minutos</strong>.</li>
+<li><strong>Múltiplos Estritos:</strong> Se um atendimento durar 35 minutos, ele é contabilizado no bloco de <strong>60 minutos</strong>. Se durar 70 minutos, progride para o bloco de <strong>90 minutos</strong>.</li>
+<li><strong>Documentação no Chamado:</strong> O período contabilizado (<code>HH:MM às HH:MM</code>) e a duração total em blocos devem constar compulsoriamente nas notas de encerramento do chamado no Hesk.</li>
+</ol>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 09 — Gestão de Operações, Helpdesk &amp; Tempo</h1>
+<h2>09.3 Classificação Visual por Cores no Google Calendar</h2>
+<p>O Google Calendar da engenharia de redes da Pulse TI não é apenas uma agenda pessoal: é um painel visual imediato do tipo de esforço técnico aplicado em cada cliente.</p>
+<h3>A Tabela Oficial de Cores Homologada</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID da Cor</th>
+<th style="text-align: center;">Cor Visual</th>
+<th style="text-align: left;">Categoria Técnica de Atuação</th>
+<th style="text-align: left;">Exemplos de Atividades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong><code>colorId: 9</code></strong></td>
+<td style="text-align: center;">🔵 <strong>Azul</strong></td>
+<td style="text-align: left;"><strong>Redes e Conectividade</strong></td>
+<td style="text-align: left;">MikroTik, VPNs, Switches, Firewalls, DNS, VLANs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>colorId: 6</code></strong></td>
+<td style="text-align: center;">🟠 <strong>Laranja</strong></td>
+<td style="text-align: left;"><strong>Servidores &amp; Datacenter / VMs</strong></td>
+<td style="text-align: left;">Proxmox VE, VMware, Linux Server, Storage NAS</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>colorId: 10</code></strong></td>
+<td style="text-align: center;">🟢 <strong>Verde</strong></td>
+<td style="text-align: left;"><strong>Sistemas &amp; Aplicações</strong></td>
+<td style="text-align: left;">Docker, Hesk, Protheus, Optix PACS, Tomcat</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>colorId: 2</code></strong></td>
+<td style="text-align: center;">🍏 <strong>Verde Claro</strong></td>
+<td style="text-align: left;"><strong>Bancos de Dados</strong></td>
+<td style="text-align: left;">PostgreSQL, Oracle 19c TASY, MySQL, pgAdmin</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>colorId: 3</code></strong></td>
+<td style="text-align: center;">🟣 <strong>Roxo</strong></td>
+<td style="text-align: left;"><strong>Backup, Segurança &amp; KeePass</strong></td>
+<td style="text-align: left;">Rclone, Políticas DRP, Cofre de Senhas, Auditorias</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>colorId: 7</code></strong></td>
+<td style="text-align: center;">🩵 <strong>Turquesa</strong></td>
+<td style="text-align: left;"><strong>Documentação Técnica &amp; POPs</strong></td>
+<td style="text-align: left;">Elaboração de Runbooks, Auditoria de Workspace</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>colorId: 4</code></strong></td>
+<td style="text-align: center;">🌸 <strong>Rosa</strong></td>
+<td style="text-align: left;"><strong>Reuniões &amp; Alinhamentos</strong></td>
+<td style="text-align: left;">Alinhamentos semanais, reuniões executivas de NOC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>colorId: 11</code></strong></td>
+<td style="text-align: center;">🔴 <strong>Vermelho</strong></td>
+<td style="text-align: left;"><strong>Incidentes Críticos &amp; Emergências</strong></td>
+<td style="text-align: left;">Paradas de produção, quedas totais, resposta a crises</td>
+</tr>
+</tbody>
+</table>
+<h3>Disparo Obrigatório para <code>redes@pulseti.com</code></h3>
+<p>Todo evento criado via CLI ou API deve conter compulsoriamente o parâmetro:</p>
+<div class="codehilite"><pre><span></span><code>--attendee<span class="w"> </span><span class="s2">"redes@pulseti.com"</span><span class="w"> </span>--send-updates<span class="w"> </span>all
+</code></pre></div>
+
+<p>Garantindo que a equipe de engenharia e os plantonistas recebam o aviso do agendamento em tempo real.</p>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 09 — Gestão de Operações, Helpdesk &amp; Tempo</h1>
+<h2>09.4 Elaboração de POPs e Runbooks N1/N2 à Prova de Falhas</h2>
+<p>Um <strong>Procedimento Operacional Padrão (POP / Runbook)</strong> é o documento que permite que um operador nível 1 ou estagiário execute uma tarefa complexa com o mesmo rigor e precisão de um Analista de Redes N3.</p>
+<h3>O Padrão Ouro de Estrutura de POP Pulse TI</h3>
+<div class="codehilite"><pre><span></span><code><span class="gh"># POP-[SIGLA]-[NUMERO] — [Nome Claro do Procedimento]</span>
+
+<span class="gu">## 1. Metadados do Procedimento</span>
+| Campo | Detalhe |
+| :--- | :--- |
+| <span class="gs">**Cliente / Projeto**</span> | [CODIGO] - [SIGLA] - [Nome do Cliente] |
+| <span class="gs">**Elaborado por**</span> | Eduardo Pires (Analista de Redes N3) |
+| <span class="gs">**Nível Operacional**</span> | N1 / N2 / N3 |
+| <span class="gs">**Data de Homologação**</span>| DD/MM/YYYY |
+| <span class="gs">**Objetivo**</span> | Descrever em uma frase o que o POP resolve |
+
+<span class="gu">## 2. Pré-requisitos &amp; Riscos</span>
+<span class="k">-</span><span class="w"> </span>Acessos necessários no KeePass.
+<span class="k">-</span><span class="w"> </span>Nível de impacto (ex.: Causa indisponibilidade momentânea de rede?).
+
+<span class="gu">## 3. Passo a Passo Técnico de Execução</span>
+Comandos exatos em blocos de código com prints ou saídas esperadas.
+
+<span class="gu">## 4. Validação e Teste de Conformidade</span>
+Como o operador comprova que o procedimento funcionou com sucesso.
+
+<span class="gu">## 5. Procedimento de Rollback (Plano de Retorno)</span>
+Se algo der errado, como desfazer a alteração imediatamente.
+</code></pre></div>
+            </div>
+            
+
+        <div class="module-divider">
+            <div class="mod-number">Módulo X • MOD-10</div>
+            <div class="mod-title">Automação, IA Ops & O Livro Autoatualizável</div>
+            <div class="mod-desc">Engenharia de prompts para infraestrutura, ecossistema de skills especializadas, sincronização trilateral contínua e a arquitetura desta obra viva.</div>
+        </div>
+        
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 10 — Automação, IA Ops &amp; O Livro Autoatualizável</h1>
+<h2>10.1 Engenharia de Prompts &amp; IA Integrada à Operação (AIOps)</h2>
+<p>O Analista de Redes do futuro não digita scripts repetitivos manualmente: ele atua como <strong>maestro de inteligências artificiais</strong>, direcionando agentes autônomos para investigar incidentes, auditar conformidades e gerar documentações padronizadas.</p>
+<h3>O Papel do AIOps no Workspace Pulse TI</h3>
+<ul>
+<li><strong>Leitura de Contexto Global:</strong> Os agentes leem as regras canônicas (<code>AGENTS.md</code>), o catálogo de empresas (<code>EMPRESAS.md</code>) e a wiki (<code>WIKI.md</code>), operando estritamente dentro da governança da empresa.</li>
+<li><strong>Redução de Erros Humanos:</strong> A IA impede que senhas sejam inseridas em texto puro, formata datas compulsoriamente no padrão brasileiro <code>DD/MM/YYYY</code> e categoriza eventos de agenda pelas cores exatas de cada especialidade.</li>
+</ul>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 10 — Automação, IA Ops &amp; O Livro Autoatualizável</h1>
+<h2>10.2 Construção de Skills e Agentes Especialistas</h2>
+<p>No diretório <code>.agents/skills/</code>, mantemos um ecossistema de habilidades especializadas que expandem a inteligência artificial para interagir com o mundo físico da infraestrutura:</p>
+<div class="diagram-box"><div class="diagram-header">📊 DIAGRAMA DE FLUXO & ARQUITETURA</div><pre class="diagram-code">graph TD
+    A["Agentes & Skills Pulse TI"] --> B["mikrotik-helper: Geração de scripts RouterOS v6/v7"]
+    A --> C["beszel-manager: Provisionamento e métricas de servidores"]
+    A --> D["hesk-ticket-logger: Gestão completa de chamados e API"]
+    A --> E["daily-calendar-logger: Registro e cores no Google Calendar"]
+    A --> F["backup-inspector: Auditoria de rotinas de dumps"]
+    A --> G["pulse-client-auditor: Validação das 6 categorias estruturais"]</pre></div>
+
+<p>Cada skill possui sua instrução YAML de frontmatter, scripts em Python ou PowerShell e testes automatizados.</p>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 10 — Automação, IA Ops &amp; O Livro Autoatualizável</h1>
+<h2>10.3 Sincronização Contínua: Workspace, Wiki.js &amp; Git</h2>
+<p>A documentação da Pulse TI vive em constante sincronismo trilateral:
+1. <strong>Google Drive Workspace (<code>G:\Meu Drive\2K26\Clientes-Pulse-TI</code>):</strong> O armazenamento operacional diário de arquivos de configuração, POPs e relatórios.
+2. <strong>Wiki.js Central (<code>kb.pulseti.cloud-ip.cc</code>):</strong> O portal corporativo acessível pelo navegador para consulta rápida de procedimentos por qualquer analista. A sincronização é garantida pelo motor automatizado <code>sync_pulse_kb.py</code> disparável via <code>sync_kb.bat</code>.
+3. <strong>Repositórios Git / GitHub:</strong> Repositórios versionados para códigos de automação, scripts de infraestrutura e esta obra viva.</p>
+            </div>
+            
+
+            <div class="chapter-content page-break">
+                <h1>Módulo 10 — Automação, IA Ops &amp; O Livro Autoatualizável</h1>
+<h2>10.4 A Engenharia por Trás Deste Livro Vivo</h2>
+<p>Este livro não é um arquivo PDF estático que envelhece na prateleira digital. Ele é um <strong>Livro Vivo e Autoatualizável</strong> conectado diretamente à evolução contínua da engenharia da Pulse TI.</p>
+<h3>A Mecânica da Autoatualização</h3>
+<ol>
+<li><strong>Auditoria Automatizada Local (<code>scripts/update_book.py</code>):</strong></li>
+<li>Inspeciona o estado da infraestrutura e dos clientes.</li>
+<li>Atualiza a contagem de ativos, capítulos e conformidades.</li>
+<li>Alimenta automaticamente o <a href="../changelog.md">Histórico &amp; Changelog</a> com a data brasileira atual (<code>DD/MM/YYYY</code>).</li>
+<li><strong>Esteira de Integração Contínua (GitHub Actions):</strong></li>
+<li>Ao receber o commit e push na branch <code>main</code>, a action <code>.github/workflows/gh-pages.yml</code> compila o site MkDocs Material.</li>
+<li>O livro é publicado automaticamente na web no endereço:<br />
+<code>https://epiresonline.github.io/profissao-analista-de-redes/</code></li>
+<li><strong>Execução em Um Clique:</strong>
+   O Analista de Redes N3 pode acionar o script <code>update_book.bat</code> a qualquer momento para consolidar e publicar novas descobertas e POPs criados no dia a dia.</li>
+</ol>
+            </div>
+            
+
+        <div class="chapter-content page-break">
+            <h1>📜 Histórico de Atualizações do Livro (Changelog)</h1>
+<p>Todas as alterações estruturais, novos procedimentos homologados e atualizações nesta obra são registradas com a data brasileira mandatória (<code>DD/MM/YYYY</code>) e assinadas por <strong>Eduardo Pires (Analista de Redes N3)</strong>.</p>
+<hr />
+<h3>Versão 1.0.0 — 16/11/2026</h3>
+<ul>
+<li><strong>Lançamento Oficial da Obra:</strong> "Profissão: Analista de Redes &amp; Engenheiro de Infraestrutura N3".</li>
+<li><strong>Publicação dos 10 Módulos Fundamentais:</strong></li>
+<li>Módulo 01: Fundamentos &amp; Mentalidade MSP.</li>
+<li>Módulo 02: Governança, Taxonomia e Gestão de Workspace Multi-Tenant (25 Clientes).</li>
+<li>Módulo 03: Segurança Zero-Trust, Cofres de Credenciais e Convenções de Acesso.</li>
+<li>Módulo 04: Engenharia Avançada MikroTik RouterOS (v6 &amp; v7).</li>
+<li>Módulo 05: Infraestrutura, Hipervisores (Proxmox/VMware/KVM) e Linux Hardening.</li>
+<li>Módulo 06: Bancos de Dados de Missão Crítica (Postgres, Oracle 19c TASY, MySQL, DICOM PACS).</li>
+<li>Módulo 07: Backup Estratégico 3-2-1-1-0, Automação Rclone e DRP.</li>
+<li>Módulo 08: Observabilidade, Zabbix Enterprise, Beszel Hub e Grafana.</li>
+<li>Módulo 09: Operações, Helpdesk Hesk, Blocos de 30 Minutos e Cores no Google Calendar.</li>
+<li>Módulo 10: Automação, IA Ops, Skills Customizadas e Engenharia do Livro Autoatualizável.</li>
+<li><strong>Implementação do Motor de Autoatualização:</strong> Scripts <code>scripts/update_book.py</code> e <code>scripts/update_book.bat</code>.</li>
+<li><strong>Configuração da Esteira de CI/CD:</strong> GitHub Actions para publicação contínua no GitHub Pages via MkDocs Material.</li>
+</ul>
+        </div>
+        
+
+    <div class="back-cover">
+        <div>
+            <div style="font-family: 'Cinzel', serif; font-size: 18pt; font-weight: 700; color: #f8fafc; margin-bottom: 6mm;">
+                A EXCELÊNCIA NA GESTÃO DE REDES DE MISSÃO CRÍTICA
+            </div>
+            <div class="back-synopsis">
+                Gerenciar a infraestrutura de dezenas de empresas simultâneas é um dos maiores desafios da tecnologia contemporânea. Não basta conhecer comandos: é preciso dominar governança militar, segurança Zero-Trust estrita, automação contínua e tolerância zero a falhas silenciosas.<br><br>
+                Nesta obra, <strong>Eduardo Pires</strong>, Analista de Redes N3 da Pulse TI, compartilha as metodologias, scripts RouterOS, políticas de backup 3-2-1-1-0, arquitetura de hipervisores e automações com inteligência artificial que mantêm viva a operação de 25 ecossistemas corporativos.<br><br>
+                Um manual indispensável para analistas de suporte, administradores de redes e diretores técnicos que buscam transformar operações caóticas em engrenagens de máxima previsibilidade e alta disponibilidade.
+            </div>
+
+            <div class="back-bio-box">
+                <div class="back-bio-title">Sobre o Autor: Eduardo Pires</div>
+                <div class="back-bio-text">
+                    Analista de Redes N3 e Engenheiro de Operações MSP na Pulse TI. Especialista em roteamento MikroTik RouterOS v6/v7, segurança corporativa perimetral, bancos de dados de missão crítica (Oracle TASY, PostgreSQL) e pioneiro na integração de IA Ops e automação preditiva na governança de infraestrutura.
+                </div>
+            </div>
+        </div>
+
+        <div class="back-footer">
+            <div>
+                <strong>Pulse TI Operations Press</strong><br>
+                Porto Alegre — RS • Brasil
+            </div>
+            <div style="text-align: right;">
+                ISBN 978-65-00-12345-6<br>
+                Classificação: Redes / Infraestrutura / Segurança
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
