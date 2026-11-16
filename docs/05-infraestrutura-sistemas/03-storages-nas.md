@@ -1,7 +1,7 @@
 # Módulo 05 — Infraestrutura, Hipervisores & Sistemas
 ## 05.3 Storage Corporativo e NAS (Synology, TrueNAS, QNAP)
 
-Em nossos clientes de diagnóstico médico e hospitais (`092 - HST`, `080 - PCM`, `112 - PRN`), o volume de arquivos de exames (raio-X, tomografia, ressonância em formato DICOM) atinge terabytes de informação sensível.
+Em nossos clientes de diagnóstico médico e hospitais (`092 - HOS`, `080 - CLN`, `112 - DIA`), o volume de arquivos de exames (raio-X, tomografia, ressonância em formato DICOM) atinge terabytes de informação sensível.
 
 ### Arquitetura de Armazenamento NAS
 - **Protocolos Homologados:**

@@ -5,7 +5,7 @@ O **Rclone** é a ferramenta oficial homologada pela Pulse TI para sincronizaç�
 
 ### Comando Homologado de Sincronização Segura
 ```bash
-rclone sync /var/backups/postgres gdrive-pulse:Clientes/062-PRO/Backups \
+rclone sync /var/backups/postgres gdrive-pulse:Clientes/062-SFT/Backups \
     --log-file=/var/log/rclone_backup.log \
     --log-level=INFO \
     --transfers=4 \

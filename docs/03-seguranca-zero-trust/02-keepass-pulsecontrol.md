@@ -18,7 +18,7 @@ O **Pulse Control Web** é um sistema desenvolvido sob medida para a operação 
 CREATE TABLE entries (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     client_code TEXT NOT NULL,      -- Ex: '112'
-    client_name TEXT NOT NULL,      -- Ex: 'PRN Diagnosticos'
+    client_name TEXT NOT NULL,      -- Ex: 'DiagCenter Diagnósticos'
     title TEXT NOT NULL,            -- Ex: 'MikroTik Borda Matriz'
     username TEXT NOT NULL,         -- Ex: 'pulse_admin'
     ip_address TEXT,                -- Ex: '100.81.222.10'

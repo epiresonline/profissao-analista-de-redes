@@ -1,7 +1,7 @@
 # Módulo 06 — Bancos de Dados Corporativos & Missão Crítica
 ## 06.2 Oracle Database 19c & Philips TASY Hospitalar
 
-Nos hospitais atendidos pela Pulse TI (como a Fundação Hospital Santa Otília `124 - HSO` e Hospital Santa Teresinha `092 - HST`), o ERP de gestão hospitalar é o **Philips TASY**, rodando sobre banco de dados **Oracle 19c Enterprise/Standard**.
+Nos hospitais atendidos pela Pulse TI (como a Hospital Regional São Bento `124 - SBO` e Hospital Geral Esperança `092 - HOS`), o ERP de gestão hospitalar é o **Philips TASY**, rodando sobre banco de dados **Oracle 19c Enterprise/Standard**.
 
 ### Particularidades Críticas do Oracle TASY
 1. **Ambiente 24x7 Ininterrupto:** Um hospital não para. Não existe "janela de manutenção" de 4 horas durante o dia. Qualquer intervenção no banco deve ser previamente alinhada com o NOC e executada em horários de menor afluência.

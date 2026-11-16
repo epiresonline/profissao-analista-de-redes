@@ -12,7 +12,7 @@ Apenas em nomes de arquivos gerados por scripts onde a ordenação cronológica 
 
 ```bash
 # Nome do arquivo de dump (para ordenação de backup):
-db_backup_prodatus_2026-11-16.dump
+db_backup_producao_2026-11-16.dump
 
 # Metadado no corpo do relatório técnico:
 # "Backup executado com sucesso em 16/11/2026 às 03:00."
@@ -27,7 +27,7 @@ Todo documento de engenharia deve iniciar com a tabela canônica:
 # METADADOS DE ENGENHARIA
 | Campo | Especificação |
 | :--- | :--- |
-| **Cliente** | 062 - PRO - Prodatus Informática |
+| **Cliente** | 062 - SFT - Nexus Software & Soluções |
 | **Responsável Técnico** | Eduardo Pires — Analista de Redes N3 |
 | **Data de Homologação** | 16/11/2026 |
 | **Classificação** | Confidencial / Uso Interno Pulse TI |

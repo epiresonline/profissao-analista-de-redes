@@ -12,7 +12,7 @@ Sempre que o engenheiro inicia uma intervenção técnica relatada no chat ou co
 
 ```powershell
 python ".agents/skills/hesk-ticket-logger/scripts/create_ticket.py" `
-    --client "PRN" `
+    --client "DIA" `
     --title "Manutenção Preventiva em Switch de Borda" `
     --body "Iniciando verificação de firmware e redundância de portas." `
     --calendar

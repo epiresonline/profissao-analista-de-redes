@@ -26,6 +26,6 @@ Senha: SuperSenhaSecreta123!
 | **Host / IP** | `192.168.1.100` (ou DNS `pls-app01.netbird.selfhosted`) |
 | **Protocolo / Porta** | SSH (Porta 22) |
 | **Usuário** | `admin_pulse` |
-| **Localização do Cofre** | KeePass: `Clientes/062 - PRO/Servidores/PRO-SRV-APP` |
+| **Localização do Cofre** | KeePass: `Clientes/062 - SFT/Servidores/SFT-SRV-APP` |
 | **Cofre Pulse Control** | Entry ID: `#348` |
 ```

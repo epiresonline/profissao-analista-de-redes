@@ -1,7 +1,7 @@
 # Módulo 06 — Bancos de Dados Corporativos & Missão Crítica
 ## 06.4 Ambientes Médicos, PACS Optix, Mobilemed e DICOM
 
-A Pulse TI possui vasta especialização na gestão de clínicas de radiologia e medicina diagnóstica (`053 - WAG`, `099 - CIT`, `112 - PRN`, `121 - MED`).
+A Pulse TI possui vasta especialização na gestão de clínicas de radiologia e medicina diagnóstica (`053 - RAD`, `099 - SON`, `112 - DIA`, `121 - BIO`).
 
 ### O Ecossistema de Diagnóstico por Imagem
 - **PACS (Picture Archiving and Communication System):** Servidores responsáveis pelo armazenamento, transmissão e exibição de exames médicos (ex.: Optix PACS, Mobilemed).

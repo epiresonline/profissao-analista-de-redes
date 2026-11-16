@@ -1,7 +1,7 @@
 # Módulo 04 — Engenharia Avançada MikroTik RouterOS
 ## 04.5 QoS, Queues e Priorização de Tráfego de Produção
 
-Em empresas médicas, callcenters (`142 - NXS`) ou indústrias, links de Internet podem sofrer saturação repentina por downloads, backups em nuvem ou vídeos em alta definição. Sem uma engenharia de Qualidade de Serviço (**QoS**), o tráfego crítico sofre atrasos inaceitáveis.
+Em empresas médicas, callcenters (`142 - TEL`) ou indústrias, links de Internet podem sofrer saturação repentina por downloads, backups em nuvem ou vídeos em alta definição. Sem uma engenharia de Qualidade de Serviço (**QoS**), o tráfego crítico sofre atrasos inaceitáveis.
 
 ### A Hierarquia de Prioridades Pulse TI
 

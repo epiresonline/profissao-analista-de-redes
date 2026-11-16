@@ -11,15 +11,15 @@ Para simplificar a operação de suporte sem comprometer a segurança, homologam
 
 ### 2. RDP por Split-DNS NetBird (`rdp://*.netbird.selfhosted`)
 - **Resolução de Nomes:** DNS corporativo interno mantido pelos servidores NetBird.
-- **Forma de Uso:** `mstsc /v:pls-doq-vm-app-protheus.netbird.selfhosted`.
+- **Forma de Uso:** `mstsc /v:srv-erp-app01.netbird.selfhosted`.
 - **Vantagem:** Independência de endereçamento IP. Se o IP da VM mudar, a conexão persiste pelo FQDN.
 
 ### 3. SSH Overwrite com PuTTY (`usuario@host` + `putty:`)
 - **Padrão em Registros:** Quando uma entrada contém `putty:`, significa que deve ser aberta no software PuTTY utilizando a chave privada salva ou encaminhada via Pageant.
 - **Porta:** 22 (ou porta customizada mapeada no inventário).
-- **Exemplo de Execução:** `putty.exe -ssh pls@pls-doq-vm-db-protheus.netbird.selfhosted -P 22`.
+- **Exemplo de Execução:** `putty.exe -ssh pls@srv-erp-db01.netbird.selfhosted -P 22`.
 
 ### 4. MikroTik RouterOS com Winbox e Cloud DNS
 - **Portas Homologadas:** Portas customizadas como `8205`, `8207` ou a padrão protegida `8291`.
 - **Resolução Dinâmica:** Utilização do hostname MikroTik Cloud (`*.sn.mynetname.net`) em links que possuem IP público dinâmico.
-- **Exemplo de Conexão no Winbox:** `prn-matriz.sn.mynetname.net:8205`.
+- **Exemplo de Conexão no Winbox:** `matriz-gw.sn.mynetname.net:8205`.

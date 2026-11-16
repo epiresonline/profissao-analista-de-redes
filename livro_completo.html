@@ -992,7 +992,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </table>
 <h3>Princípios do Engenheiro MSP de Alto Nível</h3>
 <ol>
-<li><strong>Multi-Tenancy Mental:</strong> Você deve ser capaz de mudar de contexto em segundos entre um hospital com Oracle TASY (<code>092 - HST</code> ou <code>124 - HSO</code>) e uma indústria com Protheus (<code>133 - DOQ</code>) sem misturar informações, senhas ou configurações.</li>
+<li><strong>Multi-Tenancy Mental:</strong> Você deve ser capaz de mudar de contexto em segundos entre um hospital com Oracle TASY (<code>092 - HOS</code> ou <code>124 - SBO</code>) e uma indústria com Protheus (<code>133 - ALM</code>) sem misturar informações, senhas ou configurações.</li>
 <li><strong>Padronização como Escudo:</strong> Sem padrões rígidos de nomenclatura, pastas e procedimentos, gerenciar mais de 20 clientes torna-se caótico. O padrão não é burocracia: é a salvaguarda da sanidade técnica da equipe.</li>
 <li><strong>Automação Preventiva:</strong> Tarefas manuais repetidas mais de duas vezes devem ser automatizadas por scripts PowerShell, Bash, Python ou Skills de IA.</li>
 </ol>
@@ -1082,22 +1082,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <h3>Anatomia do Padrão</h3>
 <ol>
 <li><strong><code>&lt;CODIGO&gt;</code> (3 dígitos numéricos):</strong> Identificador exclusivo atribuído na entrada do cliente. Permite ordenação alfanumérica consistente em sistemas de arquivos, bancos de dados e ferramentas de automação (ex.: <code>002</code>, <code>062</code>, <code>112</code>, <code>124</code>).</li>
-<li><strong><code>&lt;SIGLA&gt;</code> (3 letras maiúsculas):</strong> Mnemônico universal usado em prefixos de chamados, branches, tags de monitoramento, hostnames de ativos e eventos de agenda (ex.: <code>PTI</code>, <code>PRO</code>, <code>PRN</code>, <code>HSO</code>, <code>DOQ</code>).</li>
+<li><strong><code>&lt;SIGLA&gt;</code> (3 letras maiúsculas):</strong> Mnemônico universal usado em prefixos de chamados, branches, tags de monitoramento, hostnames de ativos e eventos de agenda (ex.: <code>PTI</code>, <code>SFT</code>, <code>DIA</code>, <code>SBO</code>, <code>ALM</code>).</li>
 <li><strong><code>&lt;Nome Oficial&gt;</code>:</strong> Razão social ou nome fantasia consolidado da organização.</li>
 </ol>
 <h3>Exemplos Reais Homologados</h3>
 <ul>
 <li><code>000 - EDU - Eduardo Pires</code> (Laboratório de testes e P&amp;D)</li>
 <li><code>002 - PTI - Pulse TI</code> (Matriz NOC Central Pulse TI)</li>
-<li><code>062 - PRO - Prodatus Informática</code></li>
-<li><code>092 - HST - Hospital Santa Teresinha</code></li>
-<li><code>112 - PRN - PRN Diagnósticos</code></li>
-<li><code>120 - URG - Urgetrauma Ortopedia e Traumatologia</code></li>
-<li><code>123 - PLS - PLS Tecnologia</code> (Datacenter Cloud e VPSs)</li>
-<li><code>124 - HSO - Fundação Hospital Santa Otilia</code></li>
-<li><code>133 - DOQ - Tortas Doquinha</code></li>
+<li><code>062 - SFT - Nexus Software &amp; Soluções</code></li>
+<li><code>092 - HOS - Hospital Geral Esperança</code></li>
+<li><code>112 - DIA - DiagCenter Medicina Diagnóstica</code></li>
+<li><code>120 - TRA - Centro de Traumatologia Integrada</code></li>
+<li><code>123 - CLD - Cloud Datacenter &amp; VPS</code> (Datacenter Cloud e VPSs)</li>
+<li><code>124 - SBO - Hospital Regional São Bento</code></li>
+<li><code>133 - ALM - Alimentos Bella Sabor</code></li>
 </ul>
-<div class="callout callout-important"><div class="callout-title">⭐ DIRETRIZ MANDATÓRIA</div><div class="callout-body">> A sigla de 3 letras é sagrada. Ela é a "chave estrangeira" humana e computacional que conecta o chamado no Hesk (`[PRN] Falha no link`), o evento no Google Calendar (`[PRN] Manutenção em Switch`), o hostname do servidor (`pls-prn-srv-app01`) e a pasta do cliente no Google Drive.</div></div>
+<div class="callout callout-important"><div class="callout-title">⭐ DIRETRIZ MANDATÓRIA</div><div class="callout-body">> A sigla de 3 letras é sagrada. Ela é a "chave estrangeira" humana e computacional que conecta o chamado no Hesk (`[DIA] Falha no link`), o evento no Google Calendar (`[DIA] Manutenção em Switch`), o hostname do servidor (`cld-dia-srv-app01`) e a pasta do cliente no Google Drive.</div></div>
             </div>
             
 
@@ -1112,26 +1112,26 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <li><strong>Nível 2:</strong> As 6 Categorias Padronizadas com arquivos diretos (sem subpastas internas):</li>
 </ul>
 <div class="codehilite"><pre><span></span><code>g:\\Meu Drive\\2K26\\Clientes-Pulse-TI\\
-└── 112 - PRN - PRN Diagnósticos/
+└── 112 - DIA - DiagCenter Medicina Diagnóstica/
     ├── 01 - DOCUMENTACAO/
-    │   ├── 112 - PRN - DOCUMENTACAO_TECNICA.md
-    │   ├── 112 - PRN - Topologia_Rede.drawio
-    │   └── 112 - PRN - Inventario_Ativos.xlsx
+    │   ├── 112 - DIA - DOCUMENTACAO_TECNICA.md
+    │   ├── 112 - DIA - Topologia_Rede.drawio
+    │   └── 112 - DIA - Inventario_Ativos.xlsx
     ├── 02 - PROCEDIMENTOS/
-    │   ├── POP-PRN-001 — Reinicialização do Serviço PACS.md
-    │   └── POP-PRN-002 — Troca de Switch de Borda.md
+    │   ├── POP-DIA-001 — Reinicialização do Serviço PACS.md
+    │   └── POP-DIA-002 — Troca de Switch de Borda.md
     ├── 03 - REDES E CONECTIVIDADE/
-    │   ├── PRN-ROUTER-BORDA-2026-11-16.rsc
-    │   ├── PRN-ROUTER-BORDA-2026-11-16.backup
-    │   └── vpn_matriz_prn.ovpn
+    │   ├── DIA-ROUTER-BORDA-2026-11-16.rsc
+    │   ├── DIA-ROUTER-BORDA-2026-11-16.backup
+    │   └── vpn_matriz_filial.ovpn
     ├── 04 - SISTEMAS E BANCOS/
     │   ├── docker-compose-pacs.yml
-    │   └── backup_db_laudocontrol_schema.sql
+    │   └── backup_db_db_laudos_medicos_schema.sql
     ├── 05 - BACKUP E SEGURANCA/
-    │   ├── 112 - PRN - Politica de Backup e Seguranca.md
+    │   ├── 112 - DIA - Politica de Backup e Seguranca.md
     │   └── rotina_backup_rclone_s3.ps1
     └── 06 - HISTORICO E RELATORIOS/
-        ├── 112 - PRN - Historico e Relatorios.md
+        ├── 112 - DIA - Historico e Relatorios.md
         └── Relatorio_Auditoria_Conformidade_2026.pdf
 </code></pre></div>
 
@@ -1150,7 +1150,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <h3>A Única Exceção Técnica: Arquivos de Máquina</h3>
 <p>Apenas em nomes de arquivos gerados por scripts onde a ordenação cronológica alfanumérica é indispensável para rotação automática, utiliza-se a norma ISO (<code>YYYY-MM-DD</code> ou <code>YYYYMMDD</code>):</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Nome do arquivo de dump (para ordenação de backup):</span>
-db_backup_prodatus_2026-11-16.dump
+db_backup_producao_2026-11-16.dump
 
 <span class="c1"># Metadado no corpo do relatório técnico:</span>
 <span class="c1"># "Backup executado com sucesso em 16/11/2026 às 03:00."</span>
@@ -1162,7 +1162,7 @@ db_backup_prodatus_2026-11-16.dump
 <span class="gh"># METADADOS DE ENGENHARIA</span>
 | Campo | Especificação |
 | :--- | :--- |
-| <span class="gs">**Cliente**</span> | 062 - PRO - Prodatus Informática |
+| <span class="gs">**Cliente**</span> | 062 - SFT - Nexus Software &amp; Soluções |
 | <span class="gs">**Responsável Técnico**</span> | Eduardo Pires — Analista de Redes N3 |
 | <span class="gs">**Data de Homologação**</span> | 16/11/2026 |
 | <span class="gs">**Classificação**</span> | Confidencial / Uso Interno Pulse TI |
@@ -1201,43 +1201,43 @@ db_backup_prodatus_2026-11-16.dump
 <tr>
 <td style="text-align: center;"><strong>052</strong></td>
 <td style="text-align: center;"><strong>ASA</strong></td>
-<td style="text-align: left;">Asa Sports Fardamentos</td>
+<td style="text-align: left;">Alpha Sports Fardamentos</td>
 <td style="text-align: left;">Portais Corporativos Microsoft Cloud</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>053</strong></td>
 <td style="text-align: center;"><strong>WAG</strong></td>
-<td style="text-align: left;">Radioimagem Diagnósticos</td>
+<td style="text-align: left;">Radion Imagem Diagnósticos</td>
 <td style="text-align: left;">Medicina Diagnóstica, Dicom PACS, MikroTik</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>062</strong></td>
-<td style="text-align: center;"><strong>PRO</strong></td>
-<td style="text-align: left;">Prodatus Informática</td>
+<td style="text-align: center;"><strong>SFT</strong></td>
+<td style="text-align: left;">Nexus Software</td>
 <td style="text-align: left;">Docker, Tomcat, PostgreSQL, Rclone Google Drive</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>076</strong></td>
-<td style="text-align: center;"><strong>IOG</strong></td>
-<td style="text-align: left;">Inst. de Ortopedia Gravataí</td>
+<td style="text-align: center;"><strong>ORT</strong></td>
+<td style="text-align: left;">Inst. Ortopédico Integrado</td>
 <td style="text-align: left;">Ortopedia, Roteamento MikroTik, VPNs</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>077</strong></td>
 <td style="text-align: center;"><strong>DAL</strong></td>
-<td style="text-align: left;">Maritânia Dallagnol</td>
+<td style="text-align: left;">Comercial Sul</td>
 <td style="text-align: left;">Modems corporativos, MikroTik RB750</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>078</strong></td>
 <td style="text-align: center;"><strong>MLP</strong></td>
-<td style="text-align: left;">Colégio Miguel Lampert</td>
+<td style="text-align: left;">Colégio Horizonte do Saber</td>
 <td style="text-align: left;">Rede Educacional, Switches Gerenciados, VLANs</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>080</strong></td>
-<td style="text-align: center;"><strong>PCM</strong></td>
-<td style="text-align: left;">Prontocord Manaus</td>
+<td style="text-align: center;"><strong>CLN</strong></td>
+<td style="text-align: left;">Clínica CardioVida</td>
 <td style="text-align: left;">Otimus ERP, KVM, Storage NAS-006</td>
 </tr>
 <tr>
@@ -1249,31 +1249,31 @@ db_backup_prodatus_2026-11-16.dump
 <tr>
 <td style="text-align: center;"><strong>085</strong></td>
 <td style="text-align: center;"><strong>SLA</strong></td>
-<td style="text-align: left;">Slater IT Solutions</td>
+<td style="text-align: left;">Apex Soluções</td>
 <td style="text-align: left;">Terminal Service, servidores de aplicação APL04</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>092</strong></td>
-<td style="text-align: center;"><strong>HST</strong></td>
-<td style="text-align: left;">Hospital Santa Teresinha</td>
+<td style="text-align: center;"><strong>HOS</strong></td>
+<td style="text-align: left;">Hospital Geral Esperança</td>
 <td style="text-align: left;">ERP Hospitalar TASY, Storage NAS, VMware ESXi</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>099</strong></td>
 <td style="text-align: center;"><strong>CIT</strong></td>
-<td style="text-align: left;">Citoson Diagnóstico por Imagem</td>
+<td style="text-align: left;">Sonocare Diagnóstico por Imagem</td>
 <td style="text-align: left;">Optix PACS, Roteamento MikroTik</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>104</strong></td>
 <td style="text-align: center;"><strong>SCL</strong></td>
-<td style="text-align: left;">SC Locações</td>
+<td style="text-align: left;">Locafácil</td>
 <td style="text-align: left;">Rede corporativa, MikroTik, VPN Matriz/Filiais</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>106</strong></td>
 <td style="text-align: center;"><strong>GSF</strong></td>
-<td style="text-align: left;">Grupo Studio</td>
+<td style="text-align: left;">Grupo Corp Capital</td>
 <td style="text-align: left;">3 Hipervisores, Active Directory, SonicWall TZ570</td>
 </tr>
 <tr>
@@ -1284,15 +1284,15 @@ db_backup_prodatus_2026-11-16.dump
 </tr>
 <tr>
 <td style="text-align: center;"><strong>112</strong></td>
-<td style="text-align: center;"><strong>PRN</strong></td>
-<td style="text-align: left;">PRN Diagnósticos</td>
+<td style="text-align: center;"><strong>DIA</strong></td>
+<td style="text-align: left;">DiagCenter Diagnósticos</td>
 <td style="text-align: left;">16 unidades regionais, Mobilemed, AWS S3, VPN Mesh</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>120</strong></td>
-<td style="text-align: center;"><strong>URG</strong></td>
-<td style="text-align: left;">Urgetrauma Ortopedia</td>
-<td style="text-align: left;">Active Directory, MikroTik, Servidor URG-VIRT-001</td>
+<td style="text-align: center;"><strong>TRA</strong></td>
+<td style="text-align: left;">TraumaCenter Ortopedia</td>
+<td style="text-align: left;">Active Directory, MikroTik, Servidor SRV-VIRT-001</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>121</strong></td>
@@ -1308,8 +1308,8 @@ db_backup_prodatus_2026-11-16.dump
 </tr>
 <tr>
 <td style="text-align: center;"><strong>124</strong></td>
-<td style="text-align: center;"><strong>HSO</strong></td>
-<td style="text-align: left;">Fund. Hospital Santa Otília</td>
+<td style="text-align: center;"><strong>SBO</strong></td>
+<td style="text-align: left;">Hospital Regional São Bento</td>
 <td style="text-align: left;">Oracle Database 19c, Philips TASY, RMAN</td>
 </tr>
 <tr>
@@ -1321,19 +1321,19 @@ db_backup_prodatus_2026-11-16.dump
 <tr>
 <td style="text-align: center;"><strong>130</strong></td>
 <td style="text-align: center;"><strong>PET</strong></td>
-<td style="text-align: left;">Petinelli Green Building</td>
+<td style="text-align: left;">EcoBuilding Green Building</td>
 <td style="text-align: left;">Servidores de aplicação PET-APP01 e terminais</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>133</strong></td>
-<td style="text-align: center;"><strong>DOQ</strong></td>
-<td style="text-align: left;">Tortas Doquinha</td>
+<td style="text-align: center;"><strong>ALM</strong></td>
+<td style="text-align: left;">Bella Sabor Alimentos</td>
 <td style="text-align: left;">TOTVS Protheus, OpenVPN filiais RS, PostgreSQL</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>142</strong></td>
 <td style="text-align: center;"><strong>NXS</strong></td>
-<td style="text-align: left;">Nexus Callcenter</td>
+<td style="text-align: left;">VoxConnect Callcenter</td>
 <td style="text-align: left;">Telefonia IP, SIP Trunk, Gateway Aligera AG561</td>
 </tr>
 </tbody>
@@ -1373,7 +1373,7 @@ Senha: SuperSenhaSecreta123!
 | <span class="gs">**Host / IP**</span> | <span class="sb">`192.168.1.100`</span> (ou DNS <span class="sb">`pls-app01.netbird.selfhosted`</span>) |
 | <span class="gs">**Protocolo / Porta**</span> | SSH (Porta 22) |
 | <span class="gs">**Usuário**</span> | <span class="sb">`admin_pulse`</span> |
-| <span class="gs">**Localização do Cofre**</span> | KeePass: <span class="sb">`Clientes/062 - PRO/Servidores/PRO-SRV-APP`</span> |
+| <span class="gs">**Localização do Cofre**</span> | KeePass: <span class="sb">`Clientes/062 - SFT/Servidores/SFT-SRV-APP`</span> |
 | <span class="gs">**Cofre Pulse Control**</span> | Entry ID: <span class="sb">`#348`</span> |
 </code></pre></div>
             </div>
@@ -1397,7 +1397,7 @@ Senha: SuperSenhaSecreta123!
 <div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
 <span class="w">    </span><span class="n">client_code</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">      </span><span class="c1">-- Ex: '112'</span>
-<span class="w">    </span><span class="n">client_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">      </span><span class="c1">-- Ex: 'PRN Diagnosticos'</span>
+<span class="w">    </span><span class="n">client_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">      </span><span class="c1">-- Ex: 'DiagCenter Diagnósticos'</span>
 <span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">            </span><span class="c1">-- Ex: 'MikroTik Borda Matriz'</span>
 <span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- Ex: 'pulse_admin'</span>
 <span class="w">    </span><span class="n">ip_address</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                </span><span class="c1">-- Ex: '100.81.222.10'</span>
@@ -1437,20 +1437,20 @@ Senha: SuperSenhaSecreta123!
 <h3>2. RDP por Split-DNS NetBird (<code>rdp://*.netbird.selfhosted</code>)</h3>
 <ul>
 <li><strong>Resolução de Nomes:</strong> DNS corporativo interno mantido pelos servidores NetBird.</li>
-<li><strong>Forma de Uso:</strong> <code>mstsc /v:pls-doq-vm-app-protheus.netbird.selfhosted</code>.</li>
+<li><strong>Forma de Uso:</strong> <code>mstsc /v:srv-erp-app01.netbird.selfhosted</code>.</li>
 <li><strong>Vantagem:</strong> Independência de endereçamento IP. Se o IP da VM mudar, a conexão persiste pelo FQDN.</li>
 </ul>
 <h3>3. SSH Overwrite com PuTTY (<code>usuario@host</code> + <code>putty:</code>)</h3>
 <ul>
 <li><strong>Padrão em Registros:</strong> Quando uma entrada contém <code>putty:</code>, significa que deve ser aberta no software PuTTY utilizando a chave privada salva ou encaminhada via Pageant.</li>
 <li><strong>Porta:</strong> 22 (ou porta customizada mapeada no inventário).</li>
-<li><strong>Exemplo de Execução:</strong> <code>putty.exe -ssh pls@pls-doq-vm-db-protheus.netbird.selfhosted -P 22</code>.</li>
+<li><strong>Exemplo de Execução:</strong> <code>putty.exe -ssh pls@srv-erp-db01.netbird.selfhosted -P 22</code>.</li>
 </ul>
 <h3>4. MikroTik RouterOS com Winbox e Cloud DNS</h3>
 <ul>
 <li><strong>Portas Homologadas:</strong> Portas customizadas como <code>8205</code>, <code>8207</code> ou a padrão protegida <code>8291</code>.</li>
 <li><strong>Resolução Dinâmica:</strong> Utilização do hostname MikroTik Cloud (<code>*.sn.mynetname.net</code>) em links que possuem IP público dinâmico.</li>
-<li><strong>Exemplo de Conexão no Winbox:</strong> <code>prn-matriz.sn.mynetname.net:8205</code>.</li>
+<li><strong>Exemplo de Conexão no Winbox:</strong> <code>matriz-gw.sn.mynetname.net:8205</code>.</li>
 </ul>
             </div>
             
@@ -1618,7 +1618,7 @@ set ddns-enabled=yes ddns-update-interval=1m update-time=yes
 </ul>
 <h3>2. WireGuard Site-to-Site no RouterOS v7</h3>
 <ul>
-<li><strong>Caso de Uso:</strong> Enlace de alto desempenho e baixíssima latência entre a Matriz e Unidades Regionais (ex.: <code>112 - PRN Diagnósticos</code>).</li>
+<li><strong>Caso de Uso:</strong> Enlace de alto desempenho e baixíssima latência entre a Matriz e Unidades Regionais (ex.: <code>112 - DiagCenter Diagnósticos</code>).</li>
 <li><strong>Configuração no RouterOS v7:</strong></li>
 </ul>
 <div class="codehilite"><pre><span></span><code><span class="p">#</span><span class="w"> </span><span class="n">Criar</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">WireGuard</span>
@@ -1633,7 +1633,7 @@ set ddns-enabled=yes ddns-update-interval=1m update-time=yes
 <span class="o">/</span><span class="n">interface</span><span class="w"> </span><span class="n">wireguard</span><span class="w"> </span><span class="n">peers</span>
 <span class="n">add</span><span class="w"> </span><span class="n">interface</span><span class="o">=</span><span class="n">wg</span><span class="o">-</span><span class="n">matriz</span><span class="w"> </span><span class="n">public</span><span class="o">-</span><span class="n">key</span><span class="o">=</span><span class="s">"CHAVE_PUBLICA_FILIAL"</span><span class="w"> </span><span class="n">\\</span>
 <span class="w">    </span><span class="n">allowed</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">10.250.0.2</span><span class="o">/</span><span class="mh">32</span><span class="p">,</span><span class="mf">192.168.10.0</span><span class="o">/</span><span class="mh">24</span><span class="w"> </span><span class="n">\\</span>
-<span class="w">    </span><span class="n">endpoint</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="s">"filial.sn.mynetname.net"</span><span class="w"> </span><span class="n">endpoint</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mh">13231</span><span class="w"> </span><span class="n">persistent</span><span class="o">-</span><span class="n">keepalive</span><span class="o">=</span><span class="mh">25</span><span class="n">s</span>
+<span class="w">    </span><span class="n">endpoint</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="s">"filial-gw.sn.mynetname.net"</span><span class="w"> </span><span class="n">endpoint</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mh">13231</span><span class="w"> </span><span class="n">persistent</span><span class="o">-</span><span class="n">keepalive</span><span class="o">=</span><span class="mh">25</span><span class="n">s</span>
 </code></pre></div>
 
 <h3>3. SSTP (Secure Socket Tunneling Protocol)</h3>
@@ -1651,7 +1651,7 @@ set ddns-enabled=yes ddns-update-interval=1m update-time=yes
             <div class="chapter-content page-break">
                 <h1>Módulo 04 — Engenharia Avançada MikroTik RouterOS</h1>
 <h2>04.5 QoS, Queues e Priorização de Tráfego de Produção</h2>
-<p>Em empresas médicas, callcenters (<code>142 - NXS</code>) ou indústrias, links de Internet podem sofrer saturação repentina por downloads, backups em nuvem ou vídeos em alta definição. Sem uma engenharia de Qualidade de Serviço (<strong>QoS</strong>), o tráfego crítico sofre atrasos inaceitáveis.</p>
+<p>Em empresas médicas, callcenters (<code>142 - TEL</code>) ou indústrias, links de Internet podem sofrer saturação repentina por downloads, backups em nuvem ou vídeos em alta definição. Sem uma engenharia de Qualidade de Serviço (<strong>QoS</strong>), o tráfego crítico sofre atrasos inaceitáveis.</p>
 <h3>A Hierarquia de Prioridades Pulse TI</h3>
 <table>
 <thead>
@@ -1767,13 +1767,13 @@ add chain=prerouting action=mark-packet new-packet-mark=ADMIN-PKT passthrough=no
 </tr>
 <tr>
 <td style="text-align: left;"><strong>VMware ESXi</strong></td>
-<td style="text-align: left;">Ambientes Hospitalares (<code>092 - HST</code>) e Legados de Grande Porte</td>
+<td style="text-align: left;">Ambientes Hospitalares (<code>092 - HOS</code>) e Legados de Grande Porte</td>
 <td style="text-align: left;">Robustez corporativa, compatibilidade com appliances proprietários.</td>
 <td style="text-align: left;">Veeam Backup &amp; Replication ou scripts vzdump.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>KVM Nativo Linux</strong></td>
-<td style="text-align: left;">Servidores dedicados leves (<code>080 - PCM</code>)</td>
+<td style="text-align: left;">Servidores dedicados leves (<code>080 - CLN</code>)</td>
 <td style="text-align: left;">Performance máxima bare-metal com overhead de CPU próximo a zero.</td>
 <td style="text-align: left;">Snapshots LVM e <code>qemu-img</code>.</td>
 </tr>
@@ -1837,7 +1837,7 @@ Garantir sincronismo absoluto com <code>pool.ntp.br</code> e timezone <code>Amer
             <div class="chapter-content page-break">
                 <h1>Módulo 05 — Infraestrutura, Hipervisores &amp; Sistemas</h1>
 <h2>05.3 Storage Corporativo e NAS (Synology, TrueNAS, QNAP)</h2>
-<p>Em nossos clientes de diagnóstico médico e hospitais (<code>092 - HST</code>, <code>080 - PCM</code>, <code>112 - PRN</code>), o volume de arquivos de exames (raio-X, tomografia, ressonância em formato DICOM) atinge terabytes de informação sensível.</p>
+<p>Em nossos clientes de diagnóstico médico e hospitais (<code>092 - HOS</code>, <code>080 - CLN</code>, <code>112 - DIA</code>), o volume de arquivos de exames (raio-X, tomografia, ressonância em formato DICOM) atinge terabytes de informação sensível.</p>
 <h3>Arquitetura de Armazenamento NAS</h3>
 <ul>
 <li><strong>Protocolos Homologados:</strong></li>
@@ -1896,7 +1896,7 @@ Garantir sincronismo absoluto com <code>pool.ntp.br</code> e timezone <code>Amer
             <div class="chapter-content page-break">
                 <h1>Módulo 06 — Bancos de Dados Corporativos &amp; Missão Crítica</h1>
 <h2>06.1 PostgreSQL: Tuning, Manutenção &amp; Backup <code>pg_dump</code></h2>
-<p>O PostgreSQL é o motor de dados de clientes chave da Pulse TI, como a Prodatus Informática (<code>062 - PRO</code>), CIEM (<code>109 - CIE</code>) e Tortas Doquinha (<code>133 - DOQ</code>).</p>
+<p>O PostgreSQL é o motor de dados de clientes chave da Pulse TI, como a Nexus Software (<code>062 - SFT</code>), CIEM (<code>109 - POL</code>) e Bella Sabor Alimentos (<code>133 - ALM</code>).</p>
 <h3>Parâmetros Críticos de Tuning (<code>postgresql.conf</code>)</h3>
 <p>Para servidores com 16 GB de RAM dedicados a banco:
 - <code>shared_buffers = 4GB</code> (25% da memória física disponível).
@@ -1910,7 +1910,7 @@ Garantir sincronismo absoluto com <code>pool.ntp.br</code> e timezone <code>Amer
 <div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1"># Script de Backup Oficial PostgreSQL Pulse TI</span>
 <span class="nv">TIMESTAMP</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">"%Y-%m-%d_%H-%M-%S"</span><span class="k">)</span>
-<span class="nv">DB_NAME</span><span class="o">=</span><span class="s2">"setrauma"</span>
+<span class="nv">DB_NAME</span><span class="o">=</span><span class="s2">"db_producao"</span>
 <span class="nv">BACKUP_DIR</span><span class="o">=</span><span class="s2">"/var/backups/postgres"</span>
 <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">BACKUP_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">DB_NAME</span><span class="si">}</span><span class="s2">_</span><span class="si">${</span><span class="nv">TIMESTAMP</span><span class="si">}</span><span class="s2">.dump"</span>
 
@@ -1928,7 +1928,7 @@ find<span class="w"> </span><span class="s2">"</span><span class="nv">$BACKUP_DI
             <div class="chapter-content page-break">
                 <h1>Módulo 06 — Bancos de Dados Corporativos &amp; Missão Crítica</h1>
 <h2>06.2 Oracle Database 19c &amp; Philips TASY Hospitalar</h2>
-<p>Nos hospitais atendidos pela Pulse TI (como a Fundação Hospital Santa Otília <code>124 - HSO</code> e Hospital Santa Teresinha <code>092 - HST</code>), o ERP de gestão hospitalar é o <strong>Philips TASY</strong>, rodando sobre banco de dados <strong>Oracle 19c Enterprise/Standard</strong>.</p>
+<p>Nos hospitais atendidos pela Pulse TI (como a Hospital Regional São Bento <code>124 - SBO</code> e Hospital Geral Esperança <code>092 - HOS</code>), o ERP de gestão hospitalar é o <strong>Philips TASY</strong>, rodando sobre banco de dados <strong>Oracle 19c Enterprise/Standard</strong>.</p>
 <h3>Particularidades Críticas do Oracle TASY</h3>
 <ol>
 <li><strong>Ambiente 24x7 Ininterrupto:</strong> Um hospital não para. Não existe "janela de manutenção" de 4 horas durante o dia. Qualquer intervenção no banco deve ser previamente alinhada com o NOC e executada em horários de menor afluência.</li>
@@ -1979,7 +1979,7 @@ find<span class="w"> </span><span class="s2">"</span><span class="nv">$BACKUP_DI
             <div class="chapter-content page-break">
                 <h1>Módulo 06 — Bancos de Dados Corporativos &amp; Missão Crítica</h1>
 <h2>06.4 Ambientes Médicos, PACS Optix, Mobilemed e DICOM</h2>
-<p>A Pulse TI possui vasta especialização na gestão de clínicas de radiologia e medicina diagnóstica (<code>053 - WAG</code>, <code>099 - CIT</code>, <code>112 - PRN</code>, <code>121 - MED</code>).</p>
+<p>A Pulse TI possui vasta especialização na gestão de clínicas de radiologia e medicina diagnóstica (<code>053 - RAD</code>, <code>099 - SON</code>, <code>112 - DIA</code>, <code>121 - BIO</code>).</p>
 <h3>O Ecossistema de Diagnóstico por Imagem</h3>
 <ul>
 <li><strong>PACS (Picture Archiving and Communication System):</strong> Servidores responsáveis pelo armazenamento, transmissão e exibição de exames médicos (ex.: Optix PACS, Mobilemed).</li>
@@ -2026,7 +2026,7 @@ find<span class="w"> </span><span class="s2">"</span><span class="nv">$BACKUP_DI
 <h2>07.2 Automação Multi-Nuvem com Rclone (Google Drive, AWS S3, Wasabi)</h2>
 <p>O <strong>Rclone</strong> é a ferramenta oficial homologada pela Pulse TI para sincronização, espelhamento e expurgo de arquivos de backup entre servidores locais e provedores de nuvem.</p>
 <h3>Comando Homologado de Sincronização Segura</h3>
-<div class="codehilite"><pre><span></span><code>rclone<span class="w"> </span>sync<span class="w"> </span>/var/backups/postgres<span class="w"> </span>gdrive-pulse:Clientes/062-PRO/Backups<span class="w"> </span><span class="se">\</span>
+<div class="codehilite"><pre><span></span><code>rclone<span class="w"> </span>sync<span class="w"> </span>/var/backups/postgres<span class="w"> </span>gdrive-pulse:Clientes/062-SFT/Backups<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--log-file<span class="o">=</span>/var/log/rclone_backup.log<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--log-level<span class="o">=</span>INFO<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--transfers<span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
@@ -2196,7 +2196,7 @@ find<span class="w"> </span><span class="s2">"</span><span class="nv">$BACKUP_DI
 <h3>Automação via Skill <code>hesk-ticket-logger</code></h3>
 <p>Sempre que o engenheiro inicia uma intervenção técnica relatada no chat ou console, o assistente executa o script oficial:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="s2">".agents/skills/hesk-ticket-logger/scripts/create_ticket.py"</span> <span class="p">`</span>
-    <span class="p">-</span><span class="n">-client</span> <span class="s2">"PRN"</span> <span class="p">`</span>
+    <span class="p">-</span><span class="n">-client</span> <span class="s2">"DIA"</span> <span class="p">`</span>
     <span class="p">-</span><span class="n">-title</span> <span class="s2">"Manutenção Preventiva em Switch de Borda"</span> <span class="p">`</span>
     <span class="p">-</span><span class="n">-body</span> <span class="s2">"Iniciando verificação de firmware e redundância de portas."</span> <span class="p">`</span>
     <span class="p">-</span><span class="n">-calendar</span>

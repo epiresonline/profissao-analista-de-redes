@@ -12,26 +12,26 @@ Na Pulse TI, vigora a regra inegociável de **estritamente 2 níveis**:
 
 ```
 g:\\Meu Drive\\2K26\\Clientes-Pulse-TI\\
-└── 112 - PRN - PRN Diagnósticos/
+└── 112 - DIA - DiagCenter Medicina Diagnóstica/
     ├── 01 - DOCUMENTACAO/
-    │   ├── 112 - PRN - DOCUMENTACAO_TECNICA.md
-    │   ├── 112 - PRN - Topologia_Rede.drawio
-    │   └── 112 - PRN - Inventario_Ativos.xlsx
+    │   ├── 112 - DIA - DOCUMENTACAO_TECNICA.md
+    │   ├── 112 - DIA - Topologia_Rede.drawio
+    │   └── 112 - DIA - Inventario_Ativos.xlsx
     ├── 02 - PROCEDIMENTOS/
-    │   ├── POP-PRN-001 — Reinicialização do Serviço PACS.md
-    │   └── POP-PRN-002 — Troca de Switch de Borda.md
+    │   ├── POP-DIA-001 — Reinicialização do Serviço PACS.md
+    │   └── POP-DIA-002 — Troca de Switch de Borda.md
     ├── 03 - REDES E CONECTIVIDADE/
-    │   ├── PRN-ROUTER-BORDA-2026-11-16.rsc
-    │   ├── PRN-ROUTER-BORDA-2026-11-16.backup
-    │   └── vpn_matriz_prn.ovpn
+    │   ├── DIA-ROUTER-BORDA-2026-11-16.rsc
+    │   ├── DIA-ROUTER-BORDA-2026-11-16.backup
+    │   └── vpn_matriz_filial.ovpn
     ├── 04 - SISTEMAS E BANCOS/
     │   ├── docker-compose-pacs.yml
-    │   └── backup_db_laudocontrol_schema.sql
+    │   └── backup_db_db_laudos_medicos_schema.sql
     ├── 05 - BACKUP E SEGURANCA/
-    │   ├── 112 - PRN - Politica de Backup e Seguranca.md
+    │   ├── 112 - DIA - Politica de Backup e Seguranca.md
     │   └── rotina_backup_rclone_s3.ps1
     └── 06 - HISTORICO E RELATORIOS/
-        ├── 112 - PRN - Historico e Relatorios.md
+        ├── 112 - DIA - Historico e Relatorios.md
         └── Relatorio_Auditoria_Conformidade_2026.pdf
 ```
 

@@ -1,7 +1,7 @@
 # Módulo 06 — Bancos de Dados Corporativos & Missão Crítica
 ## 06.1 PostgreSQL: Tuning, Manutenção & Backup `pg_dump`
 
-O PostgreSQL é o motor de dados de clientes chave da Pulse TI, como a Prodatus Informática (`062 - PRO`), CIEM (`109 - CIE`) e Tortas Doquinha (`133 - DOQ`).
+O PostgreSQL é o motor de dados de clientes chave da Pulse TI, como a Nexus Software (`062 - SFT`), CIEM (`109 - POL`) e Bella Sabor Alimentos (`133 - ALM`).
 
 ### Parâmetros Críticos de Tuning (`postgresql.conf`)
 Para servidores com 16 GB de RAM dedicados a banco:
@@ -19,7 +19,7 @@ Nunca utilize dump em texto puro (`.sql`) para bancos em produção. O formato c
 #!/bin/bash
 # Script de Backup Oficial PostgreSQL Pulse TI
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-DB_NAME="setrauma"
+DB_NAME="db_producao"
 BACKUP_DIR="/var/backups/postgres"
 FILE_NAME="${BACKUP_DIR}/${DB_NAME}_${TIMESTAMP}.dump"
 

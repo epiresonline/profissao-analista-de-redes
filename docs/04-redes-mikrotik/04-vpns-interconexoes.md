@@ -17,7 +17,7 @@ graph TD
 - **Vantagem:** Atravessa CGNAT de operadoras de celular e fibra sem necessidade de portas abertas.
 
 ### 2. WireGuard Site-to-Site no RouterOS v7
-- **Caso de Uso:** Enlace de alto desempenho e baixíssima latência entre a Matriz e Unidades Regionais (ex.: `112 - PRN Diagnósticos`).
+- **Caso de Uso:** Enlace de alto desempenho e baixíssima latência entre a Matriz e Unidades Regionais (ex.: `112 - DiagCenter Diagnósticos`).
 - **Configuração no RouterOS v7:**
 ```routeros
 # Criar interface WireGuard
@@ -32,7 +32,7 @@ add address=10.250.0.1/30 interface=wg-matriz
 /interface wireguard peers
 add interface=wg-matriz public-key="CHAVE_PUBLICA_FILIAL" \\
     allowed-address=10.250.0.2/32,192.168.10.0/24 \\
-    endpoint-address="filial.sn.mynetname.net" endpoint-port=13231 persistent-keepalive=25s
+    endpoint-address="filial-gw.sn.mynetname.net" endpoint-port=13231 persistent-keepalive=25s
 ```
 
 ### 3. SSTP (Secure Socket Tunneling Protocol)

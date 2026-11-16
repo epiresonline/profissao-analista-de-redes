@@ -8,8 +8,8 @@ A virtualização moderna é a base dos servidores da Pulse TI. A migração de 
 | Hipervisor | Onde é Aplicado | Vantagens Homologadas | Ferramenta de Backup Nativa |
 | :--- | :--- | :--- | :--- |
 | **Proxmox VE (KVM/LXC)** | Datacenter Cloud Pulse (`123 - PLS`) e Clientes On-Premise | Código aberto, sem travas de licença, suporte a ZFS nativo, API REST. | Proxmox Backup Server (PBS) com deduplicação. |
-| **VMware ESXi** | Ambientes Hospitalares (`092 - HST`) e Legados de Grande Porte | Robustez corporativa, compatibilidade com appliances proprietários. | Veeam Backup & Replication ou scripts vzdump. |
-| **KVM Nativo Linux** | Servidores dedicados leves (`080 - PCM`) | Performance máxima bare-metal com overhead de CPU próximo a zero. | Snapshots LVM e `qemu-img`. |
+| **VMware ESXi** | Ambientes Hospitalares (`092 - HOS`) e Legados de Grande Porte | Robustez corporativa, compatibilidade com appliances proprietários. | Veeam Backup & Replication ou scripts vzdump. |
+| **KVM Nativo Linux** | Servidores dedicados leves (`080 - CLN`) | Performance máxima bare-metal com overhead de CPU próximo a zero. | Snapshots LVM e `qemu-img`. |
 
 ### Boas Práticas de Configuração no Proxmox VE
 1. **ZFS com Mirror / RAIDZ:** Sempre utilizar ZFS com discos SSD corporativos (SAS ou NVMe), ativando compressão `lz4` nativa.
