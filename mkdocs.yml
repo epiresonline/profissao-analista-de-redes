@@ -1,0 +1,109 @@
+site_name: "Profissão: Analista de Redes & Engenheiro de Infraestrutura N3"
+site_description: "Manual Definitivo de Operações MSP, Governança, MikroTik, Segurança Zero-Trust e Automação"
+site_author: "Eduardo Pires (Analista de Redes N3)"
+site_url: "https://epiresonline.github.io/profissao-analista-de-redes/"
+repo_url: "https://github.com/epiresonline/profissao-analista-de-redes"
+repo_name: "epiresonline/profissao-analista-de-redes"
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Alternar para modo escuro
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Alternar para modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - attr_list
+
+nav:
+  - "Início": index.md
+  - "1. Fundamentos & Mentalidade MSP":
+      - "Mentalidade MSP vs TI Tradicional": 01-fundamentos/01-mentalidade-msp.md
+      - "O Papel do Analista de Redes N3": 01-fundamentos/02-perfil-n3.md
+      - "Responsabilidade Técnica & Assinatura": 01-fundamentos/03-responsabilidade.md
+  - "2. Governança & Arquitetura de Workspace":
+      - "Taxonomia Oficial dos Clientes": 02-governanca-organizacao/01-taxonomia-clientes.md
+      - "Arquitetura Estrita em 2 Níveis": 02-governanca-organizacao/02-arquitetura-2-niveis.md
+      - "Padrão Brasileiro de Datas e Metadados": 02-governanca-organizacao/03-padrao-datas-formatos.md
+      - "Matriz Operacional Multi-Tenant": 02-governanca-organizacao/04-matriz-clientes.md
+  - "3. Segurança Zero-Trust & Acessos":
+      - "Política Estrita de Credenciais": 03-seguranca-zero-trust/01-politica-credenciais.md
+      - "Cofres de Acesso: KeePass & Pulse Control": 03-seguranca-zero-trust/02-keepass-pulsecontrol.md
+      - "Convenções de Acesso NetBird, SSH e Winbox": 03-seguranca-zero-trust/03-convencoes-acesso.md
+      - "Bastion Hosts & Segmentação de Rede": 03-seguranca-zero-trust/04-bastions-segmentacao.md
+  - "4. Engenharia Avançada MikroTik RouterOS":
+      - "Hardening Homologado RouterOS": 04-redes-mikrotik/01-routeros-hardening.md
+      - "Firewall Filter, NAT & Proteções": 04-redes-mikrotik/02-firewall-nat-mangle.md
+      - "Cloud DNS & Ambientes Dinâmicos": 04-redes-mikrotik/03-cloud-dns-ddns.md
+      - "VPNs: NetBird, WireGuard, SSTP, OpenVPN e EoIP": 04-redes-mikrotik/04-vpns-interconexoes.md
+      - "QoS, Queues e Priorização de Tráfego": 04-redes-mikrotik/05-qos-queues-banda.md
+      - "Rotinas de Backup Automatizado (.backup/.rsc)": 04-redes-mikrotik/06-rotinas-backup-rsc.md
+  - "5. Infraestrutura, Hipervisores & Sistemas":
+      - "Hipervisores: Proxmox VE, VMware e KVM": 05-infraestrutura-sistemas/01-hipervisores-virtualizacao.md
+      - "Linux Server Hardening de Produção": 05-infraestrutura-sistemas/02-linux-server-hardening.md
+      - "Storage NAS, SMB/NFS Multi-Tenant": 05-infraestrutura-sistemas/03-storages-nas.md
+      - "Docker & Docker-Compose em Produção": 05-infraestrutura-sistemas/04-containers-docker.md
+  - "6. Bancos de Dados & Missão Crítica":
+      - "PostgreSQL: Tuning, pg_dump & pgAdmin": 06-bancos-missao-critica/01-postgresql-tuning-backup.md
+      - "Oracle Database 19c & Philips TASY": 06-bancos-missao-critica/02-oracle-tasy-hospitalar.md
+      - "MySQL & MariaDB de Alta Confiabilidade": 06-bancos-missao-critica/03-mysql-mariadb-boas-praticas.md
+      - "Ambientes Médicos, PACS Optix & DICOM": 06-bancos-missao-critica/04-ambientes-medicos-pacs.md
+  - "7. Backup Estratégico & DRP":
+      - "Estratégia 3-2-1-1-0 e Rotação GFS": 07-backup-disaster-recovery/01-estrategia-321-gfs.md
+      - "Automação Multi-Nuvem com Rclone": 07-backup-disaster-recovery/02-rclone-nuvem.md
+      - "Políticas de Retenção & Auditoria": 07-backup-disaster-recovery/03-politicas-retencao-auditoria.md
+      - "Testes de Restauração & DRP": 07-backup-disaster-recovery/04-testes-restauracao.md
+  - "8. Observabilidade & Monitoramento":
+      - "Zabbix Enterprise: SNMP, Agentes & Triggers": 08-observabilidade-monitoramento/01-zabbix-enterprise.md
+      - "Beszel Hub: Monitoramento Ultraleve MSP": 08-observabilidade-monitoramento/02-beszel-monitoramento-agil.md
+      - "Grafana: Dashboards & Métricas Operacionais": 08-observabilidade-monitoramento/03-grafana-dashboards.md
+      - "Matriz de Severidade & Prevenção de Fadiga": 08-observabilidade-monitoramento/04-alertas-prevencao-fadiga.md
+  - "9. Gestão de Operações, Helpdesk & Tempo":
+      - "Hesk Helpdesk & APIs de Automação": 09-operacoes-helpdesk-tempo/01-helpdesk-hesk-itil.md
+      - "A Regra dos Blocos Redondos de 30 Minutos": 09-operacoes-helpdesk-tempo/02-regra-30-minutos.md
+      - "Código de Cores no Google Calendar": 09-operacoes-helpdesk-tempo/03-google-calendar-cores.md
+      - "Elaboração de POPs e Runbooks N1/N2": 09-operacoes-helpdesk-tempo/04-padrao-pops-runbooks.md
+  - "10. Automação, IA Ops & Futuro":
+      - "Engenharia de Prompts para IA Ops": 10-ia-automacao-futuro/01-engenharia-prompts-ia-ops.md
+      - "Construção de Skills e Agentes Especialistas": 10-ia-automacao-futuro/02-skills-agentes-customizados.md
+      - "Sincronização Contínua: Workspace, Wiki & Git": 10-ia-automacao-futuro/03-sincronizacao-wikijs-git.md
+      - "A Engenharia do Livro Autoatualizável": 10-ia-automacao-futuro/04-o-livro-autoatualizavel.md
+  - "Histórico & Changelog": changelog.md
