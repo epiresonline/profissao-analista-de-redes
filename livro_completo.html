@@ -409,9 +409,16 @@
         background-color: #f8fafc;
     }
 
-    /* CÓDIGO E SCRIPTS */
-    pre, code {
+    /* CÓDIGO E SCRIPTS - EDITORIAL PRINT OPTIMIZED (SEM BARRAS DE ROLAGEM, QUEBRA AUTOMÁTICA) */
+    pre, code, .codehilite, .codehilite pre {
         font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+        word-wrap: break-word !important;
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
     }
 
     code {
@@ -419,29 +426,40 @@
         color: #0f172a;
         padding: 0.8mm 1.5mm;
         border-radius: 3px;
-        font-size: 8.5pt;
+        font-size: 8pt;
         border: 1px solid #e2e8f0;
     }
 
-    pre {
-        background-color: #1e293b;
-        color: #f8fafc;
-        padding: 4mm 5mm;
+    pre, .codehilite pre {
+        background-color: #1e293b !important;
+        color: #f8fafc !important;
+        padding: 3.5mm 4.5mm !important;
         border-radius: 4px;
-        overflow-x: auto;
-        font-size: 8pt;
-        line-height: 1.45;
-        margin: 4mm 0;
-        border-left: 3.5px solid #38bdf8;
+        font-size: 7.4pt !important;
+        line-height: 1.4 !important;
+        margin: 4mm 0 !important;
+        border-left: 3.5px solid #38bdf8 !important;
         page-break-inside: avoid;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
     }
 
-    pre code {
-        background: transparent;
-        color: inherit;
-        padding: 0;
-        border: none;
-        font-size: inherit;
+    pre code, .codehilite pre code {
+        background: transparent !important;
+        color: inherit !important;
+        padding: 0 !important;
+        border: none !important;
+        font-size: inherit !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    .codehilite {
+        margin: 4mm 0;
+        background: transparent !important;
+        overflow: visible !important;
     }
 
     /* ========================================================
@@ -1739,26 +1757,34 @@ Senha: SuperSenhaSecreta123!
 <span class="o">/</span><span class="nx">ip</span><span class="w"> </span><span class="nx">firewall</span><span class="w"> </span><span class="nx">filter</span>
 
 <span class="err">#</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="nx">Aceitar</span><span class="w"> </span><span class="nx">conexões</span><span class="w"> </span><span class="nx">já</span><span class="w"> </span><span class="nx">estabelecidas</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">relacionadas</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="p">,</span><span class="nx">untracked</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar Estabelecidas/Relacionadas"</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="p">,</span><span class="nx">untracked</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar Estabelecidas/Relacionadas"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="p">,</span><span class="nx">untracked</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar Estabelecidas/Relacionadas"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="p">,</span><span class="nx">untracked</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar Estabelecidas/Relacionadas"</span>
 
 <span class="err">#</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="nx">Descartar</span><span class="w"> </span><span class="nx">pacotes</span><span class="w"> </span><span class="nx">inválidos</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">invalid</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Dropar Invalidos"</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">invalid</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Dropar Invalidos"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">invalid</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Dropar Invalidos"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">invalid</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Dropar Invalidos"</span>
 
 <span class="err">#</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="nx">Proteção</span><span class="w"> </span><span class="nx">contra</span><span class="w"> </span><span class="nx">Port</span><span class="w"> </span><span class="nx">Scan</span><span class="w"> </span><span class="p">(</span><span class="nx">adiciona</span><span class="w"> </span><span class="nx">IP</span><span class="w"> </span><span class="nx">atacante</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">blacklist</span><span class="w"> </span><span class="nx">temporária</span><span class="p">)</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">add</span><span class="o">-</span><span class="nx">src</span><span class="o">-</span><span class="nx">to</span><span class="o">-</span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="w"> </span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="s">"PORT-SCAN-BLOCK"</span><span class="w"> </span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="o">-</span><span class="nx">timeout</span><span class="p">=</span><span class="mi">1</span><span class="nx">d</span><span class="w"> </span><span class="err">\</span>\
-<span class="w">    </span><span class="nx">protocol</span><span class="p">=</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">psd</span><span class="p">=</span><span class="mi">21</span><span class="p">,</span><span class="mi">3</span><span class="nx">s</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Detectar Port Scanner"</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">src</span><span class="o">-</span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="s">"PORT-SCAN-BLOCK"</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Bloquear Port Scanners"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">add</span><span class="o">-</span><span class="nx">src</span><span class="o">-</span><span class="nx">to</span><span class="o">-</span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="w"> </span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="s">"PORT-SCAN-BLOCK"</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="o">-</span><span class="nx">timeout</span><span class="p">=</span><span class="mi">1</span><span class="nx">d</span><span class="w"> </span><span class="nx">protocol</span><span class="p">=</span><span class="nx">tcp</span><span class="w"> </span><span class="nx">psd</span><span class="p">=</span><span class="mi">21</span><span class="p">,</span><span class="mi">3</span><span class="nx">s</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Detectar Port Scanner"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="nx">src</span><span class="o">-</span><span class="nx">address</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="s">"PORT-SCAN-BLOCK"</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Bloquear Port Scanners"</span>
 
 <span class="err">#</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="nx">Permitir</span><span class="w"> </span><span class="nx">ICMP</span><span class="w"> </span><span class="p">(</span><span class="nx">Ping</span><span class="p">)</span><span class="w"> </span><span class="nx">controlado</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">LAN</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">VPNs</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">protocol</span><span class="p">=</span><span class="nx">icmp</span><span class="w"> </span><span class="k">in</span><span class="o">-</span><span class="kd">interface</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="nx">LAN</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar ICMP da LAN"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">accept</span><span class="w"> </span><span class="nx">protocol</span><span class="p">=</span><span class="nx">icmp</span><span class="w"> </span><span class="k">in</span><span class="o">-</span><span class="kd">interface</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="nx">LAN</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">comment</span><span class="p">=</span><span class="s">"Aceitar ICMP da LAN"</span>
 
 <span class="err">#</span><span class="w"> </span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="nx">Dropar</span><span class="w"> </span><span class="nx">todo</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">restante</span><span class="w"> </span><span class="nx">direcionado</span><span class="w"> </span><span class="nx">ao</span><span class="w"> </span><span class="nx">próprio</span><span class="w"> </span><span class="nx">roteador</span><span class="w"> </span><span class="nx">vindo</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">WAN</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="k">in</span><span class="o">-</span><span class="kd">interface</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="nx">WAN</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"DROP Input WAN Restante"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">input</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">drop</span><span class="w"> </span><span class="k">in</span><span class="o">-</span><span class="kd">interface</span><span class="o">-</span><span class="nx">list</span><span class="p">=</span><span class="nx">WAN</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">comment</span><span class="p">=</span><span class="s">"DROP Input WAN Restante"</span>
 
 <span class="err">#</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="w"> </span><span class="nx">Regra</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">FastTrack</span><span class="w"> </span><span class="nx">consciente</span><span class="w"> </span><span class="p">(</span><span class="nx">Forward</span><span class="p">)</span>
-<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">fasttrack</span><span class="o">-</span><span class="nx">connection</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="w"> </span><span class="nx">comment</span><span class="p">=</span><span class="s">"FastTrack Estabelecidas"</span>
+<span class="nx">add</span><span class="w"> </span><span class="nx">chain</span><span class="p">=</span><span class="nx">forward</span><span class="w"> </span><span class="nx">action</span><span class="p">=</span><span class="nx">fasttrack</span><span class="o">-</span><span class="nx">connection</span><span class="w"> </span><span class="nx">connection</span><span class="o">-</span><span class="nx">state</span><span class="p">=</span><span class="nx">established</span><span class="p">,</span><span class="nx">related</span><span class="w"> </span>\
+<span class="w">    </span><span class="nx">comment</span><span class="p">=</span><span class="s">"FastTrack Estabelecidas"</span>
 </code></pre></div>
 
 <div class="callout callout-warning"><div class="callout-title">⚠️ ATENÇÃO OPERACIONAL</div><div class="callout-body">> **Atenção ao FastTrack com Queues/IPsec:** Se você utiliza Queue Trees complexas ou túneis IPsec pesados, o FastTrack pode ignorar o processamento das filas de QoS. Nesses casos específicos, o Analista N3 deve desativar o FastTrack para garantir priorização absoluta de pacotes.</div></div>
@@ -1919,12 +1945,16 @@ set ddns-enabled=yes ddns-update-interval=1m update-time=yes
 <h3>Marcação de Pacotes no Mangle</h3>
 <div class="codehilite"><pre><span></span><code>/ip firewall mangle
 # Marcar conexões VoIP (SIP/RTP)
-add chain=prerouting action=mark-connection new-connection-mark=VOIP-CONN passthrough=yes protocol=udp port=5060,10000-20000 comment="Conn VoIP"
-add chain=prerouting action=mark-packet new-packet-mark=VOIP-PKT passthrough=no connection-mark=VOIP-CONN comment="Pkt VoIP"
+add chain=prerouting action=mark-connection new-connection-mark=VOIP-CONN \
+    passthrough=yes protocol=udp port=5060,10000-20000 comment="Conn VoIP"
+add chain=prerouting action=mark-packet new-packet-mark=VOIP-PKT \
+    passthrough=no connection-mark=VOIP-CONN comment="Pkt VoIP"
 
 # Marcar conexões administrativas Winbox/SSH
-add chain=prerouting action=mark-connection new-connection-mark=ADMIN-CONN passthrough=yes protocol=tcp port=22022,8205 comment="Conn Admin"
-add chain=prerouting action=mark-packet new-packet-mark=ADMIN-PKT passthrough=no connection-mark=ADMIN-CONN comment="Pkt Admin"
+add chain=prerouting action=mark-connection new-connection-mark=ADMIN-CONN \
+    passthrough=yes protocol=tcp port=22022,8205 comment="Conn Admin"
+add chain=prerouting action=mark-packet new-packet-mark=ADMIN-PKT \
+    passthrough=no connection-mark=ADMIN-CONN comment="Pkt Admin"
 </code></pre></div>
             </div>
             

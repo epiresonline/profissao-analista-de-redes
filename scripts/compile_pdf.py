@@ -758,9 +758,16 @@ def build_editorial_html():
         background-color: #f8fafc;
     }}
 
-    /* CÓDIGO E SCRIPTS */
-    pre, code {{
+    /* CÓDIGO E SCRIPTS - EDITORIAL PRINT OPTIMIZED (SEM BARRAS DE ROLAGEM, QUEBRA AUTOMÁTICA) */
+    pre, code, .codehilite, .codehilite pre {{
         font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+        word-wrap: break-word !important;
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
     }}
 
     code {{
@@ -768,29 +775,40 @@ def build_editorial_html():
         color: #0f172a;
         padding: 0.8mm 1.5mm;
         border-radius: 3px;
-        font-size: 8.5pt;
+        font-size: 8pt;
         border: 1px solid #e2e8f0;
     }}
 
-    pre {{
-        background-color: #1e293b;
-        color: #f8fafc;
-        padding: 4mm 5mm;
+    pre, .codehilite pre {{
+        background-color: #1e293b !important;
+        color: #f8fafc !important;
+        padding: 3.5mm 4.5mm !important;
         border-radius: 4px;
-        overflow-x: auto;
-        font-size: 8pt;
-        line-height: 1.45;
-        margin: 4mm 0;
-        border-left: 3.5px solid #38bdf8;
+        font-size: 7.4pt !important;
+        line-height: 1.4 !important;
+        margin: 4mm 0 !important;
+        border-left: 3.5px solid #38bdf8 !important;
         page-break-inside: avoid;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
     }}
 
-    pre code {{
-        background: transparent;
-        color: inherit;
-        padding: 0;
-        border: none;
-        font-size: inherit;
+    pre code, .codehilite pre code {{
+        background: transparent !important;
+        color: inherit !important;
+        padding: 0 !important;
+        border: none !important;
+        font-size: inherit !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+    }}
+
+    .codehilite {{
+        margin: 4mm 0;
+        background: transparent !important;
+        overflow: visible !important;
     }}
 
     /* ========================================================

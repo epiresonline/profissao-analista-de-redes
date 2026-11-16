@@ -17,10 +17,14 @@ Em empresas médicas, callcenters (`142 - TEL`) ou indústrias, links de Interne
 ```routeros
 /ip firewall mangle
 # Marcar conexões VoIP (SIP/RTP)
-add chain=prerouting action=mark-connection new-connection-mark=VOIP-CONN passthrough=yes protocol=udp port=5060,10000-20000 comment="Conn VoIP"
-add chain=prerouting action=mark-packet new-packet-mark=VOIP-PKT passthrough=no connection-mark=VOIP-CONN comment="Pkt VoIP"
+add chain=prerouting action=mark-connection new-connection-mark=VOIP-CONN \
+    passthrough=yes protocol=udp port=5060,10000-20000 comment="Conn VoIP"
+add chain=prerouting action=mark-packet new-packet-mark=VOIP-PKT \
+    passthrough=no connection-mark=VOIP-CONN comment="Pkt VoIP"
 
 # Marcar conexões administrativas Winbox/SSH
-add chain=prerouting action=mark-connection new-connection-mark=ADMIN-CONN passthrough=yes protocol=tcp port=22022,8205 comment="Conn Admin"
-add chain=prerouting action=mark-packet new-packet-mark=ADMIN-PKT passthrough=no connection-mark=ADMIN-CONN comment="Pkt Admin"
+add chain=prerouting action=mark-connection new-connection-mark=ADMIN-CONN \
+    passthrough=yes protocol=tcp port=22022,8205 comment="Conn Admin"
+add chain=prerouting action=mark-packet new-packet-mark=ADMIN-PKT \
+    passthrough=no connection-mark=ADMIN-CONN comment="Pkt Admin"
 ```
